@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 19:36:37 by joloo             #+#    #+#             */
-/*   Updated: 2026/01/04 21:37:42 by joloo            ###   ########.fr       */
+/*   Updated: 2026/01/04 21:44:51 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ typedef struct s_ast
 	union
 	{
 		t_simple_cmd	simple_cmd;
-		t_control_op	op;
+		t_control_op	control_op;
 		t_subshell		subshell;
 	};
 }	t_ast;
