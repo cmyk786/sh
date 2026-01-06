@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 19:36:37 by joloo             #+#    #+#             */
-/*   Updated: 2026/01/04 21:44:51 by joloo            ###   ########.fr       */
+/*   Updated: 2026/01/06 20:53:21 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,6 @@ typedef enum e_node_type
 {
 	SIMPLE_CMD,
 	PIPELINE,
-	AND,
-	OR,
-	SUBSHELL,
 }	t_node_type;
 
 typedef struct s_redir
@@ -44,12 +41,6 @@ typedef struct s_control_op
 	struct s_ast	*right;
 }	t_control_op;
 
-typedef struct s_subshell
-{
-	t_ast	*root;
-	t_redir	*redir;
-}	t_subshell;
-
 typedef struct s_ast
 {
 	t_node_type			type;
@@ -57,7 +48,6 @@ typedef struct s_ast
 	{
 		t_simple_cmd	simple_cmd;
 		t_control_op	control_op;
-		t_subshell		subshell;
 	};
 }	t_ast;
 
