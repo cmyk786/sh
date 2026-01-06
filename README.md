@@ -4,10 +4,10 @@
 Readline input - yiwei  
 Signals - yiwei  
 Tokenizer/Lexer - joloo  
-Heredoc  
+Heredoc - joloo  
 Parsing - joloo  
 Wildcards  
 Environment variables - joloo  
 Environment variable expansion - joloo  
-Execution - yiwei
+Execution - yiwei  
 Built-ins - yiwei  
