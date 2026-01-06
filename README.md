@@ -10,6 +10,7 @@ Wildcards
 Environment variables - joloo  
 Environment variable expansion - joloo  
 Execution - yiwei  
+<<<<<<< HEAD
 Built-ins - yiwei  
 
 # Parser BNF
@@ -24,3 +25,6 @@ simple-command built iteratively in code
 <command> ::= <simple-command> | <grouping>
 
 <grouping>   ::= <OP> <list> <CP> <redirections>```
+=======
+Built-ins - yiwei  
+>>>>>>> c7c142d (update README module assignments)
