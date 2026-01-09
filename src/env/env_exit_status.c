@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   env_free.c                                         :+:      :+:    :+:   */
+/*   env_exit_str.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/06 21:24:38 by joloo             #+#    #+#             */
-/*   Updated: 2026/01/09 18:43:56 by joloo            ###   ########.fr       */
+/*   Created: 2026/01/08 09:28:55 by joloo             #+#    #+#             */
+/*   Updated: 2026/01/08 09:39:44 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "env_internal.h"
 
-void	env_free_node(t_env *node)
+// creates/set key=?
+int	env_set_exit_status(t_env **head, int status)
 {
-	free(node->key);
-	free(node->value);
-	free(node);
-}
+	char	*str;
 
-void	env_free_all(t_env **head)
-{
-	t_env	*temp;
-
-	while (*head != NULL)
+	str = ft_itoa(status);
+	if (str == NULL)
+		return (FAILURE);
+	if (*head == NULL)
 	{
-		temp = (*head)->next;
-		env_free_node(*head);
-		*head = temp;
+		*head = env_node_new(ft_strdup("?"), str);
+		if (*head == NULL || (*head)->key == NULL)
+			return (FAILURE);
 	}
-	*head = NULL;
+	else
+	{
+		free((*head)->value);
+		(*head)->value = str;
+	}
+	return (SUCCESS);
 }
