@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 21:02:24 by joloo             #+#    #+#             */
-/*   Updated: 2026/01/07 17:32:10 by joloo            ###   ########.fr       */
+/*   Updated: 2026/01/09 18:47:35 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,13 @@ char	*env_get(t_env *env, char *key)
 
 	node = find_node(env, key);
 	if (node != NULL)
+	{
 		return (node->value);
+	}
 	else
+	{
 		return ("");
+	}
 }
 
 // if key node exists, changes key nodes value
@@ -49,16 +53,20 @@ int	env_set(t_env *env, char *key, char *value)
 }
 
 // for unset, removes key node if available
-void	env_remove(t_env *env, char *key)
+void	env_unset(t_env *env, char *key)
 {
 	t_env	*prev;
 
+	prev = env;
+	env = env->next;
 	while (env != NULL)
 	{
-		if (ft_strcmp(env->key, key) == 0)
+		if ((env->key != NULL && key != NULL)
+			&& ft_strcmp(env->key, key) == 0)
 		{
 			prev->next = env->next;
 			env_free_node(env);
+			return ;
 		}
 		prev = env;
 		env = env->next;

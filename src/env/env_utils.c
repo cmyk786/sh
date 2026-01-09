@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 21:26:47 by joloo             #+#    #+#             */
-/*   Updated: 2026/01/07 17:02:04 by joloo            ###   ########.fr       */
+/*   Updated: 2026/01/09 18:33:18 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ t_env	*find_node(t_env *env, char *key)
 {
 	while (env != NULL)
 	{
-		if (ft_strcmp(env->key, key) == 0)
+		if ((env->key != NULL && key != NULL)
+			&& ft_strcmp(env->key, key) == 0)
 			return (env);
 		env = env->next;
 	}

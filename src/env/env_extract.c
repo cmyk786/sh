@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   env_free.c                                         :+:      :+:    :+:   */
+/*   env_extract.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/06 21:24:38 by joloo             #+#    #+#             */
-/*   Updated: 2026/01/09 18:43:56 by joloo            ###   ########.fr       */
+/*   Created: 2026/01/09 18:10:40 by joloo             #+#    #+#             */
+/*   Updated: 2026/01/09 18:36:18 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "env_internal.h"
 
-void	env_free_node(t_env *node)
+char	*extract_key(char *str)
 {
-	free(node->key);
-	free(node->value);
-	free(node);
+	return (ft_substr(str, 0, ft_strchr_pos(str, '=') - 1));
 }
 
-void	env_free_all(t_env **head)
+char	*extract_value(char *str)
 {
-	t_env	*temp;
-
-	while (*head != NULL)
-	{
-		temp = (*head)->next;
-		env_free_node(*head);
-		*head = temp;
-	}
-	*head = NULL;
+	return (ft_substr(str,
+		ft_strchr_pos(str, '='),
+		ft_strlen(str + ft_strchr_pos(str, '='))));
 }

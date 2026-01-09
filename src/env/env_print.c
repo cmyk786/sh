@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   env_free.c                                         :+:      :+:    :+:   */
+/*   env_print.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/06 21:24:38 by joloo             #+#    #+#             */
-/*   Updated: 2026/01/09 18:43:56 by joloo            ###   ########.fr       */
+/*   Created: 2026/01/08 14:41:28 by joloo             #+#    #+#             */
+/*   Updated: 2026/01/09 18:15:36 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "env_internal.h"
 
-void	env_free_node(t_env *node)
+// skip over key=?
+// does not print NULL
+void	env_print(t_env *head)
 {
-	free(node->key);
-	free(node->value);
-	free(node);
-}
-
-void	env_free_all(t_env **head)
-{
-	t_env	*temp;
-
-	while (*head != NULL)
+	head = head->next;
+	while (head != NULL)
 	{
-		temp = (*head)->next;
-		env_free_node(*head);
-		*head = temp;
+		if (head->key != NULL && head->value != NULL)
+		{
+			printf("%s=%s\n", head->key, head->value);
+		}
+		head = head->next;
 	}
-	*head = NULL;
 }
