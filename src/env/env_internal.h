@@ -6,15 +6,15 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 21:03:23 by joloo             #+#    #+#             */
-/*   Updated: 2026/01/09 18:25:48 by joloo            ###   ########.fr       */
+/*   Updated: 2026/01/14 10:07:41 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ENV_INTERNAL_H
 # define ENV_INTERNAL_H
 
-#include "env.h"
-#include "libft.h"
+# include "env.h"
+# include "libft.h"
 
 # ifndef SUCCESS
 #  define SUCCESS 1

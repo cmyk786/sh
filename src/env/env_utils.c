@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 21:26:47 by joloo             #+#    #+#             */
-/*   Updated: 2026/01/09 18:33:18 by joloo            ###   ########.fr       */
+/*   Updated: 2026/01/14 10:07:51 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,10 @@ t_env	*env_node_new(char *key, char *value)
 	new->value = value;
 	return (new);
 }
+
 void	env_add_back(t_env **head, t_env *new)
 {
-	t_env *temp;
+	t_env	*temp;
 
 	if (*head == NULL)
 	{
