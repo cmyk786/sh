@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 21:02:24 by joloo             #+#    #+#             */
-/*   Updated: 2026/01/09 18:47:35 by joloo            ###   ########.fr       */
+/*   Updated: 2026/01/14 10:06:57 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,21 @@ int	env_set(t_env *env, char *key, char *value)
 		env_add_back(&env, node);
 	}
 	return (SUCCESS);
+}
+
+// str is "key=value"
+// using extract_key and extract_value
+// use env_set for more complex cases
+int	env_set_simple(t_env *env, char *str)
+{
+	char	*key;
+	char	*value;
+
+	key = extract_key(str);
+	value = extract_value(str);
+	if (key == NULL || value == NULL)
+		return (free(key), free(value), FAILURE);
+	return (env_set(env, key, value));
 }
 
 // for unset, removes key node if available
