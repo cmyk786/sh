@@ -67,6 +67,7 @@ $(STRING_DIR)/ft_strcmp.c \
 $(STRING_DIR)/ft_strchr_pos.c \
 $(STRING_DIR)/ft_strdup.c \
 $(STRING_DIR)/ft_striteri.c \
+$(STRING_DIR)/ft_strjoin_three \
 $(STRING_DIR)/ft_strjoin.c \
 $(STRING_DIR)/ft_strlcat.c \
 $(STRING_DIR)/ft_strlcpy.c \
