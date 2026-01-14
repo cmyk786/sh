@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 18:10:40 by joloo             #+#    #+#             */
-/*   Updated: 2026/01/09 18:36:18 by joloo            ###   ########.fr       */
+/*   Updated: 2026/01/14 10:08:07 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ char	*extract_key(char *str)
 char	*extract_value(char *str)
 {
 	return (ft_substr(str,
-		ft_strchr_pos(str, '='),
-		ft_strlen(str + ft_strchr_pos(str, '='))));
+			ft_strchr_pos(str, '='),
+			ft_strlen(str + ft_strchr_pos(str, '='))));
 }

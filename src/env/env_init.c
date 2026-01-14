@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 21:02:27 by joloo             #+#    #+#             */
-/*   Updated: 2026/01/09 18:30:17 by joloo            ###   ########.fr       */
+/*   Updated: 2026/01/14 10:05:38 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,11 @@ t_env	*env_init(char **envp)
 	while (envp[i] != NULL)
 	{
 		key = extract_key(envp[i]);
-		if (key == NULL)
-			return (env_free_all(&head), NULL);
 		value = extract_value(envp[i]);
-		if (value == NULL)
-			return (free(key), env_free_all(&head), NULL);
+		if (key == NULL || value == NULL)
+			return (free(key), free(value), env_free_all(&head), NULL);
 		if (env_set(head, key, value) == FAILURE)
-		{
-			free(key);
-			free(value);
-			return (env_free_all(&head), NULL);
-		}
+			return (free(key), free(value), env_free_all(&head), NULL);
 		i++;
 	}
 	return (head);
