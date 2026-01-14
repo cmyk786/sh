@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:03:32 by joloo             #+#    #+#             */
-/*   Updated: 2025/12/31 14:45:28 by joloo            ###   ########.fr       */
+/*   Updated: 2026/01/14 10:35:31 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size);
 char	*ft_strdup(const char *s1);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	**ft_subarr_str(char **str, int start, int len);
+char	*ft_strjoin_three(char const *s1, char const *s2, char const *s3);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
