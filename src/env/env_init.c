@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 21:02:27 by joloo             #+#    #+#             */
-/*   Updated: 2026/01/15 13:02:20 by joloo            ###   ########.fr       */
+/*   Updated: 2026/01/15 13:07:54 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ t_env	*env_init(char **envp)
 }
 
 // converts t_env *env to char **envp
-char **env_to_arr(t_env *env)
+char	**env_to_arr(t_env *env)
 {
 	char	**envp;
 	int		size;

@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 13:06:14 by joloo             #+#    #+#             */
-/*   Updated: 2026/01/15 13:07:02 by joloo            ###   ########.fr       */
+/*   Updated: 2026/01/15 13:08:07 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	env_add_back(t_env **head, t_env *new)
 int	env_size(t_env *env)
 {
 	int	i;
-	
+
 	i = 0;
 	while (env != NULL)
 	{
