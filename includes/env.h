@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 21:02:33 by joloo             #+#    #+#             */
-/*   Updated: 2026/01/09 18:18:03 by joloo            ###   ########.fr       */
+/*   Updated: 2026/01/15 13:13:16 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	env_free_node(t_env *node);
 void	env_free_all(t_env **head);
 
 t_env	*env_init(char **envp);
+char	**env_to_arr(t_env *env);
 
 void	env_print(t_env *head);
 
