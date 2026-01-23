@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 10:18:25 by joloo             #+#    #+#             */
-/*   Updated: 2026/01/22 22:41:07 by joloo            ###   ########.fr       */
+/*   Updated: 2026/01/23 12:51:25 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,18 +70,16 @@ int		exp_init(t_exp *exp, char **argv, t_env *env);
 
 int		detect_type(t_exp_tok *tok, char *str, int i);
 
-int		add_delimiter(t_token **tokens);
 t_token	*create_node(char *str, int len, int type);
 void	tokenadd_back(t_token **head, t_token *new);
-
-int		exp_tok_quotes(t_exp_tok *tok, char *str, int *i);
 
 char	**token_to_argv(t_token *lst);
 
 int		name_len(char *str);
 
 int		exp_tok_var(t_exp_tok *tok, char *str, int *i);
-
+int		add_delimiter(t_token **tokens);
+int		exp_tok_quotes(t_exp_tok *tok, char *str, int *i);
 int		exp_tok_word(t_exp_tok *tok, char *str, int *i);
 
 int		exp_tok(t_exp *exp);
