@@ -1,18 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exp.h                                              :+:      :+:    :+:   */
+/*   exp_free.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/14 10:17:43 by joloo             #+#    #+#             */
-/*   Updated: 2026/01/22 20:46:26 by joloo            ###   ########.fr       */
+/*   Created: 2026/01/22 20:41:30 by joloo             #+#    #+#             */
+/*   Updated: 2026/01/22 22:40:06 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EXP_H
-# define EXP_H
+#include "exp_internal.h"
 
-char	**exp(char **argv, t_env *env)
+void	exp_free(t_exp *exp)
+{
+	(void) exp;
+}
+void	free_tokens(t_token **lst)
+{
+	t_token	*temp;
 
-#endif
+	if (lst == NULL)
+		return ;
+	while (*lst != NULL)
+	{
+		temp = (*lst)->next;
+		free((*lst)->value);
+		free(*lst);
+		*lst = temp;
+	}
+	*lst = NULL;
+}

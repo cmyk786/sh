@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exp.h                                              :+:      :+:    :+:   */
+/*   exp_init.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/14 10:17:43 by joloo             #+#    #+#             */
-/*   Updated: 2026/01/22 20:46:26 by joloo            ###   ########.fr       */
+/*   Created: 2026/01/15 13:50:11 by joloo             #+#    #+#             */
+/*   Updated: 2026/01/22 22:44:41 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EXP_H
-# define EXP_H
+#include "exp_internal.h"
 
-char	**exp(char **argv, t_env *env)
-
-#endif
+int	exp_init(t_exp *exp, char **argv, t_env *env)
+{
+	ft_memset(exp, 0, sizeof(t_exp));
+	exp->tok.argv = argv;
+	exp->env = env;
+	return (SUCCESS);
+}
