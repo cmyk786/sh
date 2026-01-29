@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 21:35:31 by joloo             #+#    #+#             */
-/*   Updated: 2026/01/30 00:55:28 by joloo            ###   ########.fr       */
+/*   Updated: 2026/01/30 01:26:53 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ t_token	*exp_apply_var(t_exp *exp, t_token *curr)
 	char	*value;
 
 	res = NULL;
-	printf("%s\n", curr->value);
 	value = ft_strdup(env_get(exp->env, curr->value));
 	if (value == NULL)
         return (NULL);
