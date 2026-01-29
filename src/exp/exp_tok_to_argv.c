@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 13:45:10 by joloo             #+#    #+#             */
-/*   Updated: 2026/01/30 00:53:16 by joloo            ###   ########.fr       */
+/*   Updated: 2026/01/30 00:57:44 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,5 @@ char	**token_to_argv(t_token *lst)
 		while (lst != NULL && lst->type == DELIMITER)
 			lst = lst->next;
 	}
-	res[i] = NULL;
 	return (res);
 }
