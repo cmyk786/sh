@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 10:18:10 by joloo             #+#    #+#             */
-/*   Updated: 2026/01/30 01:29:37 by joloo            ###   ########.fr       */
+/*   Updated: 2026/01/30 01:33:07 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void	tokenize_print_tokens(t_token *head)
 int	main(int argc, char **argv, char **envp)
 {
 	t_env *env = env_init(envp);
+	env_set_simple(env, "test=a   a");
 	char **split;
 	if (argv[1] != NULL)
 		split = ft_split(argv[1], ' ');
