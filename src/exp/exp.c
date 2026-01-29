@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 10:18:10 by joloo             #+#    #+#             */
-/*   Updated: 2026/01/30 00:53:44 by joloo            ###   ########.fr       */
+/*   Updated: 2026/01/30 01:29:37 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,17 @@ char	**expand(char **argv, t_env *env)
 void	tokenize_print_tokens(t_token *head)
 {
 	t_token	*curr;
+	char	*lookup[5];
 
 	curr = head;
+	lookup[0] = "DQUOTE_VAR";
+	lookup[1] = "UNQUOTE_VAR";
+	lookup[2] = "DELIMITER";
+	lookup[3] = "QUOTES";
+	lookup[4] = "WORD";
 	while (curr != NULL)
 	{
-		printf("type: %d", curr->type);
+		printf("type: %s", lookup[curr->type]);
 		printf(", value: %s\n", curr->value);
 		curr = curr->next;
 	}
