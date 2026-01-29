@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 10:18:25 by joloo             #+#    #+#             */
-/*   Updated: 2026/01/23 12:51:25 by joloo            ###   ########.fr       */
+/*   Updated: 2026/01/30 00:22:54 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 # endif
 
 # include "libft.h"
+# include "../../includes/env.h"
 typedef struct s_env	t_env; // temp
 typedef enum e_exp_type
 {
@@ -62,8 +63,18 @@ typedef struct s_exp
 	t_exp_tok	tok;
 }	t_exp;
 
+t_token	*exp_apply_dquote_var(char *exp_value);
+t_token	*exp_apply_unquote_var(char *exp_value);
+int		exp_apply_unquote_var_loop(t_token **res, char *exp_value);
+int		exp_apply_unquote_add_word(t_token **res, char *str, int *i);
+
+int		exp_apply(t_exp *exp);
+t_token	*exp_apply_var(t_exp *exp, t_token *curr);
+void	exp_apply_handle_ptr(t_exp *exp, t_token *prev, t_token *curr,
+				t_token *next);
 
 void	exp_free(t_exp *exp);
+void	free_token(t_token *node);
 void	free_tokens(t_token **lst);
 
 int		exp_init(t_exp *exp, char **argv, t_env *env);

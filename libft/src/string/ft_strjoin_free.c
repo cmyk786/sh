@@ -1,38 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exp_free.c                                         :+:      :+:    :+:   */
+/*   ft_strjoin_free.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/22 20:41:30 by joloo             #+#    #+#             */
-/*   Updated: 2026/01/26 22:17:57 by joloo            ###   ########.fr       */
+/*   Created: 2026/01/29 23:11:10 by joloo             #+#    #+#             */
+/*   Updated: 2026/01/29 23:12:32 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "exp_internal.h"
+#include "libft.h"
 
-void	exp_free(t_exp *exp)
+char	*ft_strjoin_free(char *s1, char const *s2)
 {
-	(void) exp;
-}
+	char	*res;
 
-void	free_token(t_token *node)
-{
-	free(node->value);
-	free(node);
-}
-void	free_tokens(t_token **lst)
-{
-	t_token	*temp;
-
-	if (lst == NULL)
-		return ;
-	while (*lst != NULL)
-	{
-		temp = (*lst)->next;
-		free_token(*lst);
-		*lst = temp;
-	}
-	*lst = NULL;
+	res = ft_strjoin(s1, s2);
+	return (free(s1), res);
 }

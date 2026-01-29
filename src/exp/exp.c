@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 10:18:10 by joloo             #+#    #+#             */
-/*   Updated: 2026/01/23 12:14:42 by joloo            ###   ########.fr       */
+/*   Updated: 2026/01/30 00:53:44 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,22 @@
 char	**expand(char **argv, t_env *env)
 {
 	t_exp	exp;
+	char	**res;
 
 	if (exp_init(&exp, argv, env) == FAILURE)
 		return (exp_free(&exp), NULL);
 	if (exp_tok(&exp) == FAILURE)
 		return (exp_free(&exp), NULL);
+	printf("before apply\n");
 	tokenize_print_tokens(exp.tok.tokens);
-	return (0);
+	if (exp_apply(&exp) == FAILURE)
+		return (exp_free(&exp), NULL);
+	if (exp.tok.tokens == NULL)
+		printf("token null after apply\n");
+	printf("after apply\n");
+	tokenize_print_tokens(exp.tok.tokens);
+	res = token_to_argv(exp.tok.tokens);
+	return (res);
 }
 
 void	tokenize_print_tokens(t_token *head)
@@ -39,9 +48,9 @@ void	tokenize_print_tokens(t_token *head)
 }
 
 // ./a.out '"$ERM"'
-int	main(int argc, char **argv)
+int	main(int argc, char **argv, char **envp)
 {
-	t_env *env = NULL;
+	t_env *env = env_init(envp);
 	char **split;
 	if (argv[1] != NULL)
 		split = ft_split(argv[1], ' ');
@@ -52,8 +61,23 @@ int	main(int argc, char **argv)
 		split = ft_split(line	, ' ');
 	}
 	(void) argc;
+	int i = 0;
+	while (split[i] != NULL)
+	{
+		printf("split:%s\n", split[i]);
+		i++;
+	}
 	if (split == NULL)
 		printf("INPT EROR");
-	expand(split, env);
+	char **res = expand(split, env);
+	if (res == NULL)
+		return (printf("NULL RES\n"), 1);
+	i = 0;
+	printf("RES:\n");
+	while (res[i] != NULL)
+	{
+		printf("%d, %s\n", i, res[i]);
+		i++;
+	}
 	return (0);
 }
