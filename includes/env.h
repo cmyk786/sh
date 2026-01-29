@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 21:02:33 by joloo             #+#    #+#             */
-/*   Updated: 2026/01/09 18:18:03 by joloo            ###   ########.fr       */
+/*   Updated: 2026/01/30 01:33:36 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ typedef struct s_env	t_env;
 
 char	*env_get(t_env *env, char *key);
 int		env_set(t_env *env, char *key, char *value);
+int		env_set_simple(t_env *env, char *str);
 void	env_unset(t_env *env, char *key);
 
 int		env_set_exit_status(t_env **head, int status);
