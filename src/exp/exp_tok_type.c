@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 12:17:08 by joloo             #+#    #+#             */
-/*   Updated: 2026/01/23 12:18:17 by joloo            ###   ########.fr       */
+/*   Updated: 2026/01/30 00:56:02 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	exp_tok_var(t_exp_tok *tok, char *str, int *i)
 	}
 	else
 	{
-		node = create_node(str + *i, len + 1, tok->type);
+		node = create_node(str + *i + 1, len, tok->type);
 		if (node == NULL)
 			return (FAILURE);
 		*i += len + 1;
