@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 13:45:10 by joloo             #+#    #+#             */
-/*   Updated: 2026/01/30 01:02:31 by joloo            ###   ########.fr       */
+/*   Updated: 2026/01/30 17:21:13 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,6 @@ char	**token_to_argv(t_token *lst)
 	int		i;
 
 	i = 0;
-	res = ft_calloc(1, sizeof(char *));
-	if (res == NULL)
-		return (NULL);
 	while (lst != NULL && lst->type == DELIMITER)
 		lst = lst->next;
 	while (lst != NULL)
