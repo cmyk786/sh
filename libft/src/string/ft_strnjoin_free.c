@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnjoin.c                                      :+:      :+:    :+:   */
+/*   ft_strnjoin_free.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 18:18:38 by joloo             #+#    #+#             */
-/*   Updated: 2026/01/30 18:22:21 by joloo            ###   ########.fr       */
+/*   Updated: 2026/01/30 18:24:42 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnjoin(char *s1, char const *s2, size_t n)
+char	*ft_strnjoin_free(char *s1, char const *s2, size_t n)
 {
 	size_t	s1len;
 	size_t	s2len;
@@ -27,5 +27,6 @@ char	*ft_strnjoin(char *s1, char const *s2, size_t n)
 		return (NULL);
 	ft_strlcpy(result, s1, s1len + 1);
 	ft_strlcat(result, s2, s1len + n + 1);
+	free(s1);
 	return (result);
 }
