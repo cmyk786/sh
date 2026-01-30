@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 15:34:46 by joloo             #+#    #+#             */
-/*   Updated: 2025/03/05 15:41:15 by joloo            ###   ########.fr       */
+/*   Updated: 2026/01/30 22:16:34 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char	**ft_itoa_array(int *arr, int size)
 		res[i] = ft_itoa(arr[i]);
 		if (res[i] == NULL)
 		{
-			ft_free_str_arr(res, i);
+			ft_free_str_arr(res);
 			return (NULL);
 		}
 		i++;

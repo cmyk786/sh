@@ -22,7 +22,7 @@ $(CHAR_DIR)/ft_toupper.c \
 $(CONV_DIR)/ft_atoi.c \
 $(CONV_DIR)/ft_itoa.c \
 $(CONV_DIR)/ft_atoi_arr.c \
-$(CONV_DIR)/ft_atoi_arr.c \
+$(CONV_DIR)/ft_itoa_arr.c \
 $(IO_DIR)/ft_putchar_fd.c \
 $(IO_DIR)/ft_putendl_fd.c \
 $(IO_DIR)/ft_putlong_base.c \
@@ -104,18 +104,16 @@ bonus: all
 OBJECTS = $(SOURCES:.c=.o)
 
 $(NAME) : $(OBJECTS)
-	@ar crs $(NAME) $^
-	@echo Libft successfully compiled
+	ar crs $(NAME) $^
 
 %.o : %.c
-	@$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
 
 clean:
-	@rm -f $(OBJECTS)
+	rm -f $(OBJECTS)
 
 fclean: clean
-	@rm -f $(NAME)
-	@echo Removed libft.a
+	rm -f $(NAME)
 
 re: fclean all
 
