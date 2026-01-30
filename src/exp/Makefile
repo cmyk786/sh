@@ -1,26 +1,26 @@
-NAME = libmylib.a
+NAME = a.out
 
 CC = gcc
-AR = ar
-ARFLAGS = rcs
-
 CFLAGS = -Wall -Wextra -Werror -g
 
-INC_DIR = ../../includes
+INC_DIR = ../../headers
 LIBFT_INC = ../../libft/includes
 IFLAGS = -I$(INC_DIR) -I$(LIBFT_INC)
 
 LIBFT_DIR = ../../libft
 LIBFT_A = $(LIBFT_DIR)/libft.a
 
+MYLIB_A = libmylib.a
+
 SOURCES := $(wildcard *.c)
 OBJECTS := $(SOURCES:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJECTS) $(LIBFT_A)
-	cp $(LIBFT_A) $(NAME)
-	$(AR) $(ARFLAGS) $(NAME) $(OBJECTS)
+$(NAME): $(OBJECTS) $(LIBFT_A) $(MYLIB_A)
+	$(CC) $(CFLAGS) $(IFLAGS) \
+		$(OBJECTS) $(MYLIB_A) $(LIBFT_A) \
+		-lreadline -o $(NAME)
 
 $(LIBFT_A):
 	$(MAKE) -C $(LIBFT_DIR) all
