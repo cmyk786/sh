@@ -75,7 +75,8 @@ $(STRING_DIR)/ft_strlcpy.c \
 $(STRING_DIR)/ft_strlen.c \
 $(STRING_DIR)/ft_strmapi.c \
 $(STRING_DIR)/ft_strncmp.c \
-$(STRING_DIR)/ft_strnstr.c \
+$(STRING_DIR)/ft_strncmp.c \
+$(STRING_DIR)/ft_strnjoin.c \
 $(STRING_DIR)/ft_strrev.c \
 $(STRING_DIR)/ft_strrchr.c \
 $(STRING_DIR)/ft_strtrim.c \

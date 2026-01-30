@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:03:32 by joloo             #+#    #+#             */
-/*   Updated: 2026/01/29 23:14:57 by joloo            ###   ########.fr       */
+/*   Updated: 2026/01/30 18:22:43 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ char	*ft_strchr(const char *s, int c);
 int		ft_strcmp(const char *s1, const char *s2);
 char	*ft_strrchr(const char *s, int c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+char	*ft_strnjoin(char *s1, char const *s2, size_t n);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 char	*ft_strnstr_2d(char **big, char *little, size_t arrlen, size_t len);
 int		ft_strchr_pos(const char *str, int c);
