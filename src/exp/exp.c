@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 10:18:10 by joloo             #+#    #+#             */
-/*   Updated: 2026/01/30 01:33:07 by joloo            ###   ########.fr       */
+/*   Updated: 2026/01/30 13:28:49 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,20 @@ char	**expand(char **argv, t_env *env)
 	printf("after apply\n");
 	tokenize_print_tokens(exp.tok.tokens);
 	res = token_to_argv(exp.tok.tokens);
+	return (res);
+}
+
+char	**expand_redir(char *str, t_env *env)
+{
+	char	**temp;
+	char	**res;
+
+	temp = ft_calloc(sizeof(char *), 2));
+	if (temp == NULL)
+		return (NULL);
+	temp[0] = str;
+	res = expand(temp, env);
+	free(temp);
 	return (res);
 }
 
