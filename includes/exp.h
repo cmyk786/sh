@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 10:17:43 by joloo             #+#    #+#             */
-/*   Updated: 2026/01/22 20:46:26 by joloo            ###   ########.fr       */
+/*   Updated: 2026/01/30 13:29:32 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 # define EXP_H
 
 char	**exp(char **argv, t_env *env)
+char	**expand_redir(char *str, t_env *env);
 
 #endif
