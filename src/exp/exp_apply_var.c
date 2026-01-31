@@ -6,11 +6,33 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 22:25:44 by joloo             #+#    #+#             */
-/*   Updated: 2026/01/30 00:54:26 by joloo            ###   ########.fr       */
+/*   Updated: 2026/01/31 12:50:24 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "exp_internal.h"
+
+t_token	*exp_apply_var(t_exp *exp, t_token *curr)
+{
+	t_token	*res;
+	char	*value;
+
+	res = NULL;
+	value = ft_strdup(env_get(exp->env, curr->value));
+	if (value == NULL)
+        return (NULL);
+	if (curr->type == DQUOTE_VAR)
+	{
+		res = exp_apply_dquote_var(value);
+	}
+	else if (curr->type == UNQUOTE_VAR)
+	{
+		res = exp_apply_unquote_var(value);
+	}
+	free_token(curr);
+	tokenize_print_tokens(res);
+	return (res);
+}
 
 t_token	*exp_apply_dquote_var(char *exp_value)
 {
