@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 10:18:25 by joloo             #+#    #+#             */
-/*   Updated: 2026/01/31 12:52:10 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/01 14:18:22 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int		detect_type(t_exp_tok *tok, char *str, int i);
 t_token	*create_node(char *str, int len, int type);
 void	tokenadd_back(t_token **head, t_token *new);
 
-char	**token_to_argv(t_token *lst);
+int		token_to_argv(char ***res, t_token *lst);
 
 int		name_len(char *str);
 
