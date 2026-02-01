@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 10:18:10 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/01 17:22:36 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/01 18:32:48 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,22 @@ void	tokenize_print_tokens(t_token *head)
 		curr = curr->next;
 	}
 }
+static int	free_gnl(int fd)
+{
+	int	pipes[2];
+	int	temp;
+
+	temp = dup(fd);
+	if (pipe(pipes) == -1)
+		return (FAILURE);
+	dup2(pipes[1], fd);
+	get_next_line(fd);
+	dup2(temp, fd);
+	close(pipes[1]);
+	close(pipes[0]);
+	close(temp);
+	return (SUCCESS);
+}
 
 // ./a.out '"$ERM"'
 int	main(int argc, char **argv, char **envp)
@@ -74,6 +90,8 @@ int	main(int argc, char **argv, char **envp)
 		char *line = get_next_line(0);
 		line[ft_strlen(line) - 1] = '\0';
 		split = ft_split(line	, ' ');
+		free(line);
+		free_gnl(0);
 	}
 	(void) argc;
 	int i = 0;
