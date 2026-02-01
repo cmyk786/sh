@@ -6,47 +6,40 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 10:18:10 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/01 14:20:06 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/01 15:17:35 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "exp_internal.h"
 
 // performs expansion, word splitting and quote removal
-char	**expand(char **argv, t_env *env)
+int	expand(char ***argv, t_env *env)
 {
 	t_exp	exp;
 	char	**res;
 
-	if (exp_init(&exp, argv, env) == FAILURE)
-		return (exp_free(&exp), NULL);
+	if (exp_init(&exp, *argv, env) == FAILURE)
+		return (exp_free(&exp, argv), FAILURE);
 	if (exp_tok(&exp) == FAILURE)
-		return (exp_free(&exp), NULL);
-	printf("before apply\n");
-	tokenize_print_tokens(exp.tok.tokens);
+		return (exp_free(&exp, argv), FAILURE);
 	if (exp_apply(&exp) == FAILURE)
-		return (exp_free(&exp), NULL);
-	if (exp.tok.tokens == NULL)
-		printf("token null after apply\n");
-	printf("after apply\n");
-	tokenize_print_tokens(exp.tok.tokens);
+		return (exp_free(&exp, argv), FAILURE);
 	if (token_to_argv(&res, exp.tok.tokens) == FAILURE)
-		return (exp_free(&exp), NULL);
-	return (res);
+		return (exp_free(&exp, argv), FAILURE);
+	exp_free(&exp, argv);
+	*argv = res;
+	return (SUCCESS);
 }
 
-char	**expand_redir(char *str, t_env *env)
+int	expand_redir(char ***res, char *str, t_env *env)
 {
-	char	**temp;
-	char	**res;
-
-	temp = ft_calloc(sizeof(char *), 2);
-	if (temp == NULL)
-		return (NULL);
-	temp[0] = str;
-	res = expand(temp, env);
-	free(temp);
-	return (res);
+	*res = ft_calloc(sizeof(char *), 2);
+	if (*res == NULL)
+		return (FAILURE);
+	(*res)[0] = str;
+	if (expand(res, env) == FAILURE)
+		return (FAILURE);
+	return (SUCCESS);
 }
 
 void	tokenize_print_tokens(t_token *head)
@@ -91,11 +84,13 @@ int	main(int argc, char **argv, char **envp)
 	}
 	if (split == NULL)
 		printf("INPT EROR");
-	char **res = expand(split, env);
-	if (res == NULL)
-		return (printf("NULL RES\n"), 1);
+	if (expand(&split, env) == FAILURE)
+		return (printf("expand failure\n"), 1);
 	i = 0;
+	char **res = split;
 	printf("RES:\n");
+	if (res == NULL)
+		return (printf("NULL RES\n"), 0);
 	while (res[i] != NULL)
 	{
 		printf("%d, ", i);
