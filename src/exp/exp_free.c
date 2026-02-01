@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 20:41:30 by joloo             #+#    #+#             */
-/*   Updated: 2026/01/26 22:17:57 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/01 14:19:08 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	exp_free(t_exp *exp)
 {
-	(void) exp;
+	free_tokens(&exp->tok.tokens);
 }
 
 void	free_token(t_token *node)
