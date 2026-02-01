@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 10:18:10 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/01 15:17:35 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/01 17:22:36 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,5 +100,7 @@ int	main(int argc, char **argv, char **envp)
 			printf("%s\n", res[i]);
 		i++;
 	}
+	env_free_all(&env);
+	ft_free_str_arr(res);
 	return (0);
 }
