@@ -21,7 +21,7 @@ Built-ins - yiwei
 <pipeline-tail> ::= epsilon | <PIPE> <command> <pipeline-tail>
 
 NOTE:
-simple-command built iteratively in code
+simple-command elements is a linked list
 <command> ::= <simple-command> | <grouping>
 
 <grouping>   ::= <OP> <list> <CP> <redirections>```
