@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 22:25:44 by joloo             #+#    #+#             */
-/*   Updated: 2026/01/31 12:50:24 by joloo            ###   ########.fr       */
+/*   Updated: 2026/01/31 13:07:56 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ t_token	*exp_apply_var(t_exp *exp, t_token *curr)
 	}
 	else if (curr->type == UNQUOTE_VAR)
 	{
+		exp->tok.type = UNQUOTE_VAR;
 		res = exp_apply_unquote_var(value);
 	}
 	free_token(curr);

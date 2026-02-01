@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 21:35:31 by joloo             #+#    #+#             */
-/*   Updated: 2026/01/31 12:50:16 by joloo            ###   ########.fr       */
+/*   Updated: 2026/01/31 14:12:51 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,23 @@ int	exp_apply(t_exp *exp)
 void	exp_apply_handle_ptr(t_exp *exp, t_token *prev, t_token *curr,
 				t_token *next)
 {
-	if (prev == NULL)
-		exp->tok.tokens = curr;
+	if (exp->tok.type == UNQUOTE_VAR && curr->value[0] == '\0')
+	{
+		if (prev == NULL)
+			exp->tok.tokens = next;
+		else
+			prev->next = next;
+		free_token(curr);
+		exp->tok.type = WORD;
+	}
 	else
-		prev->next = curr;
-	while (curr != NULL && curr->next != NULL)
-		curr = curr->next;
-	curr->next = next;
+	{
+		if (prev == NULL)
+			exp->tok.tokens = curr;
+		else
+			prev->next = curr;
+		while (curr != NULL && curr->next != NULL)
+			curr = curr->next;
+		curr->next = next;
+	}
 }
