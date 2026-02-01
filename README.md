@@ -14,14 +14,10 @@ Built-ins - yiwei
 
 # Parser BNF
 ```
-<list> ::= <pipeline> <list-tail>  
-<list-tail> ::= epsilon | <AND> <pipeline> <list-tail> | <OR> <pipeline> <list-tail>
-
 <pipeline> ::= <command> <pipeline-tail>  
 <pipeline-tail> ::= epsilon | <PIPE> <command> <pipeline-tail>
 
 NOTE:
 simple-command elements is a linked list
-<command> ::= <simple-command> | <grouping>
-
-<grouping>   ::= <OP> <list> <CP> <redirections>```
+<command> ::= <simple-command>
+```
