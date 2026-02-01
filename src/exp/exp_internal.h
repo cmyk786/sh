@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 10:18:25 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/01 14:18:22 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/01 15:14:26 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int		exp_apply(t_exp *exp);
 void	exp_apply_handle_ptr(t_exp *exp, t_token *prev, t_token *curr,
 				t_token *next);
 
-void	exp_free(t_exp *exp);
+void	exp_free(t_exp *exp, char ***argv);
 void	free_token(t_token *node);
 void	free_tokens(t_token **lst);
 
