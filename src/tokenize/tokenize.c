@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 20:07:21 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/02 14:08:25 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/03 01:33:32 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ t_token	*tokenize(char *input)
 	return (data.head);
 }
 
-int tokenize_add_token(t_tok *data, int *i)
+int	tokenize_add_token(t_tok *data, int *i)
 {
 	data->type = detect_type(data, *i);
 	if (data->type == WORD)

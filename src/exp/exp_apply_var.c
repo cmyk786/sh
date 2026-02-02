@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 22:25:44 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/02 14:25:33 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/03 01:32:58 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_token	*exp_apply_var(t_exp *exp, t_token *curr)
 	res = NULL;
 	value = ft_strdup(env_get(exp->env, curr->value));
 	if (value == NULL)
-        return (NULL);
+		return (NULL);
 	if (curr->type == DQUOTE_VAR)
 	{
 		res = exp_apply_dquote_var(value);

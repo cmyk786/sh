@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 13:45:10 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/02 14:24:21 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/03 01:32:06 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,13 @@ int	token_to_argv(char ***res, t_token *lst)
 		if (lst == NULL)
 			break ;
 		*res = ft_realloc(*res, 0,
-			sizeof(char *) * (i + 1), sizeof(char *) * (i + 2));
+				sizeof(char *) * (i + 1), sizeof(char *) * (i + 2));
 		if (*res == NULL)
 			return (FAILURE);
-		(*res)[i + 1] = NULL; 
+		(*res)[i + 1] = NULL;
 		if (add_words(&lst, &((*res)[i])) == FAILURE)
 			return (ft_free_str_arr(*res), FAILURE);
 		i++;
-
 	}
 	return (SUCCESS);
 }

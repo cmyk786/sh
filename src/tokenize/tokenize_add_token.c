@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 20:06:20 by joloo             #+#    #+#             */
-/*   Updated: 2026/01/02 20:06:22 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/03 01:33:22 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ int	tokenize_add_word(t_tok *data, int *i)
 int	tokenize_add_operator(t_tok *data, int *i)
 {
 	if (add_node(data, *i,
-		ft_strlen(data->token_lookup[data->type]),
-		data->type) == FAILURE)
+			ft_strlen(data->token_lookup[data->type]),
+			data->type) == FAILURE)
 		return (FAILURE);
 	*i += ft_strlen(data->token_lookup[data->type]);
 	return (SUCCESS);

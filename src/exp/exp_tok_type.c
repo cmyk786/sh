@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 12:17:08 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/02 14:25:05 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/03 01:35:38 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	exp_tok_var(t_exp_tok *tok, char *str, int *i)
 {
-	int	len;
+	int		len;
 	t_token	*node;
 
 	len = name_len(str + *i + 1);
@@ -93,7 +93,7 @@ int	exp_tok_word(t_exp_tok *tok, char *str, int *i)
 	t_token	*node;
 
 	j = 0;
-	while (str[*i + j] != '\0' 
+	while (str[*i + j] != '\0'
 		&& exp_detect_type(tok, str, *i + j) == WORD)
 	{
 		j++;

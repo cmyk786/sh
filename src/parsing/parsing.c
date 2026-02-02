@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 21:38:18 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/02 14:18:44 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/03 01:30:57 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	parse_ast(t_token *tok, t_env *env, t_ast **root)
 {
-	t_token *temp;
+	t_token	*temp;
 
 	temp = tok;
 	*root = ast_new(&temp, env);
@@ -22,6 +22,7 @@ int	parse_ast(t_token *tok, t_env *env, t_ast **root)
 		return (FAILURE);
 	return (SUCCESS);
 }
+
 static int	free_gnl(int fd)
 {
 	int	pipes[2];

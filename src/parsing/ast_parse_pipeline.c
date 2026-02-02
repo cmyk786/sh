@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 21:08:12 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/02 14:14:49 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/03 01:30:35 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,3 @@ t_ast	*parse_pipeline_tail(t_token **tok, t_env *env, t_ast *left)
 		return (free_ast(&left), free_ast(&right), NULL);
 	return (parse_pipeline_tail(tok, env, node));
 }
-

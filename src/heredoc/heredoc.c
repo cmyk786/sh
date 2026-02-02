@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 13:31:01 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/02 14:28:17 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/03 01:36:14 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	check_quotes(t_hd *data, char *delimiter)
 
 	len = ft_strlen(delimiter);
 	if (len >= 2 && ((delimiter[0] == '"' && delimiter[len - 1] == '"')
-    			||  (delimiter[0] == '\'' && delimiter[len - 1] == '\'')))
+			|| (delimiter[0] == '\'' && delimiter[len - 1] == '\'')))
 	{
 		data->is_quoted = TRUE;
 		if (len == 2)
@@ -63,7 +63,7 @@ int	check_quotes(t_hd *data, char *delimiter)
 		data->delimiter = ft_strdup(delimiter);
 	}
 	if (data->delimiter == NULL)
-			return (FAILURE);
+		return (FAILURE);
 	return (SUCCESS);
 }
 

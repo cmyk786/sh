@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 13:30:54 by joloo             #+#    #+#             */
-/*   Updated: 2026/01/31 12:51:20 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/03 01:34:26 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	read_stdin(t_hd *data)
 {
 	char	*line;
 
-	data->buffer = ft_calloc(sizeof(char) , 1);
+	data->buffer = ft_calloc(sizeof(char), 1);
 	while (1)
 	{
 		print_prompt();
