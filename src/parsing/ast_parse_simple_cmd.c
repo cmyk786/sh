@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 21:34:50 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/02 00:20:28 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/02 15:52:23 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,8 @@ int	parse_redir(t_token **tok, t_env *env, t_redir **dst)
 		return (syntax_err(*tok), free_redir(&node), FAILURE);
 	node->word = ft_strdup((*tok)->value);
 	if (node->word == NULL)
-		return (free_redir(&node), FAILURE); 
+		return (free_redir(&node), FAILURE);
+	advance_tok(tok);
 	if (node->type == HERE_DOC)
 	{
 		node->fd = heredoc(node->word, env);
