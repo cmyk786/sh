@@ -1,40 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exp_tok_list.c                                     :+:      :+:    :+:   */
+/*   ast_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/18 16:40:37 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/02 13:34:04 by joloo            ###   ########.fr       */
+/*   Created: 2026/02/01 21:16:59 by joloo             #+#    #+#             */
+/*   Updated: 2026/02/01 22:14:50 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "exp_internal.h"
+#include "parsing_internal.h"
 
-t_token	*create_node(char *str, int len, int type)
+void	advance_tok(t_token **tok)
 {
-	t_token	*node;
-
-	node = ft_calloc(1, sizeof(t_token));
-	if (node == NULL)
-		return (FAILURE);
-	if (str != NULL)
-	{
-		node->value = ft_substr(str, 0, len);
-		if (node->value == NULL)
-		{
-			free(node);
-			return (NULL);
-		}
-	}
-	node->type = type;
-	return (node);
+	*tok = (*tok)->next;
 }
 
-void	exp_tokenadd_back(t_token **head, t_token *new)
+void	tokenadd_back(t_token **head, t_token *new)
 {
 	t_token	*temp;
+
+	if (*head == NULL)
+	{
+		*head = new;
+		return ;
+	}
+	temp = *head;
+	while (temp->next != NULL)
+		temp = temp->next;
+	temp->next = new;
+}
+
+// moves src to back of dst and advances src
+void	token_move(t_token **src, t_token **dst)
+{
+	t_token	*temp;
+
+	temp = *src;
+	advance_tok(src);
+	temp->next = NULL;
+	tokenadd_back(dst, temp);
+}
+
+void	rediradd_back(t_redir **head, t_redir *new)
+{
+	t_redir	*temp;
 
 	if (*head == NULL)
 	{

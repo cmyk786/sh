@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 13:31:01 by joloo             #+#    #+#             */
-/*   Updated: 2026/01/30 19:41:32 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/02 13:38:41 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	heredoc(char *delimiter, t_env *env)
 		return (hd_free(&data), -1);
 	if (data.buffer != NULL)
 	{
-		if (expand(&data) == FAILURE)
+		if (hd_expand(&data) == FAILURE)
 			return (hd_free(&data), -1);
 	}
 	if (write_to_pipe(&data) == FAILURE)
@@ -68,7 +68,7 @@ int	check_quotes(t_hd *data, char *delimiter)
 }
 
 // parameter expansion only
-int	expand(t_hd *data)
+int	hd_expand(t_hd *data)
 {
 	if (data->is_quoted == FALSE)
 	{
@@ -92,27 +92,27 @@ int	write_to_pipe(t_hd *data)
 	return (SUCCESS);
 }
 
-int	main(int argc, char **argv, char **envp)
-{
-	(void) argc;
-	t_env *env = env_init(envp);
-	env_set_simple(env, "test=a   a");
-	char *line;
-	if (argv[1] != NULL)
-		line = argv[1];
-	else
-	{
-		ft_putstr_fd("DELIMITER: ", 1);
-		line = get_next_line(0);
-		line[ft_strlen(line) - 1] = '\0';
-	}
-	int fd = heredoc(line, env);
-	if (fd == -1)
-		return (printf("fd = -1\n"), 1);
-	printf("RES:\n");
-	while ((line = get_next_line(fd)) != NULL)
-	{
-		printf("%s", line);
-	}
-	return (0);
-}
+// int	main(int argc, char **argv, char **envp)
+// {
+// 	(void) argc;
+// 	t_env *env = env_init(envp);
+// 	env_set_simple(env, "test=a   a");
+// 	char *line;
+// 	if (argv[1] != NULL)
+// 		line = argv[1];
+// 	else
+// 	{
+// 		ft_putstr_fd("DELIMITER: ", 1);
+// 		line = get_next_line(0);
+// 		line[ft_strlen(line) - 1] = '\0';
+// 	}
+// 	int fd = heredoc(line, env);
+// 	if (fd == -1)
+// 		return (printf("fd = -1\n"), 1);
+// 	printf("RES:\n");
+// 	while ((line = get_next_line(fd)) != NULL)
+// 	{
+// 		printf("%s", line);
+// 	}
+// 	return (0);
+// }

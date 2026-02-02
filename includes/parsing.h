@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 19:36:37 by joloo             #+#    #+#             */
-/*   Updated: 2026/01/06 20:53:21 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/02 00:10:26 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,7 @@ typedef struct s_ast
 		t_control_op	control_op;
 	};
 }	t_ast;
+
+void	free_ast(t_ast **node);
 
 #endif

@@ -1,41 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exp_free.c                                         :+:      :+:    :+:   */
+/*   ast_parse_cmd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/22 20:41:30 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/02 13:36:58 by joloo            ###   ########.fr       */
+/*   Created: 2026/02/01 21:34:16 by joloo             #+#    #+#             */
+/*   Updated: 2026/02/02 14:15:33 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "exp_internal.h"
+#include "parsing_internal.h"
 
-void	exp_free(t_exp *exp, char ***argv)
+t_ast	*parse_command(t_token **tok, t_env *env)
 {
-	ft_free_str_arr(*argv);
-	argv = NULL;
-	exp_free_tokens(&exp->tok.tokens);
-}
-
-void	exp_free_token(t_token *node)
-{
-	free(node->value);
-	free(node);
-}
-
-void	exp_free_tokens(t_token **lst)
-{
-	t_token	*temp;
-
-	if (lst == NULL)
-		return ;
-	while (*lst != NULL)
-	{
-		temp = (*lst)->next;
-		exp_free_token(*lst);
-		*lst = temp;
-	}
-	*lst = NULL;
+	if (*tok != NULL && (is_word(*tok) == TRUE || is_redir(*tok) == TRUE))
+		return (parse_simple_command(tok, env));
+	return (syntax_err(*tok), NULL);
 }

@@ -1,41 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exp_free.c                                         :+:      :+:    :+:   */
+/*   ast_check_type.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/22 20:41:30 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/02 13:36:58 by joloo            ###   ########.fr       */
+/*   Created: 2026/02/01 21:47:37 by joloo             #+#    #+#             */
+/*   Updated: 2026/02/01 22:04:08 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "exp_internal.h"
+#include "parsing_internal.h"
 
-void	exp_free(t_exp *exp, char ***argv)
+int	is_redir(t_token *tok)
 {
-	ft_free_str_arr(*argv);
-	argv = NULL;
-	exp_free_tokens(&exp->tok.tokens);
+	if (tok->type == REDIR_IN
+		|| tok->type == REDIR_OUT
+		|| tok->type == APPEND
+		|| tok->type == HERE_DOC)
+		return (TRUE);
+	return (FALSE);
 }
 
-void	exp_free_token(t_token *node)
+int	is_pipe(t_token *tok)
 {
-	free(node->value);
-	free(node);
+	if (tok->type == PIPE)
+		return (TRUE);
+	return (FALSE);
 }
 
-void	exp_free_tokens(t_token **lst)
+int	is_word(t_token *tok)
 {
-	t_token	*temp;
-
-	if (lst == NULL)
-		return ;
-	while (*lst != NULL)
-	{
-		temp = (*lst)->next;
-		exp_free_token(*lst);
-		*lst = temp;
-	}
-	*lst = NULL;
+	if (tok->type == WORD)
+		return (TRUE);
+	return (FALSE);
 }

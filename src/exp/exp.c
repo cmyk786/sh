@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 10:18:10 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/01 18:32:48 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/02 13:36:18 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	expand_redir(char ***res, char *str, t_env *env)
 	return (SUCCESS);
 }
 
-void	tokenize_print_tokens(t_token *head)
+void	exp_print_tokens(t_token *head)
 {
 	t_token	*curr;
 	char	*lookup[5];
@@ -60,65 +60,65 @@ void	tokenize_print_tokens(t_token *head)
 		curr = curr->next;
 	}
 }
-static int	free_gnl(int fd)
-{
-	int	pipes[2];
-	int	temp;
+// static int	exp_free_gnl(int fd)
+// {
+// 	int	pipes[2];
+// 	int	temp;
 
-	temp = dup(fd);
-	if (pipe(pipes) == -1)
-		return (FAILURE);
-	dup2(pipes[1], fd);
-	get_next_line(fd);
-	dup2(temp, fd);
-	close(pipes[1]);
-	close(pipes[0]);
-	close(temp);
-	return (SUCCESS);
-}
+// 	temp = dup(fd);
+// 	if (pipe(pipes) == -1)
+// 		return (FAILURE);
+// 	dup2(pipes[1], fd);
+// 	get_next_line(fd);
+// 	dup2(temp, fd);
+// 	close(pipes[1]);
+// 	close(pipes[0]);
+// 	close(temp);
+// 	return (SUCCESS);
+// }
 
-// ./a.out '"$ERM"'
-int	main(int argc, char **argv, char **envp)
-{
-	t_env *env = env_init(envp);
-	env_set_simple(env, "test=a   a");
-	char **split;
-	if (argv[1] != NULL)
-		split = ft_split(argv[1], ' ');
-	else
-	{
-		char *line = get_next_line(0);
-		line[ft_strlen(line) - 1] = '\0';
-		split = ft_split(line	, ' ');
-		free(line);
-		free_gnl(0);
-	}
-	(void) argc;
-	int i = 0;
-	while (split[i] != NULL)
-	{
-		printf("split:%s\n", split[i]);
-		i++;
-	}
-	if (split == NULL)
-		printf("INPT EROR");
-	if (expand(&split, env) == FAILURE)
-		return (printf("expand failure\n"), 1);
-	i = 0;
-	char **res = split;
-	printf("RES:\n");
-	if (res == NULL)
-		return (printf("NULL RES\n"), 0);
-	while (res[i] != NULL)
-	{
-		printf("%d, ", i);
-		if (res[i][0] == '\0')
-			printf("empty string\n");
-		else
-			printf("%s\n", res[i]);
-		i++;
-	}
-	env_free_all(&env);
-	ft_free_str_arr(res);
-	return (0);
-}
+// // ./a.out '"$ERM"'
+// int	main(int argc, char **argv, char **envp)
+// {
+// 	t_env *env = env_init(envp);
+// 	env_set_simple(env, "test=a   a");
+// 	char **split;
+// 	if (argv[1] != NULL)
+// 		split = ft_split(argv[1], ' ');
+// 	else
+// 	{
+// 		char *line = get_next_line(0);
+// 		line[ft_strlen(line) - 1] = '\0';
+// 		split = ft_split(line	, ' ');
+// 		free(line);
+// 		exp_free_gnl(0);
+// 	}
+// 	(void) argc;
+// 	int i = 0;
+// 	while (split[i] != NULL)
+// 	{
+// 		printf("split:%s\n", split[i]);
+// 		i++;
+// 	}
+// 	if (split == NULL)
+// 		printf("INPT EROR");
+// 	if (expand(&split, env) == FAILURE)
+// 		return (printf("expand failure\n"), 1);
+// 	i = 0;
+// 	char **res = split;
+// 	printf("RES:\n");
+// 	if (res == NULL)
+// 		return (printf("NULL RES\n"), 0);
+// 	while (res[i] != NULL)
+// 	{
+// 		printf("%d, ", i);
+// 		if (res[i][0] == '\0')
+// 			printf("empty string\n");
+// 		else
+// 			printf("%s\n", res[i]);
+// 		i++;
+// 	}
+// 	env_exp_free_all(&env);
+// 	ft_exp_free_str_arr(res);
+// 	return (0);
+// }

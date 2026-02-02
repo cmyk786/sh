@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 18:22:17 by joloo             #+#    #+#             */
-/*   Updated: 2026/01/22 22:53:52 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/02 13:32:59 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	detect_quotes(char c, int *in_squote, int *in_dquote)
 	return (FALSE);
 }
 
-int	detect_type(t_exp_tok *tok, char *str, int i)
+int	exp_detect_type(t_exp_tok *tok, char *str, int i)
 {
 	if (str[i] == '$' && tok->in_dquote == 1)
 		return (DQUOTE_VAR);

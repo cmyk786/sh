@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 12:17:08 by joloo             #+#    #+#             */
-/*   Updated: 2026/01/30 00:56:02 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/02 13:34:04 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	exp_tok_var(t_exp_tok *tok, char *str, int *i)
 			return (FAILURE);
 		*i += len + 1;
 	}
-	tokenadd_back(&tok->tokens, node);
+	exp_tokenadd_back(&tok->tokens, node);
 	return (SUCCESS);
 }
 
@@ -43,7 +43,7 @@ int	add_delimiter(t_token **tokens)
 	node = create_node(NULL, 0, DELIMITER);
 	if (node == NULL)
 		return (FAILURE);
-	tokenadd_back(tokens, node);
+	exp_tokenadd_back(tokens, node);
 	return (SUCCESS);
 }
 
@@ -82,7 +82,7 @@ int	exp_tok_quotes(t_exp_tok *tok, char *str, int *i)
 		node = create_node("\"", 1, QUOTES);
 	if (node == NULL)
 		return (FAILURE);
-	tokenadd_back(&tok->tokens, node);
+	exp_tokenadd_back(&tok->tokens, node);
 	*i += 1;
 	return (SUCCESS);
 }
@@ -94,14 +94,14 @@ int	exp_tok_word(t_exp_tok *tok, char *str, int *i)
 
 	j = 0;
 	while (str[*i + j] != '\0' 
-		&& detect_type(tok, str, *i + j) == WORD)
+		&& exp_detect_type(tok, str, *i + j) == WORD)
 	{
 		j++;
 	}
 	node = create_node(str + *i, j, WORD);
 	if (node == NULL)
 		return (FAILURE);
-	tokenadd_back(&tok->tokens, node);
+	exp_tokenadd_back(&tok->tokens, node);
 	*i += j;
 	return (SUCCESS);
 }

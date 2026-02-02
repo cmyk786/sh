@@ -6,15 +6,16 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 13:30:57 by joloo             #+#    #+#             */
-/*   Updated: 2026/01/30 19:34:17 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/02 13:38:41 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HEREDOC_INTERNAL_H
 # define HEREDOC_INTERNAL_H
 
+# include "../../includes/heredoc.h"
 # include "libft.h"
-# include "../../includes/env.h"
+
 # ifndef SUCCESS
 #  define SUCCESS 1
 # endif
@@ -53,7 +54,7 @@ int	check_delimiter(char *line, char *delimiter);
 int	free_gnl(int fd);
 
 int	check_quotes(t_hd *data, char *delimiter);
-int	expand(t_hd *data);
+int	hd_expand(t_hd *data);
 int	write_to_pipe(t_hd *data);
 
 #endif

@@ -1,41 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exp_free.c                                         :+:      :+:    :+:   */
+/*   heredoc.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/22 20:41:30 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/02 13:36:58 by joloo            ###   ########.fr       */
+/*   Created: 2026/02/02 00:17:41 by joloo             #+#    #+#             */
+/*   Updated: 2026/02/02 00:21:38 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "exp_internal.h"
+#ifndef HEREDOC_H
+# define HEREDOC_H
 
-void	exp_free(t_exp *exp, char ***argv)
-{
-	ft_free_str_arr(*argv);
-	argv = NULL;
-	exp_free_tokens(&exp->tok.tokens);
-}
+# include "../../includes/env.h"
 
-void	exp_free_token(t_token *node)
-{
-	free(node->value);
-	free(node);
-}
+int	heredoc(char *delimiter, t_env *env);
 
-void	exp_free_tokens(t_token **lst)
-{
-	t_token	*temp;
-
-	if (lst == NULL)
-		return ;
-	while (*lst != NULL)
-	{
-		temp = (*lst)->next;
-		exp_free_token(*lst);
-		*lst = temp;
-	}
-	*lst = NULL;
-}
+#endif
