@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 10:18:25 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/02 14:28:37 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/03 01:30:06 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 
 # include "libft.h"
 # include "../../includes/env.h"
-typedef struct s_env	t_env; // temp
+
 typedef enum e_exp_type
 {
 	DQUOTE_VAR,
