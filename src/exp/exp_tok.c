@@ -6,11 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 14:01:35 by joloo             #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2026/01/22 22:48:14 by joloo            ###   ########.fr       */
-=======
-/*   Updated: 2026/02/02 13:32:59 by joloo            ###   ########.fr       */
->>>>>>> origin/AST
+/*   Updated: 2026/02/02 14:25:11 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +37,7 @@ int	exp_tok_process(t_exp_tok *tok, char *str)
 	i = 0;
 	while (str[i] != '\0')
 	{
-<<<<<<< HEAD
-		tok->type = detect_type(tok, str, i);
-=======
 		tok->type = exp_detect_type(tok, str, i);
->>>>>>> origin/AST
 		if (exp_tok_call(tok, str, &i) == FAILURE)
 			return (FAILURE);
 	}

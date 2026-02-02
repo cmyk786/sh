@@ -10,9 +10,6 @@ Wildcards
 Environment variables - joloo  
 Environment variable expansion - joloo  
 Execution - yiwei  
-<<<<<<< HEAD
-Built-ins - yiwei  
-=======
 Built-ins - yiwei  
 
 # Parser BNF
@@ -24,4 +21,3 @@ NOTE:
 simple-command elements is a linked list
 <command> ::= <simple-command>
 ```
->>>>>>> origin/AST

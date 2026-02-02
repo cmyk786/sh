@@ -17,14 +17,9 @@
 #ifndef HEREDOC_INTERNAL_H
 # define HEREDOC_INTERNAL_H
 
-<<<<<<< HEAD
-# include "libft.h"
-# include "../../includes/env.h"
-=======
 # include "../../includes/heredoc.h"
 # include "libft.h"
 
->>>>>>> origin/AST
 # ifndef SUCCESS
 #  define SUCCESS 1
 # endif

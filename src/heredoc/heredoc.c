@@ -104,32 +104,6 @@ int	write_to_pipe(t_hd *data)
 	return (SUCCESS);
 }
 
-<<<<<<< HEAD
-int	main(int argc, char **argv, char **envp)
-{
-	(void) argc;
-	t_env *env = env_init(envp);
-	env_set_simple(env, "test=a   a");
-	char *line;
-	if (argv[1] != NULL)
-		line = argv[1];
-	else
-	{
-		ft_putstr_fd("DELIMITER: ", 1);
-		line = get_next_line(0);
-		line[ft_strlen(line) - 1] = '\0';
-	}
-	int fd = heredoc(line, env);
-	if (fd == -1)
-		return (printf("fd = -1\n"), 1);
-	printf("RES:\n");
-	while ((line = get_next_line(fd)) != NULL)
-	{
-		printf("%s", line);
-	}
-	return (0);
-}
-=======
 // int	main(int argc, char **argv, char **envp)
 // {
 // 	(void) argc;
@@ -154,4 +128,3 @@ int	main(int argc, char **argv, char **envp)
 // 	}
 // 	return (0);
 // }
->>>>>>> origin/AST

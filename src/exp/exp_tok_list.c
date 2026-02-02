@@ -6,11 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 16:40:37 by joloo             #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2026/01/23 12:17:58 by joloo            ###   ########.fr       */
-=======
-/*   Updated: 2026/02/02 13:34:04 by joloo            ###   ########.fr       */
->>>>>>> origin/AST
+/*   Updated: 2026/02/02 14:24:17 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +32,7 @@ t_token	*create_node(char *str, int len, int type)
 	return (node);
 }
 
-<<<<<<< HEAD
-void	tokenadd_back(t_token **head, t_token *new)
-=======
 void	exp_tokenadd_back(t_token **head, t_token *new)
->>>>>>> origin/AST
 {
 	t_token	*temp;
 
