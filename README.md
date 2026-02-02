@@ -22,12 +22,14 @@ Built-ins - yiwei
 <command>        ::= <simple-command>
 
 NOTE:
-simple-command elements are stored in a linked list
+simple-command elements are stored in linked lists
 
 <simple-command> ::= <redirection> <simple-command-tail>
-                   | <argument>    <simple-command-tail>
+                   | <word>    <simple-command-tail>
 
 <simple-command-tail> ::= ε
-                        | <redirections> <simple-command-tail>
-                        | <arguments>    <simple-command-tail>
+                        | <redirection> <simple-command-tail>
+                        | <word>    <simple-command-tail>
+
+<redirection> 		  ::= <redirection-operator> <word>
 ```
