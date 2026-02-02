@@ -19,10 +19,10 @@ Built-ins - yiwei
 <pipeline-tail>  ::= ε
                   | <PIPE> <command> <pipeline-tail>
 
+<command>        ::= <simple-command>
+
 NOTE:
 simple-command elements are stored in a linked list
-
-<command>        ::= <simple-command>
 
 <simple-command> ::= <redirection> <simple-command-tail>
                    | <argument>    <simple-command-tail>
