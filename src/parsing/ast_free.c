@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exp.h                                              :+:      :+:    :+:   */
+/*   ast_free.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/14 10:17:43 by joloo             #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2026/02/01 15:16:34 by joloo            ###   ########.fr       */
-=======
-/*   Updated: 2026/02/02 14:05:15 by joloo            ###   ########.fr       */
->>>>>>> origin/AST
+/*   Created: 2026/02/01 21:07:40 by joloo             #+#    #+#             */
+/*   Updated: 2026/02/02 00:16:00 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EXP_H
-# define EXP_H
+#include "parsing_internal.h"
 
-char	**exp(char **argv, t_env *env)
-<<<<<<< HEAD
-int	expand_redir(char ***res, char *str, t_env *env);
-=======
-int		expand_redir(char ***res, char *str, t_env *env);
->>>>>>> origin/AST
+void	free_ast(t_ast **node)
+{
+	(void) node;
+}
 
-#endif
+void	free_redir(t_redir **node)
+{
+	(void) node;
+}

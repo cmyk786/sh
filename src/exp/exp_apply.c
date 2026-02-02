@@ -6,7 +6,11 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 21:35:31 by joloo             #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2026/01/31 14:12:51 by joloo            ###   ########.fr       */
+=======
+/*   Updated: 2026/02/02 13:36:18 by joloo            ###   ########.fr       */
+>>>>>>> origin/AST
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +55,11 @@ void	exp_apply_handle_ptr(t_exp *exp, t_token *prev, t_token *curr,
 			exp->tok.tokens = next;
 		else
 			prev->next = next;
+<<<<<<< HEAD
 		free_token(curr);
+=======
+		exp_free_token(curr);
+>>>>>>> origin/AST
 		exp->tok.type = WORD;
 	}
 	else

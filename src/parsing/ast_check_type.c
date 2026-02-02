@@ -1,27 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exp.h                                              :+:      :+:    :+:   */
+/*   ast_check_type.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/14 10:17:43 by joloo             #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2026/02/01 15:16:34 by joloo            ###   ########.fr       */
-=======
-/*   Updated: 2026/02/02 14:05:15 by joloo            ###   ########.fr       */
->>>>>>> origin/AST
+/*   Created: 2026/02/01 21:47:37 by joloo             #+#    #+#             */
+/*   Updated: 2026/02/01 22:04:08 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EXP_H
-# define EXP_H
+#include "parsing_internal.h"
 
-char	**exp(char **argv, t_env *env)
-<<<<<<< HEAD
-int	expand_redir(char ***res, char *str, t_env *env);
-=======
-int		expand_redir(char ***res, char *str, t_env *env);
->>>>>>> origin/AST
+int	is_redir(t_token *tok)
+{
+	if (tok->type == REDIR_IN
+		|| tok->type == REDIR_OUT
+		|| tok->type == APPEND
+		|| tok->type == HERE_DOC)
+		return (TRUE);
+	return (FALSE);
+}
 
-#endif
+int	is_pipe(t_token *tok)
+{
+	if (tok->type == PIPE)
+		return (TRUE);
+	return (FALSE);
+}
+
+int	is_word(t_token *tok)
+{
+	if (tok->type == WORD)
+		return (TRUE);
+	return (FALSE);
+}

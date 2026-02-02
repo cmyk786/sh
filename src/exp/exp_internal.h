@@ -6,7 +6,11 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 10:18:25 by joloo             #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2026/02/01 15:14:26 by joloo            ###   ########.fr       */
+=======
+/*   Updated: 2026/02/02 14:05:09 by joloo            ###   ########.fr       */
+>>>>>>> origin/AST
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +78,7 @@ void	exp_apply_handle_ptr(t_exp *exp, t_token *prev, t_token *curr,
 				t_token *next);
 
 void	exp_free(t_exp *exp, char ***argv);
+<<<<<<< HEAD
 void	free_token(t_token *node);
 void	free_tokens(t_token **lst);
 
@@ -83,6 +88,17 @@ int		detect_type(t_exp_tok *tok, char *str, int i);
 
 t_token	*create_node(char *str, int len, int type);
 void	tokenadd_back(t_token **head, t_token *new);
+=======
+void	exp_free_token(t_token *node);
+void	exp_free_tokens(t_token **lst);
+
+int		exp_init(t_exp *exp, char **argv, t_env *env);
+
+int		exp_detect_type(t_exp_tok *tok, char *str, int i);
+
+t_token	*create_node(char *str, int len, int type);
+void	exp_tokenadd_back(t_token **head, t_token *new);
+>>>>>>> origin/AST
 
 int		token_to_argv(char ***res, t_token *lst);
 
@@ -97,5 +113,9 @@ int		exp_tok(t_exp *exp);
 int		exp_tok_process(t_exp_tok *tok, char *str);
 int		exp_tok_call(t_exp_tok *tok, char *str, int *i);
 
+<<<<<<< HEAD
 void	tokenize_print_tokens(t_token *head);
+=======
+void	exp_print_tokens(t_token *head);
+>>>>>>> origin/AST
 #endif

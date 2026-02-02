@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exp.h                                              :+:      :+:    :+:   */
+/*   heredoc.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/14 10:17:43 by joloo             #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2026/02/01 15:16:34 by joloo            ###   ########.fr       */
-=======
-/*   Updated: 2026/02/02 14:05:15 by joloo            ###   ########.fr       */
->>>>>>> origin/AST
+/*   Created: 2026/02/02 00:17:41 by joloo             #+#    #+#             */
+/*   Updated: 2026/02/02 00:21:38 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef EXP_H
-# define EXP_H
+#ifndef HEREDOC_H
+# define HEREDOC_H
 
-char	**exp(char **argv, t_env *env)
-<<<<<<< HEAD
-int	expand_redir(char ***res, char *str, t_env *env);
-=======
-int		expand_redir(char ***res, char *str, t_env *env);
->>>>>>> origin/AST
+# include "../../includes/env.h"
+
+int	heredoc(char *delimiter, t_env *env);
 
 #endif
