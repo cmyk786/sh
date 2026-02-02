@@ -6,11 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 13:31:01 by joloo             #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2026/01/30 19:41:32 by joloo            ###   ########.fr       */
-=======
-/*   Updated: 2026/02/02 13:38:41 by joloo            ###   ########.fr       */
->>>>>>> origin/AST
+/*   Updated: 2026/02/02 14:28:17 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +33,7 @@ int	heredoc(char *delimiter, t_env *env)
 		return (hd_free(&data), -1);
 	if (data.buffer != NULL)
 	{
-<<<<<<< HEAD
-		if (expand(&data) == FAILURE)
-=======
 		if (hd_expand(&data) == FAILURE)
->>>>>>> origin/AST
 			return (hd_free(&data), -1);
 	}
 	if (write_to_pipe(&data) == FAILURE)
@@ -76,11 +68,7 @@ int	check_quotes(t_hd *data, char *delimiter)
 }
 
 // parameter expansion only
-<<<<<<< HEAD
-int	expand(t_hd *data)
-=======
 int	hd_expand(t_hd *data)
->>>>>>> origin/AST
 {
 	if (data->is_quoted == FALSE)
 	{
