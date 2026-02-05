@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 13:30:54 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/03 01:34:26 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/05 22:19:29 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ int	read_stdin(t_hd *data)
 		print_prompt();
 		line = get_next_line(0);
 		if (line == NULL)
-			return (printf("heredoc read EOF >:(\n"), FAILURE);
+		{
+			printf("warning: heredoc EOF");
+			break ;
+		}
 		if (check_delimiter(line, data->delimiter) == TRUE)
 			break ;
 		data->buffer = ft_strjoin_free(data->buffer, line);
