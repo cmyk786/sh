@@ -1,3 +1,5 @@
+#include "ex.h"
+
 int	ft_env(t_env *env)
 {
 	while (env)
@@ -7,4 +9,5 @@ int	ft_env(t_env *env)
 		env = env->next;
 	}
 	return (0);
+
 }
