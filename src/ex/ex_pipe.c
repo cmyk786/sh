@@ -1,3 +1,5 @@
+#include "ex.h"
+
 void	set_sig_child(void)
 {
 	signal(SIGINT, SIG_DFL);
@@ -49,4 +51,5 @@ int	ex_pipe(t_ast *node, t_env **env)
 	if (right_pid == 0)
 		ex_pipe_right(node, env, pipefd);
 	return (ex_pipe_parent(pipefd, left_pid, right_pid));
+
 }
