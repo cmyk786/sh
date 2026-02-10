@@ -1,3 +1,5 @@
+#include "ex.h"
+
 int	is_n(char *arg)
 {
     int	i;
@@ -36,4 +38,5 @@ int	echo(char **args)
     if (n)
         ft_putchar_fd('\n', STDOUT_FILENO);
     return (0);
+
 }
