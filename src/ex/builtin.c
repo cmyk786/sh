@@ -1,3 +1,5 @@
+#include "ex.h"
+
 int is_builtin(char *cmd)
 {
     if (!cmd)
@@ -32,4 +34,5 @@ int builtin(t_ast *node, t_env **env)
     if (!ft_strcmp(argv[0], "exit"))
         ft_exit(argv, node, *env);
     return (1);
+
 }
