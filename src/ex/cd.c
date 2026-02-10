@@ -1,3 +1,19 @@
+static char	*get_env_value(t_env *env, const char *key)
+{
+	t_env	*current;
+
+	current = env;
+	if (!key)
+		return (NULL);
+	while (current)
+	{
+		if (current->key && ft_strcmp(current->key, key) == 0)
+			return (current->val);
+		current = current->next;
+	}
+	return (NULL);
+}
+
 static char	*get_cd_path(char **arg, t_env **env)
 {
 	char	*path;
@@ -75,4 +91,5 @@ int	cd(char **arg, t_env **env)
 	if (!path)
 		return (1);
 	return (change_dir(path, env));
+
 }
