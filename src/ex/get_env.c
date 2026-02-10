@@ -1,3 +1,5 @@
+#include "ex.h"
+
 static int	env_list_size(t_env *env)
 {
     int	count;
@@ -37,4 +39,5 @@ char	**env_to_enva(t_env *env)
 	}
 	enva[i] = NULL;
 	return (enva);
+
 }
