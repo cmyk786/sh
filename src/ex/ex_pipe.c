@@ -12,7 +12,7 @@ static void	ex_pipe_left(t_ast *node, t_env **env, int *pipefd)
 	dup2(pipefd[1], STDOUT_FILENO);
 	close(pipefd[0]);
 	close(pipefd[1]);
-	exit(exec(node->control_op.left, env));
+	exit(ex(node->control_op.left, env));
 }
 
 static void	ex_pipe_right(t_ast *node, t_env **env, int *pipefd)
@@ -21,7 +21,7 @@ static void	ex_pipe_right(t_ast *node, t_env **env, int *pipefd)
 	dup2(pipefd[0], STDIN_FILENO);
 	close(pipefd[0]);
 	close(pipefd[1]);
-	exit(exec(node->control_op.right, env));
+	exit(ex(node->control_op.right, env));
 }
 
 static int	ex_pipe_parent(int *pipefd, pid_t left, pid_t right)
@@ -53,3 +53,4 @@ int	ex_pipe(t_ast *node, t_env **env)
 	return (ex_pipe_parent(pipefd, left_pid, right_pid));
 
 }
+
