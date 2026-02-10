@@ -41,7 +41,7 @@ int	ex_cmd(t_ast *node, t_env **env)
 
     *in_fd = dup(STDIN_FILENO);
     *out_fd = dup(STDOUT_FILENO);
-    if (apply_red(node) == 1)
+    if (apply_redir(node) == 1)
     {
 		set_fd(in_fd, out_fd);
 		return (1);
@@ -63,4 +63,5 @@ int	ex_cmd(t_ast *node, t_env **env)
     }
     set_fd(in_fd, out_fd);
     return (wait_child(pid));
+
 }
