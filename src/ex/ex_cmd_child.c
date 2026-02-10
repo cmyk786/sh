@@ -1,3 +1,5 @@
+#include "ex.h"
+
 static char	*join_cmd(char *path, char *cmd)
 {
 	char	*tmp;
@@ -89,4 +91,5 @@ int	ex_cmd_child(t_ast *node, t_env **env)
 	execve(cmd_path, node->simple_cmd.argv, child_env);
 	ex_error(cmd_path, ": Exec format error", 126, node);
 	return (1);
+
 }
