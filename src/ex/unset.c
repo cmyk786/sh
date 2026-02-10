@@ -1,3 +1,5 @@
+#include "ex.h"
+
 static t_env	*free_node(t_env *node)
 {
 	t_env	*tmp;
@@ -57,4 +59,5 @@ int	unset(char **a, t_env **env)
 		i++;
 	}
 	return (code);
+
 }
