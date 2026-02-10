@@ -79,14 +79,15 @@ int	check_valid(char *s)
 {
 	if (!s)
 		return (1);
-	if (!ft_isalpha(*s) && !is_score(*s))
+	if (!ft_isalpha(*s) && (*s != '_'))
 		return (1);
 	s++;
 	while (*s)
 	{
-		if (!ft_isalnum(*s) && !is_score(*s))
+		if (!ft_isalnum(*s) && (*s != '_'))
 			return (1);
 		s++;
 	}
 	return (0);
+
 }
