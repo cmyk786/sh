@@ -1,3 +1,5 @@
+#include "ex.h"
+
 int ft_pwd(void)
 {
     char *pwd;
@@ -11,4 +13,5 @@ int ft_pwd(void)
     printf("%s\n", pwd);
     free(pwd);
     return (0);
+
 }
