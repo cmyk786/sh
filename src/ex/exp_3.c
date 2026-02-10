@@ -1,3 +1,5 @@
+#include "ex.h"
+
 t_env	*check_key(char *key, t_env *env)
 {
 	while (env)
@@ -92,4 +94,5 @@ int	export(char **arg, t_env **env)
 		i++;
 	}
 	return (code);
+
 }
