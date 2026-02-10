@@ -1,3 +1,5 @@
+#include "ex.h"
+
 static int	is_num(char *s)
 {
 	int	i;
@@ -53,4 +55,5 @@ void	ft_exit(char **a, t_ast *node, t_env *env)
 	n = ft_atoi(a[1]);
 	printf("exit\n");
 	exit_clean(node, env, (unsigned char)n);
+
 }
