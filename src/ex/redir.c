@@ -1,3 +1,5 @@
+#include "ex.h"
+
 void    ft_message(char *s)
 {
 	int	i;
@@ -107,4 +109,5 @@ int	apply_redir(t_ast *node)
 		r = r->next;
 	}
 	return (0);
+
 }
