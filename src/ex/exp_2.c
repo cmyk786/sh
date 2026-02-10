@@ -1,3 +1,5 @@
+#include "ex.h"
+
 static t_env	*create_env_node(char *key, char *value)
 {
 	t_env	*node;
@@ -91,3 +93,4 @@ int	check_valid(char *s)
 	return (0);
 
 }
+
