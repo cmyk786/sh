@@ -30,13 +30,14 @@ void	print_redir(t_redir *redir, int depth)
 
 /* argv */
 
-void	print_argv(t_token *argv, int depth)
+void	print_argv(char **argv, int depth)
 {
-	while (argv)
+	int i = 0;
+	while (argv[i] != NULL)
 	{
 		print_indent(depth);
-		printf("ARG %s\n", argv->value);
-		argv = argv->next;
+		printf("ARG %s\n", argv[i]);
+		i++;
 	}
 }
 

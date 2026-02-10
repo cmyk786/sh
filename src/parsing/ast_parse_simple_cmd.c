@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 21:34:50 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/02 15:52:23 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/10 20:59:39 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,25 @@
 
 t_ast	*parse_simple_command(t_token **tok, t_env *env)
 {
-	t_ast	*node;
+	t_redir	*redir;
+	t_token	*argv;
 
-	node = ast_new_simple_cmd();
-	if (node == NULL)
-		return (NULL);
+	redir = NULL;
+	argv = NULL;
 	while (*tok != NULL && (is_word(*tok) == TRUE || is_redir(*tok) == TRUE))
 	{
 		if (is_word(*tok) == TRUE)
 		{
-			if (parse_word(tok, env, &node->simple_cmd.argv) == FAILURE)
-				return (free_ast(&node), NULL);
+			if (parse_word(tok, env, &argv) == FAILURE)
+				return (free_redir(&redir), free_tokens(&argv), NULL);
 		}
 		else if (is_redir(*tok) == TRUE)
 		{
-			if (parse_redir(tok, env, &node->simple_cmd.redir) == FAILURE)
-				return (free_ast(&node), NULL);
+			if (parse_redir(tok, env, &redir) == FAILURE)
+				return (free_redir(&redir), free_tokens(&argv), NULL);
 		}
 	}
-	return (node);
+	return (ast_new_simple_cmd(redir, argv));
 }
 
 int	parse_word(t_token **tok, t_env *env, t_token **dst)

@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 01:31:16 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/03 01:31:19 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/10 20:59:16 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int		is_word(t_token *tok);
 void	free_redir(t_redir **node);
 
 t_ast	*ast_new_control(t_ast *left, t_ast *right, int type);
-t_ast	*ast_new_simple_cmd(void);
+t_ast	*ast_new_simple_cmd(t_redir *redir, t_token *argv);
 
 t_ast	*parse_command(t_token **tok, t_env *env);
 
@@ -57,6 +57,9 @@ void	advance_tok(t_token **tok);
 void	tokenadd_back(t_token **head, t_token *new);
 void	token_move(t_token **src, t_token **dst);
 void	rediradd_back(t_redir **head, t_redir *new);
+
+int		token_size(t_token *token);
+char	**token_to_arr(t_token *token);
 
 t_ast	*ast_new(t_token **tok, t_env *env);
 

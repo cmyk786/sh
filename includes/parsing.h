@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 19:36:37 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/02 00:10:26 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/10 21:00:25 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ typedef struct s_redir
 
 typedef struct s_simple_cmd
 {
-	t_token	*argv;
 	t_redir	*redir;
+	char	**argv;
 }	t_simple_cmd;
 
 typedef struct s_control_op
