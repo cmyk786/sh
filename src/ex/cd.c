@@ -1,3 +1,5 @@
+#include "ex.h"
+
 static char	*get_env_value(t_env *env, const char *key)
 {
 	t_env	*current;
@@ -93,3 +95,4 @@ int	cd(char **arg, t_env **env)
 	return (change_dir(path, env));
 
 }
+
