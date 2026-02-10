@@ -1,3 +1,5 @@
+#include "ex.h"
+
 static void	set_fd(int in_fd, int out_fd)
 {
 	dup2(in_fd, STDIN_FILENO);
@@ -65,3 +67,4 @@ int	ex_cmd(t_ast *node, t_env **env)
     return (wait_child(pid));
 
 }
+
