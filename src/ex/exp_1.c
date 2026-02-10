@@ -1,3 +1,5 @@
+#include "ex.h"
+
 t_env	*copy_env_node(t_env *env)
 {
 	t_env	*node;
@@ -76,4 +78,5 @@ void	sort_env(t_env *env)
 		}
 		env = env->next;
 	}
+
 }
