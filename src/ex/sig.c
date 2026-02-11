@@ -6,13 +6,7 @@ void	set_sig_child(void)
 	signal(SIGQUIT, SIG_DFL);
 }
 
-void	set_sig(void)
-{
-	signal(SIGINT, sig_prompt);
-    signal(SIGQUIT, SIG_IGN);
-}
-
-void	sig_prompt(int sig)
+static void	sig_prompt(int sig)
 {
 	(void)sig;
 	s = 130;
@@ -20,7 +14,12 @@ void	sig_prompt(int sig)
 	rl_on_new_line();
 	rl_replace_line("", 0);
 	rl_redisplay();
+}
 
+void	set_sig(void)
+{
+	signal(SIGINT, sig_prompt);
+    signal(SIGQUIT, SIG_IGN);
 }
 
 static void sig_handle(int sig)
@@ -34,3 +33,4 @@ void	set_sig_h(void)
 {
 	signal(SIGINT, sig_handle);
 }
+
