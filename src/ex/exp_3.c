@@ -75,7 +75,7 @@ int	export_var(char *s, t_env **env)
 	return (export_set_env(key, val, env));
 }
 
-int	export(char **arg, t_env **env)
+int	ft_export(char **arg, t_env **env)
 {
 	int	i;
 	int	code;
@@ -96,3 +96,4 @@ int	export(char **arg, t_env **env)
 	return (code);
 
 }
+
