@@ -17,10 +17,18 @@ int	read_stdin(t_hd *data)
 	char	*line;
 
 	data->buffer = ft_calloc(sizeof(char), 1);
+	set_sig_h();
+	s = 0;
 	while (1)
 	{
 		print_prompt();
 		line = get_next_line(0);
+		if (s == 130)
+		{
+			free(line);
+			set_sig();
+			return (FAILURE);
+		}
 		if (line == NULL)
 		{
 			if (isatty(0) == 1)
