@@ -49,7 +49,7 @@ void	ft_exit(char **a, t_ast *node, t_env *env)
 	{
 		printf("exit\n");
 		ft_message("exit: too many arguments\n");
-		sig = 2;
+		s = 2;
 		return ;
 	}
 	n = ft_atoi(a[1]);
@@ -57,4 +57,5 @@ void	ft_exit(char **a, t_ast *node, t_env *env)
 	exit_clean(node, env, (unsigned char)n);
 
 }
+
 
