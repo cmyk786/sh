@@ -12,7 +12,7 @@ int is_builtin(char *cmd)
     return (0);
 }
 
-int builtin(t_ast *node, t_env **env)
+int ex_builtin(t_ast *node, t_env **env)
 {
 	char	**argv;
 	
@@ -36,4 +36,5 @@ int builtin(t_ast *node, t_env **env)
     return (1);
 
 }
+
 
