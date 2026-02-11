@@ -26,7 +26,7 @@ int builtin(t_ast *node, t_env **env)
     if (!ft_strcmp(argv[0], "pwd"))
         return (ft_pwd());
     if (!ft_strcmp(argv[0], "export"))
-        return (export(argv, env));
+        return (ft_export(argv, env));
     if (!ft_strcmp(argv[0], "unset"))
         return (unset(argv, env));
     if (!ft_strcmp(argv[0], "env"))
@@ -36,3 +36,4 @@ int builtin(t_ast *node, t_env **env)
     return (1);
 
 }
+
