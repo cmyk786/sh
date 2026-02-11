@@ -8,6 +8,8 @@
 extern int	s;
 
 void	set_sig_child(void);
+void	set_sig_h(void);
+void	set_sig(void);
 void	sig_prompt(int sig);
 int		wait_child(pid_t pid);
 int		is_redir(t_tok_type type);
@@ -41,4 +43,5 @@ int		export_var(char *s, t_env **env);
 
 
 #endif
+
 
