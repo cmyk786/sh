@@ -5,7 +5,7 @@
 # include <sys/stat.h>
 # include "libft.h"
 
-extern int	sig;
+extern int	s;
 
 void	set_sig_child(void);
 int		wait_child(pid_t pid);
@@ -37,5 +37,6 @@ int		add_env_node(char *key, char *value, t_env **env);
 t_env	*check_key(char *key, t_env *env);
 int		set_env_value(char *key, char *value, t_env **env);
 int		export_var(char *s, t_env **env);
+
 
 #endif
