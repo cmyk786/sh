@@ -75,7 +75,7 @@ static int apply_append(t_redir *r)
 	return (0);
 }
 
-static int	apply_heredoc(t_redir *r)
+static int	apply_here_doc(t_redir *r)
 {
 	if (r->fd != -1)
 	{
@@ -102,8 +102,8 @@ int	apply_redir(t_ast *node)
 			val = apply_redir_out(r);
 		else if (r->type == APPEND)
 			val = apply_append(r);
-		else if (r->type == HEREDOC)
-			val = apply_heredoc(r);
+		else if (r->type == HERE_DOC)
+			val = apply_here_doc(r);
 		if (val)
 			return (val);
 		r = r->next;
@@ -111,4 +111,5 @@ int	apply_redir(t_ast *node)
 	return (0);
 
 }
+
 
