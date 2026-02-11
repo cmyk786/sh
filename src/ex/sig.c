@@ -22,3 +22,15 @@ void	sig_prompt(int sig)
 	rl_redisplay();
 
 }
+
+static void sig_handle(int sig)
+{
+	(void)sig;
+	write(2, "\n", 1);
+	s = 130;
+}
+
+void	set_sig_h(void)
+{
+	signal(SIGINT, sig_handle);
+}
