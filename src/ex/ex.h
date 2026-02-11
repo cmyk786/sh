@@ -8,6 +8,7 @@
 extern int	s;
 
 void	set_sig_child(void);
+void	sig_prompt(int sig);
 int		wait_child(pid_t pid);
 int		is_redir(t_tok_type type);
 int		apply_redir(t_ast *node);
@@ -24,7 +25,7 @@ int		echo(char **a);
 int		ft_pwd(void);
 int		unset(char **a, t_env **env);
 int		ft_env(t_env *env);
-int		export(char **arg, t_env **env);
+int		ft_export(char **arg, t_env **env);
 void	ft_exit(char **a, t_ast *node, t_env *env);
 int		env_size(t_env *env);
 t_env	*copy_env_node(t_env *env);
@@ -40,3 +41,4 @@ int		export_var(char *s, t_env **env);
 
 
 #endif
+
