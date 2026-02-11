@@ -57,7 +57,7 @@ static int apply_redir_out(t_redir *r)
 	return (0);
 }
 
-static int apply_dredir_out(t_redir *r)
+static int apply_append(t_redir *r)
 {
 	int fd;
 
@@ -75,7 +75,7 @@ static int apply_dredir_out(t_redir *r)
 	return (0);
 }
 
-static int	apply_dredir_in(t_redir *r)
+static int	apply_heredoc(t_redir *r)
 {
 	if (r->fd != -1)
 	{
@@ -96,14 +96,14 @@ int	apply_redir(t_ast *node)
 	val = 0;
 	while (r)
 	{
-		if (r->type == TOK_REDIR_IN)
+		if (r->type == REDIR_IN)
 			val = apply_redir_in(r);
-		else if (r->type == TOK_REDIR_OUT)
+		else if (r->type == REDIR_OUT)
 			val = apply_redir_out(r);
-		else if (r->type == TOK_DREDIR_OUT)
-			val = apply_dredir_out(r);
-		else if (r->type == TOK_DREDIR_IN)
-			val = apply_dredir_in(r);
+		else if (r->type == APPEND)
+			val = apply_append(r);
+		else if (r->type == HEREDOC)
+			val = apply_heredoc(r);
 		if (val)
 			return (val);
 		r = r->next;
@@ -111,3 +111,4 @@ int	apply_redir(t_ast *node)
 	return (0);
 
 }
+
