@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 13:30:54 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/05 22:23:58 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/14 22:14:18 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,18 @@ int	read_stdin(t_hd *data)
 	char	*line;
 
 	data->buffer = ft_calloc(sizeof(char), 1);
-	set_sig_h();
-	s = 0;
+	// set_sig_h();
+	// s = 0;
 	while (1)
 	{
 		print_prompt();
 		line = get_next_line(0);
-		if (s == 130)
-		{
-			free(line);
-			set_sig();
-			return (FAILURE);
-		}
+		// if (s == 130)
+		// {
+		// 	free(line);
+		// 	set_sig();
+		// 	return (FAILURE);
+		// }
 		if (line == NULL)
 		{
 			if (isatty(0) == 1)
