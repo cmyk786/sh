@@ -6,21 +6,20 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 21:36:45 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/14 22:22:17 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/14 22:42:11 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing_internal.h"
 
-t_ast	*ast_new_pipeline(t_pipeline *pipeline)
+t_ast	*ast_new_node(int type)
 {
 	t_ast	*node;
 
 	node = ft_calloc(1, sizeof(t_ast));
 	if (node == NULL)
 		return (NULL);
-	node->type = PIPELINE;
-	node->pipeline = pipeline;
+	node->type = type;
 	return (node);
 }
 

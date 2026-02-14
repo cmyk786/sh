@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 01:31:16 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/14 22:32:09 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/14 22:43:26 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	free_pipeline(t_pipeline **node);
 void	free_cmd(t_cmd **node);
 void	free_redir(t_redir **node);
 
-t_ast	*ast_new_pipeline(t_pipeline *pipeline);
+t_ast	*ast_new_node(int type);
 t_cmd	*ast_new_cmd(void);
 int		ast_new_simple_cmd(t_redir *redir, t_token *argv, t_cmd *cmd);
 

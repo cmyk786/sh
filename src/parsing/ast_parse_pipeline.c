@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/14 21:23:45 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/14 22:32:25 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/14 22:45:48 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,27 @@ t_ast	*parse_pipeline(t_token **tok, t_env *env)
 {
 	t_ast		*node;
 	t_pipeline	*pipeline;
+	t_cmd		*cmd;
 
+	cmd = parse_command(tok, env);
+	if (*tok == NULL || is_pipe(*tok) != TRUE)
+	{
+		node = ast_new_node(CMD);
+		if (node == NULL)
+			return (free_cmd(&cmd), NULL);
+		node->cmd = cmd;
+		return (node);
+	}
 	pipeline = new_pipeline_lst();
 	if (pipeline == NULL)
 		return (NULL);
-	pipeline->cmd = parse_command(tok, env);
-	if (pipeline->cmd == NULL)
-		return (free_pipeline(&pipeline), NULL);
+	pipeline->cmd = cmd;
 	if (parse_pipeline_tail(tok, env, pipeline) == FAILURE)
 		return (NULL);
-	node = ast_new_pipeline(pipeline);
+	node = ast_new_node(PIPELINE);
+	if (node == NULL)
+		return (NULL);
+	node->pipeline = pipeline;
 	return (node);
 }
 
