@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/01 21:34:50 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/10 20:59:39 by joloo            ###   ########.fr       */
+/*   Created: 2026/02/14 21:26:15 by joloo             #+#    #+#             */
+/*   Updated: 2026/02/14 22:09:10 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing_internal.h"
 
-t_ast	*parse_simple_command(t_token **tok, t_env *env)
+int	parse_simple_command(t_token **tok, t_env *env, t_cmd *cmd)
 {
 	t_redir	*redir;
 	t_token	*argv;
@@ -24,15 +24,15 @@ t_ast	*parse_simple_command(t_token **tok, t_env *env)
 		if (is_word(*tok) == TRUE)
 		{
 			if (parse_word(tok, env, &argv) == FAILURE)
-				return (free_redir(&redir), free_tokens(&argv), NULL);
+				return (free_redir(&redir), free_tokens(&argv), FAILURE);
 		}
 		else if (is_redir(*tok) == TRUE)
 		{
 			if (parse_redir(tok, env, &redir) == FAILURE)
-				return (free_redir(&redir), free_tokens(&argv), NULL);
+				return (free_redir(&redir), free_tokens(&argv), FAILURE);
 		}
 	}
-	return (ast_new_simple_cmd(redir, argv));
+	return (ast_new_simple_cmd(redir, argv, cmd));
 }
 
 int	parse_word(t_token **tok, t_env *env, t_token **dst)

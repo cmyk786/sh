@@ -43,29 +43,32 @@ void	print_argv(char **argv, int depth)
 
 /* AST */
 
-void	print_ast(t_ast *ast, int depth)
+void print_ast(t_ast *ast, int depth)
 {
+	t_pipeline *pipe;
+
 	if (ast == NULL)
-		return ;
+		return;
 
 	print_indent(depth);
 
-	if (ast->type == SIMPLE_CMD)
+	if (ast->type == CMD)
 	{
 		printf("SIMPLE_CMD\n");
-		print_argv(ast->simple_cmd.argv, depth + 1);
-		print_redir(ast->simple_cmd.redir, depth + 1);
+		print_argv(ast->cmd->simple_cmd.argv, depth + 1);
+		print_redir(ast->cmd->simple_cmd.redir, depth + 1);
 	}
 	else if (ast->type == PIPELINE)
 	{
 		printf("PIPELINE\n");
-
-		print_indent(depth);
-		printf("LEFT:\n");
-		print_ast(ast->control_op.left, depth + 1);
-
-		print_indent(depth);
-		printf("RIGHT:\n");
-		print_ast(ast->control_op.right, depth + 1);
+		pipe = ast->pipeline;
+		while (pipe)
+		{
+			print_indent(depth + 1);
+			printf("PIPE_ELEMENT\n");
+			print_argv(pipe->cmd->simple_cmd.argv, depth + 2);
+			print_redir(pipe->cmd->simple_cmd.redir, depth + 2);
+			pipe = pipe->next;
+		}
 	}
 }

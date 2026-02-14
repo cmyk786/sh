@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 19:36:37 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/10 21:00:25 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/14 21:56:18 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,14 @@
 
 typedef enum e_node_type
 {
-	SIMPLE_CMD,
+	CMD,
 	PIPELINE,
 }	t_node_type;
+
+typedef enum e_cmd_type
+{
+	SIMPLE_CMD,
+}	t_cmd_type;
 
 typedef struct s_redir
 {
@@ -35,19 +40,28 @@ typedef struct s_simple_cmd
 	char	**argv;
 }	t_simple_cmd;
 
-typedef struct s_control_op
+typedef struct s_cmd
 {
-	struct s_ast	*left;
-	struct s_ast	*right;
-}	t_control_op;
+	t_cmd_type		type;
+	union
+	{
+		t_simple_cmd simple_cmd;
+	};
+}	t_cmd;
+
+typedef struct s_pipeline
+{
+	t_cmd				*cmd;
+	struct s_pipeline	*next;
+}	t_pipeline;
 
 typedef struct s_ast
 {
-	t_node_type			type;
+	t_node_type		type;
 	union
 	{
-		t_simple_cmd	simple_cmd;
-		t_control_op	control_op;
+		t_cmd		*cmd;
+		t_pipeline	*pipeline;
 	};
 }	t_ast;
 

@@ -6,13 +6,23 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 21:07:40 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/03 01:30:45 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/14 22:11:31 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing_internal.h"
 
 void	free_ast(t_ast **node)
+{
+	(void) node;
+}
+
+void	free_pipeline(t_pipeline **node)
+{
+	(void) node;
+}
+
+void	free_cmd(t_cmd **node)
 {
 	(void) node;
 }
