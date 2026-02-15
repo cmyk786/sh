@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/14 21:23:45 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/14 22:45:48 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/15 13:30:39 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,10 @@ t_ast	*parse_pipeline(t_token **tok, t_env *env)
 	t_pipeline	*pipeline;
 	t_cmd		*cmd;
 
+	// todo: this function is really messy
 	cmd = parse_command(tok, env);
+	if (cmd == NULL)
+		return (NULL);
 	if (*tok == NULL || is_pipe(*tok) != TRUE)
 	{
 		node = ast_new_node(CMD);
