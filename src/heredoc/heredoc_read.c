@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 13:30:54 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/15 13:27:53 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/15 13:34:39 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@ int	read_stdin(t_hd *data)
 	if (data->buffer == NULL)
 		return (FAILURE);
 	if (read_stdin2(data) == FAILURE)
+	{
+		free_gnl(0);
+		return (FAILURE);
+	}
+	if (free_gnl(0) == FAILURE)
 		return (FAILURE);
 	return (SUCCESS);
 }
@@ -46,8 +51,6 @@ int	read_stdin2(t_hd *data)
 			return (free(line), FAILURE);
 		free(line);
 	}
-	if (free_gnl(0) == FAILURE)
-		return (FAILURE);
 	return (SUCCESS);
 }
 
@@ -82,7 +85,10 @@ int	free_gnl(int fd)
 
 	temp = dup(fd);
 	if (pipe(pipes) == -1)
+	{
+		ft_putstr_fd("free_gnl pipe creation failure", 2);
 		return (FAILURE);
+	}
 	dup2(pipes[1], fd);
 	get_next_line(fd);
 	dup2(temp, fd);
