@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:03:32 by joloo             #+#    #+#             */
-/*   Updated: 2026/01/30 18:24:18 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/15 20:55:42 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,6 +133,8 @@ int		find_nl_gnl(t_gnl *lst);
 char	*ft_substr_gnl(char *buffer, int start, int len);
 void	ft_realloc_gnl(char **buffer, int start, int old_size, int new_size);
 void	free_list_gnl(t_gnl *lst, t_gnl **head);
+
+char	*gnl_safe(int fd);
 
 // printf
 // int		ft_printf(const char *format, ...);

@@ -33,6 +33,7 @@ $(IO_DIR)/ft_putstr_fd.c \
 $(IO_DIR)/ft_putunbr.c \
 $(IO_DIR)/get_next_line_utils.c \
 $(IO_DIR)/get_next_line.c \
+$(IO_DIR)/gnl_safe.c \
 $(LIST_DIR)/ft_lstadd_back.c \
 $(LIST_DIR)/ft_lstadd_front.c \
 $(LIST_DIR)/ft_lstclear.c \
