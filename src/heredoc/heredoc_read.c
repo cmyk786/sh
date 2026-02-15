@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 13:30:54 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/14 22:14:18 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/15 13:27:53 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,29 @@
 
 int	read_stdin(t_hd *data)
 {
-	char	*line;
-
-	data->buffer = ft_calloc(sizeof(char), 1);
 	// set_sig_h();
 	// s = 0;
+	data->buffer = ft_calloc(sizeof(char), 1);
+	if (data->buffer == NULL)
+		return (FAILURE);
+	if (read_stdin2(data) == FAILURE)
+		return (FAILURE);
+	return (SUCCESS);
+}
+
+int	read_stdin2(t_hd *data)
+{
+	char	*line;
+
 	while (1)
 	{
 		print_prompt();
 		line = get_next_line(0);
 		// if (s == 130)
-		// {
-		// 	free(line);
-		// 	set_sig();
-		// 	return (FAILURE);
-		// }
+		// 	return (free(line), set_sig(), FAILURE);
 		if (line == NULL)
 		{
-			if (isatty(0) == 1)
-				printf("warning: heredoc EOF");
+			ft_putstr_fd("warning: heredoc EOF", 2);
 			break ;
 		}
 		if (check_delimiter(line, data->delimiter) == TRUE)
@@ -40,8 +44,8 @@ int	read_stdin(t_hd *data)
 		data->buffer = ft_strjoin_free(data->buffer, line);
 		if (data->buffer == NULL)
 			return (free(line), FAILURE);
+		free(line);
 	}
-	printf("%s\n", data->buffer);
 	if (free_gnl(0) == FAILURE)
 		return (FAILURE);
 	return (SUCCESS);
@@ -53,6 +57,7 @@ void	print_prompt(void)
 		ft_putstr_fd("> ", 1);
 }
 
+// frees line if TRUE cause line limit
 int	check_delimiter(char *line, char *delimiter)
 {
 	int	len;
@@ -66,6 +71,7 @@ int	check_delimiter(char *line, char *delimiter)
 		return (FALSE);
 	if (ft_strncmp(line, delimiter, ft_strlen(delimiter)) != 0)
 		return (FALSE);
+	free(line);
 	return (TRUE);
 }
 

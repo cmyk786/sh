@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 13:30:57 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/03 01:34:37 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/15 13:26:02 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ int		exp_hd_add_var(char *buffer, char **res, int *i, t_env *env);
 void	hd_free(t_hd *data);
 
 int		read_stdin(t_hd *data);
+int		read_stdin2(t_hd *data);
 void	print_prompt(void);
 int		check_delimiter(char *line, char *delimiter);
 int		free_gnl(int fd);
