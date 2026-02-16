@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 20:39:36 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/15 20:58:07 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/17 00:18:04 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,13 @@
 char	*gnl_safe(int fd)
 {
 	char	*res;
-	char	buf[1];
+	char	buf[2];
 	int		rc;
 
 	res = ft_calloc(1, sizeof(char));
 	if (res == NULL)
 		return (NULL);
+	buf[1] = '\0';
 	while (1)
 	{
 		rc = read(fd, buf, 1);
