@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 10:18:10 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/02 14:25:18 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/18 21:08:13 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,24 +60,8 @@ void	exp_print_tokens(t_token *head)
 		curr = curr->next;
 	}
 }
-// static int	exp_free_gnl(int fd)
-// {
-// 	int	pipes[2];
-// 	int	temp;
 
-// 	temp = dup(fd);
-// 	if (pipe(pipes) == -1)
-// 		return (FAILURE);
-// 	dup2(pipes[1], fd);
-// 	get_next_line(fd);
-// 	dup2(temp, fd);
-// 	close(pipes[1]);
-// 	close(pipes[0]);
-// 	close(temp);
-// 	return (SUCCESS);
-// }
-
-// // ./a.out '"$ERM"'
+// ./a.out '"$ERM"'
 // int	main(int argc, char **argv, char **envp)
 // {
 // 	t_env *env = env_init(envp);
@@ -87,11 +71,9 @@ void	exp_print_tokens(t_token *head)
 // 		split = ft_split(argv[1], ' ');
 // 	else
 // 	{
-// 		char *line = get_next_line(0);
-// 		line[ft_strlen(line) - 1] = '\0';
+// 		char *line = gnl_safe(0);
 // 		split = ft_split(line	, ' ');
 // 		free(line);
-// 		exp_free_gnl(0);
 // 	}
 // 	(void) argc;
 // 	int i = 0;
@@ -118,7 +100,7 @@ void	exp_print_tokens(t_token *head)
 // 			printf("%s\n", res[i]);
 // 		i++;
 // 	}
-// 	env_exp_free_all(&env);
-// 	ft_exp_free_str_arr(res);
+// 	env_free_all(&env);
+// 	ft_free_str_arr(res);
 // 	return (0);
 // }
