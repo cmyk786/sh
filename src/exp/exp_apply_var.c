@@ -6,64 +6,24 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 22:25:44 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/03 01:32:58 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/18 20:54:56 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "exp_internal.h"
 
-t_token	*exp_apply_var(t_exp *exp, t_token *curr)
+int	exp_apply_dquote_var(t_token **res, char *exp_value)
 {
-	t_token	*res;
-	char	*value;
+	t_token	*new;
 
-	res = NULL;
-	value = ft_strdup(env_get(exp->env, curr->value));
-	if (value == NULL)
-		return (NULL);
-	if (curr->type == DQUOTE_VAR)
-	{
-		res = exp_apply_dquote_var(value);
-	}
-	else if (curr->type == UNQUOTE_VAR)
-	{
-		exp->tok.type = UNQUOTE_VAR;
-		res = exp_apply_unquote_var(value);
-	}
-	exp_free_token(curr);
-	return (res);
+	new = create_node(exp_value, ft_strlen(exp_value), WORD);
+	if (new == NULL)
+		return (FAILURE);
+	exp_tokenadd_back(res, new);
+	return (SUCCESS);
 }
 
-t_token	*exp_apply_dquote_var(char *exp_value)
-{
-	t_token	*res;
-
-	res = create_node(exp_value, ft_strlen(exp_value), WORD);
-	return (res);
-}
-
-// value = "" will be added, filter later
-t_token	*exp_apply_unquote_var(char *exp_value)
-{
-	t_token	*res;
-	int		i;
-
-	res = NULL;
-	i = 0;
-	if (exp_value[0] == '\0')
-	{
-		if (exp_apply_unquote_add_word(&res, exp_value, &i) == FAILURE)
-			return (free(exp_value), exp_free_tokens(&res), NULL);
-	}
-	else
-	{
-		if (exp_apply_unquote_var_loop(&res, exp_value) == FAILURE)
-			return (NULL);
-	}
-	return (free(exp_value), res);
-}
-
-int	exp_apply_unquote_var_loop(t_token **res, char *exp_value)
+int	exp_apply_unquote_var(t_token **res, char *exp_value)
 {
 	int	i;
 
@@ -73,14 +33,14 @@ int	exp_apply_unquote_var_loop(t_token **res, char *exp_value)
 		if (ft_isspace(exp_value[i]) == TRUE)
 		{
 			if (add_delimiter(res) == FAILURE)
-				return (free(exp_value), exp_free_tokens(res), FAILURE);
+				return (FAILURE);
 			while (ft_isspace(exp_value[i]) == TRUE)
 				i++;
 		}
 		else
 		{
 			if (exp_apply_unquote_add_word(res, exp_value, &i) == FAILURE)
-				return (free(exp_value), exp_free_tokens(res), FAILURE);
+				return (FAILURE);
 		}
 	}
 	return (SUCCESS);

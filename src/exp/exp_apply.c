@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 21:35:31 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/02 14:25:24 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/18 20:58:20 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,53 +15,46 @@
 // apply expansion on tokens based on env
 int	exp_apply(t_exp *exp)
 {
-	t_token	*prev;
 	t_token	*curr;
-	t_token	*next;
 
 	curr = exp->tok.tokens;
-	prev = NULL;
 	while (curr != NULL)
 	{
 		if (curr->type == DQUOTE_VAR || curr->type == UNQUOTE_VAR)
 		{
-			next = curr->next;
-			curr = exp_apply_var(exp, curr);
-			if (curr == NULL)
+			if (exp_apply2(exp, &curr) == FAILURE)
 				return (FAILURE);
-			exp_apply_handle_ptr(exp, prev, curr, next);
-			curr = exp->tok.tokens;
-			prev = NULL;
 		}
 		else
-		{
-			prev = curr;
 			curr = curr->next;
-		}
 	}
 	return (SUCCESS);
 }
 
-void	exp_apply_handle_ptr(t_exp *exp, t_token *prev, t_token *curr,
-				t_token *next)
+// value = "" for unquoted is removed
+int	exp_apply2(t_exp *exp, t_token **curr)
 {
-	if (exp->tok.type == UNQUOTE_VAR && curr->value[0] == '\0')
+	t_token	*res;
+	char	*value;
+
+	res = NULL;
+	value = ft_strdup(env_get(exp->env, (*curr)->value));
+	if (value == NULL)
+		return (FAILURE);
+	if ((*curr)->type == DQUOTE_VAR)
 	{
-		if (prev == NULL)
-			exp->tok.tokens = next;
-		else
-			prev->next = next;
-		exp_free_token(curr);
-		exp->tok.type = WORD;
+		if (exp_apply_dquote_var(&res, value) == FAILURE)
+			return (exp_free_tokens(&res), free(value), FAILURE);
 	}
-	else
+	else if ((*curr)->type == UNQUOTE_VAR)
 	{
-		if (prev == NULL)
-			exp->tok.tokens = curr;
-		else
-			prev->next = curr;
-		while (curr != NULL && curr->next != NULL)
-			curr = curr->next;
-		curr->next = next;
+		if (value[0] != '\0')
+		{
+			if (exp_apply_unquote_var(&res, value) == FAILURE)
+				return (exp_free_tokens(&res), free(value), FAILURE);
+		}
 	}
+	*curr = exp_token_replace(*curr, res);
+	free(value);
+	return (SUCCESS);
 }

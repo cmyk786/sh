@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 16:40:37 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/02 14:24:17 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/17 21:38:09 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,19 +30,4 @@ t_token	*create_node(char *str, int len, int type)
 	}
 	node->type = type;
 	return (node);
-}
-
-void	exp_tokenadd_back(t_token **head, t_token *new)
-{
-	t_token	*temp;
-
-	if (*head == NULL)
-	{
-		*head = new;
-		return ;
-	}
-	temp = *head;
-	while (temp->next != NULL)
-		temp = temp->next;
-	temp->next = new;
 }
