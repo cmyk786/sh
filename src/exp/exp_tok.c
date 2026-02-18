@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 14:01:35 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/17 21:38:02 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/18 21:54:44 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,13 @@ int	exp_tok(t_exp *exp)
 	int	i;
 
 	i = 0;
-	if (add_delimiter(&exp->tok.tokens) == FAILURE)
-			return (FAILURE);
 	while (exp->tok.argv[i] != NULL)
 	{
 		exp->tok.in_squote = 0;
 		exp->tok.in_dquote = 0;
-		if (exp_tok_process(&exp->tok, exp->tok.argv[i]) == FAILURE)
-			return (FAILURE);
 		if (add_delimiter(&exp->tok.tokens) == FAILURE)
+			return (FAILURE);
+		if (exp_tok_process(&exp->tok, exp->tok.argv[i]) == FAILURE)
 			return (FAILURE);
 		i++;
 	}
