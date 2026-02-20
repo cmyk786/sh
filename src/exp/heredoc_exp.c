@@ -6,17 +6,38 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 17:46:57 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/20 22:18:57 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/20 22:56:27 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "exp_internal.h"
+#include "parsing.h"
 
+static char	*exp_hd_apply(char *buffer, t_env *env);
 static int	exp_hd_add_word(char *buffer, char **res, int *i);
 static int	exp_hd_add_var(char *buffer, char **res, int *i, t_env *env);
 
-// check if need to expand outside this
-char	*exp_hd(char *buffer, t_env *env)
+int	exp_hd(t_redir *node, t_env *env)
+{
+	int	fd[2];
+
+	if (node->heredoc.expand == TRUE)
+	{
+		node->heredoc.line = exp_hd_apply(node->heredoc.line, env);
+		if (node->heredoc.line == NULL)
+			return (FAILURE);
+	}
+	if (pipe(fd) == -1)
+		return (FAILURE);
+	if (write(fd[1], node->heredoc.line,
+		ft_strlen(node->heredoc.line)) == -1)
+		return (close(fd[0]), close(fd[1]), FAILURE);
+	node->fd = fd[0];
+	close(fd[1]);
+	return (SUCCESS);
+}
+
+static char	*exp_hd_apply(char *buffer, t_env *env)
 {
 	char	*res;
 	int		i;
@@ -30,12 +51,12 @@ char	*exp_hd(char *buffer, t_env *env)
 		if (buffer[i] != '$')
 		{
 			if (exp_hd_add_word(buffer, &res, &i) == FAILURE)
-				return (free(res), NULL);
+				return (free(res), free(buffer), NULL);
 		}
 		else
 		{
 			if (exp_hd_add_var(buffer, &res, &i, env) == FAILURE)
-				return (free(res), NULL);
+				return (free(res), free(buffer), NULL);
 		}
 	}
 	free(buffer);
