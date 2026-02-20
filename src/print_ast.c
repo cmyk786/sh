@@ -1,6 +1,6 @@
 
 // ai generated
-#include "parsing_internal.h"
+#include "../includes/minishell.h"
 
 /* helpers */
 

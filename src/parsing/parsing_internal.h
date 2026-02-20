@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 01:31:16 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/20 22:25:54 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/20 22:40:29 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,6 @@ int		token_size(t_token *token);
 char	**token_to_arr(t_token *token);
 
 t_ast	*ast_new(t_token **tok);
-
-int		parse_ast(t_token *tok, t_ast **root);
-
-void	print_ast(t_ast *ast, int depth);
 
 void	syntax_err(t_token *tok);
 #endif

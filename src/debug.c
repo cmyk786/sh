@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   debug.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/01 21:38:18 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/20 22:36:58 by joloo            ###   ########.fr       */
+/*   Created: 2026/02/20 22:37:13 by joloo             #+#    #+#             */
+/*   Updated: 2026/02/20 22:37:24 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parsing_internal.h"
+#include "../includes/minishell.h"
 
-int	parse_ast(t_token *tok, t_ast **root)
+void	print_tokens(t_token *head)
 {
-	t_token	*temp;
+	t_token	*curr;
+	char	*lookup[6];
 
-	temp = tok;
-	*root = ast_new(&temp);
-	if (*root == NULL)
-		return (FAILURE);
-	return (SUCCESS);
+	curr = head;
+	lookup[0] = "HERE_DOC";
+	lookup[1] = "APPEND";
+	lookup[2] = "REDIR_IN";
+	lookup[3] = "REDIR_OUT";
+	lookup[4] = "PIPE";
+	lookup[5] = "WORD";
+	while (curr != NULL)
+	{
+		printf("type: %s", lookup[curr->type]);
+		printf(", value: %s\n", curr->value);
+		curr = curr->next;
+	}
 }
-

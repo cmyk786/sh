@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/01 21:38:18 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/20 22:36:58 by joloo            ###   ########.fr       */
+/*   Created: 2026/02/20 22:28:33 by joloo             #+#    #+#             */
+/*   Updated: 2026/02/20 22:39:13 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parsing_internal.h"
+#ifndef MINISHELL_H
+# define MINISHELL_H
 
-int	parse_ast(t_token *tok, t_ast **root)
+# include "env.h"
+# include "parsing.h"
+# include "libft.h"
+typedef struct s_msh
 {
-	t_token	*temp;
+	char	*input;
+	t_env	*env;
+	t_token	*tokens;
+	t_ast	*ast;
+}	t_msh;
 
-	temp = tok;
-	*root = ast_new(&temp);
-	if (*root == NULL)
-		return (FAILURE);
-	return (SUCCESS);
-}
+void	print_tokens(t_token *head);
 
+void	free_all(t_msh *data);
+void	free_part(t_msh *data);
+
+void	msh_loop(t_msh *data);
+
+void	print_ast(t_ast *ast, int depth);
+
+#endif

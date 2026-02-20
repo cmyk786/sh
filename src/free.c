@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/01 21:38:18 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/20 22:36:58 by joloo            ###   ########.fr       */
+/*   Created: 2026/02/20 22:34:51 by joloo             #+#    #+#             */
+/*   Updated: 2026/02/20 22:36:36 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parsing_internal.h"
+#include "../includes/minishell.h"
 
-int	parse_ast(t_token *tok, t_ast **root)
+// free all including env
+// use when exit
+void	free_all(t_msh *data)
 {
-	t_token	*temp;
-
-	temp = tok;
-	*root = ast_new(&temp);
-	if (*root == NULL)
-		return (FAILURE);
-	return (SUCCESS);
+	(void) data;
 }
 
+// free to begin another msh loop
+void	free_part(t_msh *data)
+{
+	(void) data;
+}
