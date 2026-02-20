@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 22:28:22 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/20 22:41:50 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/20 22:43:14 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,5 @@ void	msh_loop(t_msh *data)
 			continue ;
 		}
     	print_ast(data->ast, 0);
-		msh_loop(data);
 	}
 }
