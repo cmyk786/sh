@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 19:36:37 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/10 21:00:25 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/20 21:38:29 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,21 @@ typedef enum e_node_type
 	PIPELINE,
 }	t_node_type;
 
+typedef struct s_heredoc
+{
+	char	*line;
+	int		expand;
+}	t_heredoc;
+
 typedef struct s_redir
 {
 	t_token_type	type;
 	int				fd;
-	char			*word;
+	union
+	{
+		char		*word;
+		t_heredoc	heredoc;
+	};
 	struct s_redir	*next;
 }	t_redir;
 
