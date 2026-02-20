@@ -6,14 +6,14 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 19:36:37 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/20 22:40:46 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/20 23:12:41 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PARSING_H
 # define PARSING_H
 
-# include "tokenize.h"
+typedef struct s_token		t_token;
 
 typedef enum e_node_type
 {
@@ -29,7 +29,7 @@ typedef struct s_heredoc
 
 typedef struct s_redir
 {
-	t_token_type	type;
+	int				type;
 	int				fd;
 	union
 	{

@@ -6,12 +6,12 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 17:46:57 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/20 22:56:27 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/20 23:10:06 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "exp_internal.h"
-#include "parsing.h"
+#include "../../includes/parsing.h"
 
 static char	*exp_hd_apply(char *buffer, t_env *env);
 static int	exp_hd_add_word(char *buffer, char **res, int *i);

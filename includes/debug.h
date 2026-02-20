@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   debug.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/20 22:28:33 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/20 23:14:09 by joloo            ###   ########.fr       */
+/*   Created: 2026/02/20 23:08:05 by joloo             #+#    #+#             */
+/*   Updated: 2026/02/20 23:09:06 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#ifndef DEBUG_H
+# define DEBUG_H
 
-typedef struct s_env   t_env;
-typedef struct s_token t_token;
-typedef struct s_ast   t_ast;
+typedef struct s_token	t_token;
+typedef struct s_ast	t_ast;
 
-typedef struct s_msh
-{
-	char	*input;
-	t_env	*env;
-	t_token	*tokens;
-	t_ast	*ast;
-}	t_msh;
-
-void	free_all(t_msh *data);
-void	free_part(t_msh *data);
+void	print_tokens(t_token *head);
+void	print_ast(t_ast *ast, int depth);
 
 #endif

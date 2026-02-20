@@ -6,11 +6,18 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 22:28:22 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/20 23:04:40 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/20 23:14:38 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
+# include "../includes/env.h"
+# include "../includes/tokenize.h"
+# include "../includes/parsing.h"
+# include "../includes/libft.h"
+# include "../includes/debug.h"
+
+void	msh_loop(t_msh *data);
 
 int    main(int argc, char **argv, char **envp)
 {
