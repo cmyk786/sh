@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:03:32 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/15 20:55:42 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/20 22:40:06 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,5 +149,21 @@ char	*gnl_safe(int fd);
 // int		ft_printf_str_arr(va_list args);
 // int		ft_printf_gnl(va_list args);
 // char	*ft_vstrjoin(int count, ...);
+
+# ifndef SUCCESS
+#  define SUCCESS 1
+# endif
+
+# ifndef FAILURE
+#  define FAILURE 0
+# endif
+
+# ifndef TRUE
+#  define TRUE 1
+# endif
+
+# ifndef FALSE
+#  define FALSE 0
+# endif
 
 #endif
