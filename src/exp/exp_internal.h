@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 10:18:25 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/18 20:58:59 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/20 21:52:37 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,4 +100,6 @@ int		exp_tok_process(t_exp_tok *tok, char *str);
 int		exp_tok_call(t_exp_tok *tok, char *str, int *i);
 
 void	exp_print_tokens(t_token *head);
+
+char	*exp_hd(char *buffer, t_env *env);
 #endif

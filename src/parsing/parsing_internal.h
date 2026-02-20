@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 01:31:16 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/20 21:25:17 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/20 22:16:53 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include "../../includes/parsing.h"
 # include "libft.h"
 # include "../../includes/env.h"
-# include "../../includes/heredoc.h"
 # include "../../includes/tokenize.h"
 
 # ifndef SUCCESS
@@ -45,6 +44,12 @@ t_ast	*ast_new_control(t_ast *left, t_ast *right, int type);
 t_ast	*ast_new_simple_cmd(t_redir *redir, t_token *argv);
 
 t_ast	*parse_command(t_token **tok, t_env *env);
+
+int		heredoc(t_heredoc *heredoc, char *raw_delim);
+int		hd_check_quotes(t_heredoc *heredoc, char *raw_delim, char **delim);
+int		hd_read_stdin(t_heredoc *heredoc, char *delim);
+int		hd_read_stdin2(t_heredoc *heredoc, char *delim);
+int		hd_check_delim(char *line, char *delim);
 
 t_ast	*parse_pipeline(t_token **tok, t_env *env);
 t_ast	*parse_pipeline_tail(t_token **tok, t_env *env, t_ast *left);

@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 21:34:50 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/10 20:59:39 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/20 22:17:25 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int	parse_word(t_token **tok, t_env *env, t_token **dst)
 
 int	parse_redir(t_token **tok, t_env *env, t_redir **dst)
 {
+	(void) env;
 	t_redir	*node;
 
 	node = ft_calloc(1, sizeof(t_redir));
@@ -54,16 +55,18 @@ int	parse_redir(t_token **tok, t_env *env, t_redir **dst)
 	advance_tok(tok);
 	if (*tok == NULL || is_word(*tok) != TRUE)
 		return (syntax_err(*tok), free_redir(&node), FAILURE);
-	node->word = ft_strdup((*tok)->value);
-	if (node->word == NULL)
-		return (free_redir(&node), FAILURE);
-	advance_tok(tok);
 	if (node->type == HERE_DOC)
 	{
-		node->fd = heredoc(node->word, env);
-		if (node->fd == -1)
+		if (heredoc(&(node->heredoc), (*tok)->value) == FAILURE)
 			return (free_redir(&node), FAILURE);
 	}
+	else
+	{
+		node->word = ft_strdup((*tok)->value);
+		if (node->word == NULL)
+			return (free_redir(&node), FAILURE);
+	}
+	advance_tok(tok);
 	rediradd_back(dst, node);
 	return (SUCCESS);
 }

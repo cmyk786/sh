@@ -15,18 +15,30 @@ void	print_indent(int depth)
 
 /* redirections */
 
-void	print_redir(t_redir *redir, int depth)
+void print_redir(t_redir *redir, int depth)
 {
 	while (redir)
 	{
 		print_indent(depth);
-		printf("REDIR type=%d fd=%d word=%s\n",
-			redir->type,
-			redir->fd,
-			redir->word);
+		if (redir->type == HERE_DOC)
+		{
+			printf("REDIR type=%d fd=%d heredoc.line=%s expand=%d\n",
+				redir->type,
+				redir->fd,
+				redir->heredoc.line,
+				redir->heredoc.expand);
+		}
+		else
+		{
+			printf("REDIR type=%d fd=%d word=%s\n",
+				redir->type,
+				redir->fd,
+				redir->word);
+		}
 		redir = redir->next;
 	}
 }
+
 
 /* argv */
 
