@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 22:28:22 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/20 22:43:14 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/20 23:04:40 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,14 @@ int    main(int argc, char **argv, char **envp)
 	data.env = env_init(envp);
 	env_set_simple(data.env, "test=a   a");
 	msh_loop(&data);
-	return (69);
+	return (0);
 }
 
 void	msh_loop(t_msh *data)
 {
 	while (1)
 	{
+		// replace with readline
 		write (1, "minishell > ", 12);
     	data->input = gnl_safe(0);
     	data->tokens = tokenize(data->input);
@@ -44,5 +45,7 @@ void	msh_loop(t_msh *data)
 			continue ;
 		}
     	print_ast(data->ast, 0);
+		// execution
+		free_part(data);
 	}
 }

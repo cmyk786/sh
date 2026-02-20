@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 22:28:33 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/20 22:39:13 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/20 23:05:53 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct s_msh
 
 void	print_tokens(t_token *head);
 
+// make a free.h so execution doesn't need to #include minishell.h?
 void	free_all(t_msh *data);
 void	free_part(t_msh *data);
 
