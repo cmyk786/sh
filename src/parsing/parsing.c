@@ -6,18 +6,18 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 21:38:18 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/03 01:30:57 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/20 22:27:14 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing_internal.h"
 
-int	parse_ast(t_token *tok, t_env *env, t_ast **root)
+int	parse_ast(t_token *tok, t_ast **root)
 {
 	t_token	*temp;
 
 	temp = tok;
-	*root = ast_new(&temp, env);
+	*root = ast_new(&temp);
 	if (*root == NULL)
 		return (FAILURE);
 	return (SUCCESS);
@@ -60,28 +60,28 @@ static void	print_tokens(t_token *head)
 	}
 }
 
-int	main(int argc, char **argv, char **envp)
+# include "../../includes/env.h"
+int    main(int argc, char **argv, char **envp)
 {
-	(void) argc;
-	t_env *env = env_init(envp);
-	env_set_simple(env, "test=a   a");
-	char *line;
-	if (argv[1] != NULL)
-		line = argv[1];
-	else
-	{
-		line = get_next_line(0);
-		free_gnl(0);
-	}
-	t_token *tok;
-	tok = tokenize(line);
-	if (tok == NULL)
-		return (printf("tok NULL\n"), 1);
-	print_tokens(tok);
-	t_ast *root = NULL;
-	if (parse_ast(tok, env, &root) == FAILURE)
-		return (printf("parse_ast fail\n"), 1);
-	print_ast(root, 0);
-	return (0);
+    (void) argc;
+    t_env *env = env_init(envp);
+    env_set_simple(env, "test=a   a");
+    char *line;
+    if (argv[1] != NULL)
+        line = argv[1];
+    else
+    {
+        line = get_next_line(0);
+        free_gnl(0);
+    }
+    t_token *tok;
+    tok = tokenize(line);
+    if (tok == NULL)
+        return (printf("tok NULL\n"), 1);
+    print_tokens(tok);
+    t_ast *root = NULL;
+    if (parse_ast(tok, &root) == FAILURE)
+        return (printf("parse_ast fail\n"), 1);
+    print_ast(root, 0);
+    return (0);
 }
-

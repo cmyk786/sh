@@ -6,13 +6,13 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 20:57:28 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/02 00:03:02 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/20 22:25:41 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing_internal.h"
 
-t_ast	*ast_new(t_token **tok, t_env *env)
+t_ast	*ast_new(t_token **tok)
 {
-	return (parse_pipeline(tok, env));
+	return (parse_pipeline(tok));
 }

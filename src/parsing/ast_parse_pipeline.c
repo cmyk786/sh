@@ -6,23 +6,23 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 21:08:12 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/20 21:25:12 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/20 22:25:41 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing_internal.h"
 
-t_ast	*parse_pipeline(t_token **tok, t_env *env)
+t_ast	*parse_pipeline(t_token **tok)
 {
 	t_ast	*node;
 
-	node = parse_command(tok, env);
+	node = parse_command(tok);
 	if (node == NULL)
 		return (NULL);
-	return (parse_pipeline_tail(tok, env, node));
+	return (parse_pipeline_tail(tok, node));
 }
 
-t_ast	*parse_pipeline_tail(t_token **tok, t_env *env, t_ast *left)
+t_ast	*parse_pipeline_tail(t_token **tok, t_ast *left)
 {
 	t_ast	*right;
 	t_ast	*node;
@@ -32,11 +32,11 @@ t_ast	*parse_pipeline_tail(t_token **tok, t_env *env, t_ast *left)
 	if (is_pipe(*tok) != TRUE)
 		return (left);
 	advance_tok(tok);
-	right = parse_command(tok, env);
+	right = parse_command(tok);
 	if (right == NULL)
 		return (free_ast(&left), NULL);
 	node = ast_new_control(left, right, PIPELINE);
 	if (node == NULL)
 		return (free_ast(&left), free_ast(&right), NULL);
-	return (parse_pipeline_tail(tok, env, node));
+	return (parse_pipeline_tail(tok, node));
 }

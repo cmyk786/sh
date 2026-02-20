@@ -6,13 +6,13 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 21:34:50 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/20 22:17:25 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/20 22:25:51 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing_internal.h"
 
-t_ast	*parse_simple_command(t_token **tok, t_env *env)
+t_ast	*parse_simple_command(t_token **tok)
 {
 	t_redir	*redir;
 	t_token	*argv;
@@ -23,28 +23,26 @@ t_ast	*parse_simple_command(t_token **tok, t_env *env)
 	{
 		if (is_word(*tok) == TRUE)
 		{
-			if (parse_word(tok, env, &argv) == FAILURE)
+			if (parse_word(tok, &argv) == FAILURE)
 				return (free_redir(&redir), free_tokens(&argv), NULL);
 		}
 		else if (is_redir(*tok) == TRUE)
 		{
-			if (parse_redir(tok, env, &redir) == FAILURE)
+			if (parse_redir(tok, &redir) == FAILURE)
 				return (free_redir(&redir), free_tokens(&argv), NULL);
 		}
 	}
 	return (ast_new_simple_cmd(redir, argv));
 }
 
-int	parse_word(t_token **tok, t_env *env, t_token **dst)
+int	parse_word(t_token **tok, t_token **dst)
 {
 	token_move(tok, dst);
-	(void) env;
 	return (SUCCESS);
 }
 
-int	parse_redir(t_token **tok, t_env *env, t_redir **dst)
+int	parse_redir(t_token **tok, t_redir **dst)
 {
-	(void) env;
 	t_redir	*node;
 
 	node = ft_calloc(1, sizeof(t_redir));
