@@ -5,79 +5,38 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/14 21:23:45 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/15 13:30:39 by joloo            ###   ########.fr       */
+/*   Created: 2026/02/01 21:08:12 by joloo             #+#    #+#             */
+/*   Updated: 2026/02/20 21:25:12 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing_internal.h"
 
-static t_pipeline *new_pipeline_lst(void)
-{
-	t_pipeline	*node;
-
-	node = ft_calloc(1, sizeof(t_pipeline));
-	return (node);
-}
-
 t_ast	*parse_pipeline(t_token **tok, t_env *env)
 {
-	t_ast		*node;
-	t_pipeline	*pipeline;
-	t_cmd		*cmd;
+	t_ast	*node;
 
-	// todo: this function is really messy
-	cmd = parse_command(tok, env);
-	if (cmd == NULL)
-		return (NULL);
-	if (*tok == NULL || is_pipe(*tok) != TRUE)
-	{
-		node = ast_new_node(CMD);
-		if (node == NULL)
-			return (free_cmd(&cmd), NULL);
-		node->cmd = cmd;
-		return (node);
-	}
-	pipeline = new_pipeline_lst();
-	if (pipeline == NULL)
-		return (NULL);
-	pipeline->cmd = cmd;
-	if (parse_pipeline_tail(tok, env, pipeline) == FAILURE)
-		return (NULL);
-	node = ast_new_node(PIPELINE);
+	node = parse_command(tok, env);
 	if (node == NULL)
 		return (NULL);
-	node->pipeline = pipeline;
-	return (node);
+	return (parse_pipeline_tail(tok, env, node));
 }
 
-static void	pipeline_addback(t_pipeline *head, t_pipeline *new)
+t_ast	*parse_pipeline_tail(t_token **tok, t_env *env, t_ast *left)
 {
-	t_pipeline	*temp;
-
-	temp = head;
-	while (temp->next != NULL)
-		temp = temp->next;
-	temp->next = new;
-}
-
-int	parse_pipeline_tail(t_token **tok, t_env *env, t_pipeline *node)
-{
-	t_pipeline	*new;
+	t_ast	*right;
+	t_ast	*node;
 
 	if (*tok == NULL)
-		return (SUCCESS);
+		return (left);
 	if (is_pipe(*tok) != TRUE)
-		return (SUCCESS);
-	new = new_pipeline_lst();
-	if (node == NULL)
-		return (free_pipeline(&node), FAILURE);
+		return (left);
 	advance_tok(tok);
-	new->cmd = parse_command(tok, env);
-	if (new->cmd == NULL)
-		return (free_pipeline(&new), free_pipeline(&node), FAILURE);
-	pipeline_addback(node, new);
-	if (parse_pipeline_tail(tok, env, node) == FAILURE)
-		return (FAILURE);
-	return (SUCCESS);
+	right = parse_command(tok, env);
+	if (right == NULL)
+		return (free_ast(&left), NULL);
+	node = ast_new_control(left, right, PIPELINE);
+	if (node == NULL)
+		return (free_ast(&left), free_ast(&right), NULL);
+	return (parse_pipeline_tail(tok, env, node));
 }

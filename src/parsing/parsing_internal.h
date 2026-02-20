@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 01:31:16 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/14 22:43:26 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/20 21:25:17 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,20 +39,17 @@ int		is_redir(t_token *tok);
 int		is_pipe(t_token *tok);
 int		is_word(t_token *tok);
 
-void	free_pipeline(t_pipeline **node);
-void	free_cmd(t_cmd **node);
 void	free_redir(t_redir **node);
 
-t_ast	*ast_new_node(int type);
-t_cmd	*ast_new_cmd(void);
-int		ast_new_simple_cmd(t_redir *redir, t_token *argv, t_cmd *cmd);
+t_ast	*ast_new_control(t_ast *left, t_ast *right, int type);
+t_ast	*ast_new_simple_cmd(t_redir *redir, t_token *argv);
 
-t_cmd	*parse_command(t_token **tok, t_env *env);
+t_ast	*parse_command(t_token **tok, t_env *env);
 
 t_ast	*parse_pipeline(t_token **tok, t_env *env);
-int	parse_pipeline_tail(t_token **tok, t_env *env, t_pipeline *node);
+t_ast	*parse_pipeline_tail(t_token **tok, t_env *env, t_ast *left);
 
-int	parse_simple_command(t_token **tok, t_env *env, t_cmd *cmd);
+t_ast	*parse_simple_command(t_token **tok, t_env *env);
 int		parse_word(t_token **tok, t_env *env, t_token **dst);
 int		parse_redir(t_token **tok, t_env *env, t_redir **dst);
 
