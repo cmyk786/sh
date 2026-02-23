@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 10:18:10 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/18 21:08:13 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/23 20:14:03 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,29 @@ int	expand(char ***argv, t_env *env)
 	return (SUCCESS);
 }
 
-int	expand_redir(char ***res, char *str, t_env *env)
+// doesnt free str on failure
+int	expand_redir(char **str, t_env *env)
 {
-	*res = ft_calloc(sizeof(char *), 2);
-	if (*res == NULL)
+	int		len;
+	char	**temp;
+
+	temp = ft_calloc(sizeof(char *), 2);
+	if (temp == NULL)
 		return (FAILURE);
-	(*res)[0] = str;
-	if (expand(res, env) == FAILURE)
-		return (FAILURE);
+	temp[0] = ft_strdup(*str);
+	if (temp[0] == NULL)
+		return (ft_free_str_arr(temp), FAILURE);
+	if (expand(&temp, env) == FAILURE)
+		return (ft_free_str_arr(temp), FAILURE);
+	len = ft_strarr_len(temp);
+	if (len != 1)
+	{
+		printf(" %s: ambigous redirect\n", *str);
+		return (ft_free_str_arr(temp), FAILURE);
+	}
+	free(*str);
+	*str = temp[0];
+	free(temp);
 	return (SUCCESS);
 }
 
