@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 22:28:22 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/20 23:14:38 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/23 19:54:00 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void	msh_loop(t_msh *data)
     	if (data->tokens == NULL)
       	{
 			free_part(data);
+			// maybe replace continue with another msh_loop call?
 			continue ;
 		}
     	print_tokens(data->tokens);
