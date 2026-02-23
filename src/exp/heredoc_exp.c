@@ -6,11 +6,12 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 17:46:57 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/20 23:10:06 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/23 19:46:54 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "exp_internal.h"
+#include "libft.h"
+#include "../../includes/env.h"
 #include "../../includes/parsing.h"
 
 static char	*exp_hd_apply(char *buffer, t_env *env);

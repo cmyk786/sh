@@ -6,14 +6,14 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 19:36:37 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/20 23:12:41 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/23 19:45:09 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PARSING_H
 # define PARSING_H
 
-typedef struct s_token		t_token;
+# include "tokenize.h"
 
 typedef enum e_node_type
 {
