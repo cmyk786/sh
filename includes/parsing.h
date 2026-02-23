@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/04 19:36:37 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/23 19:45:09 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/23 19:51:38 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct s_heredoc
 
 typedef struct s_redir
 {
-	int				type;
+	t_token_type	type;
 	int				fd;
 	union
 	{
