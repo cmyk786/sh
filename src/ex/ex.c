@@ -65,6 +65,6 @@ int	ex_cmd(t_ast *node, t_env **env)
     }
     set_fd(in_fd, out_fd);
     return (wait_child(pid));
-
 }
+
 
