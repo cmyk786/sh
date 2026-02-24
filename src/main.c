@@ -37,8 +37,14 @@ void	msh_loop(t_msh *data)
 	while (1)
 	{
 		// replace with readline
-		write (1, "minishell > ", 12);
-    	data->input = gnl_safe(0);
+    	data->input = readline("minishell$");
+		if (!data->input)
+		{
+			printf("exit\n");
+			break ;
+		}
+		if (*data->input)
+			add_history(data->input);
     	data->tokens = tokenize(data->input);
     	if (data->tokens == NULL)
       	{
