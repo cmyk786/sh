@@ -6,16 +6,16 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 22:28:33 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/20 23:14:09 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/27 15:16:43 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
 
-typedef struct s_env   t_env;
-typedef struct s_token t_token;
-typedef struct s_ast   t_ast;
+typedef struct s_env	t_env;
+typedef struct s_token	t_token;
+typedef struct s_ast	t_ast;
 
 typedef struct s_msh
 {

@@ -6,13 +6,13 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 20:51:12 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/10 20:58:38 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/27 15:15:38 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing_internal.h"
 
-int		token_size(t_token *token)
+int	token_size(t_token *token)
 {
 	int	i;
 

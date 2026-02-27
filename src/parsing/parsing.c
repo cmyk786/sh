@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 21:38:18 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/20 22:36:58 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/27 15:15:32 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,3 @@ int	parse_ast(t_token *tok, t_ast **root)
 		return (FAILURE);
 	return (SUCCESS);
 }
-

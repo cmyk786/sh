@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 17:46:57 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/23 19:52:13 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/27 15:16:58 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	exp_hd(t_redir *node, t_env *env)
 	if (pipe(fd) == -1)
 		return (FAILURE);
 	if (write(fd[1], node->heredoc.line,
-		ft_strlen(node->heredoc.line)) == -1)
+			ft_strlen(node->heredoc.line)) == -1)
 		return (close(fd[0]), close(fd[1]), FAILURE);
 	node->fd = fd[0];
 	close(fd[1]);
