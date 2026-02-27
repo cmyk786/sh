@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 21:02:27 by joloo             #+#    #+#             */
-/*   Updated: 2026/01/14 10:05:38 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/27 17:57:56 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,41 @@ t_env	*env_init(char **envp)
 		i++;
 	}
 	return (head);
+}
+
+static int	env_size(t_env *env)
+{
+	int	i;
+
+	i = 0;
+	while (env != NULL)
+	{
+		env = env->next;
+		i++;
+	}
+	return (i);
+}
+
+char **env_to_arr(t_env *env)
+{
+	char	**envp;
+	int		size;
+	int		i;
+
+	env = env->next;
+	size = env_size(env);
+	envp = ft_calloc(sizeof(char *), (size + 1));
+	if (envp == NULL)
+		return (NULL);
+	i = 0;
+	while (i < size)
+	{
+		envp[i] = ft_strjoin_three(env->key, "=", env->value);
+		if (envp[i] == NULL)
+			return (ft_free_str_arr(envp), NULL);
+		env = env->next;
+		i++;
+	}
+	envp[i] = NULL;
+	return (envp);
 }

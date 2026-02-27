@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 21:03:23 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/02 14:28:03 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/27 17:56:22 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 #  define FAILURE 0
 # endif
 
-// first node must be value=? for the lifespan of env
+// first node must be key=? for the lifespan of env
 typedef struct s_env
 {
 	char			*key;
