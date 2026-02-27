@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 21:34:50 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/20 22:25:51 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/27 12:42:03 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,17 @@ t_ast	*parse_simple_command(t_token **tok)
 
 int	parse_word(t_token **tok, t_token **dst)
 {
-	token_move(tok, dst);
+	t_token	*node;
+
+	node = ft_calloc(1, sizeof(t_token));
+	if (node == NULL)
+		return (FAILURE);
+	node->type = (*tok)->type;
+	node->value = ft_strdup((*tok)->value);
+	if (node->value == NULL)
+		return (free_tokens(&node), FAILURE);
+	tokenadd_back(dst, node);
+	advance_tok(tok);
 	return (SUCCESS);
 }
 
