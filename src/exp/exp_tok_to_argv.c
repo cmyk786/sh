@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 13:45:10 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/27 13:41:38 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/03 01:32:06 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,49 +23,44 @@ static int	has_words_left(t_token *lst)
 	return (FALSE);
 }
 
-static char	*add_words(t_token **lst)
+static int	add_words(t_token **lst, char **res)
 {
-	char *str;
-
-	str = ft_calloc(1, sizeof(char));
-	if (str == NULL)
+	*res = ft_calloc(1, sizeof(char));
+	if (*res == NULL)
 		return (FAILURE);
 	while (*lst != NULL && (*lst)->type != DELIMITER)
 	{
 		if ((*lst)->type == WORD)
 		{
-			str = ft_strjoin_free(str, (*lst)->value);
-			if (str == NULL)
+			*res = ft_strjoin_free(*res, (*lst)->value);
+			if (*res == NULL)
 				return (FAILURE);
 		}
 		*lst = (*lst)->next;
 	}
-	return (str);
+	return (SUCCESS);
 }
 
-int	token_to_argv(char ***argv, t_token *lst)
+int	token_to_argv(char ***res, t_token *lst)
 {
-	char 	**res;
-	char	*str;
+	int		i;
 
-	res = ft_calloc(1, sizeof(char *));
-	if (res == NULL)
-		return (FAILURE);
+	*res = NULL;
+	i = 0;
 	while (has_words_left(lst) == TRUE)
 	{
 		while (lst != NULL && lst->type == DELIMITER)
 			lst = lst->next;
 		if (lst == NULL)
 			break ;
-		str = add_words(&lst);
-		if (str == NULL)
-			return (ft_free_str_arr(res), FAILURE);
-		res = ft_strarrjoin_free(res, str);
-		if (res == NULL)
-			return (free(str), FAILURE);
-		printf("%s\n", res[0]);
-		printf("%p\n", res[1]);
+		*res = ft_realloc(*res, 0,
+				sizeof(char *) * (i + 1), sizeof(char *) * (i + 2));
+		if (*res == NULL)
+			return (FAILURE);
+		(*res)[i + 1] = NULL;
+		if (add_words(&lst, &((*res)[i])) == FAILURE)
+			return (ft_free_str_arr(*res), FAILURE);
+		i++;
 	}
-	*argv = res;
 	return (SUCCESS);
 }
