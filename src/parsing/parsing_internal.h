@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 01:31:16 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/20 22:40:29 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/27 15:00:14 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ int		parse_redir(t_token **tok, t_redir **dst);
 
 void	advance_tok(t_token **tok);
 void	tokenadd_back(t_token **head, t_token *new);
-void	token_move(t_token **src, t_token **dst);
 void	rediradd_back(t_redir **head, t_redir *new);
 
 int		token_size(t_token *token);
