@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 22:28:22 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/27 15:23:43 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/27 16:28:07 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 #include "../includes/parsing.h"
 #include "../includes/libft.h"
 #include "../includes/debug.h"
-
-void	msh_loop(t_msh *data);
 
 int	main(int argc, char **argv, char **envp)
 {
@@ -32,34 +30,34 @@ int	main(int argc, char **argv, char **envp)
 	return (0);
 }
 
+static void	msh_parse(t_msh *data)
+{
+	data->tokens = tokenize(data->input);
+	if (data->tokens == NULL)
+	{
+		printf("Tokenizer FAILURE\n");
+		free_loop(data);
+	}
+	print_tokens(data->tokens);
+	if (parse_ast(data->tokens, &data->ast) == FAILURE)
+	{
+		printf("Parsing FAILURE\n");
+		free_loop(data);
+	}
+	print_ast(data->ast, 0);
+}
+
 void	msh_loop(t_msh *data)
 {
-	while (1)
+	data->input = readline("minishell$");
+	if (!data->input)
 	{
-		// replace with readline
-		data->input = readline("minishell$");
-		if (!data->input)
-		{
-			printf("exit\n");
-			break ;
-		}
-		if (*data->input)
-			add_history(data->input);
-		data->tokens = tokenize(data->input);
-		if (data->tokens == NULL)
-		{
-			free_part(data);
-			// maybe replace continue with another msh_loop call?
-			continue ;
-		}
-		print_tokens(data->tokens);
-		if (parse_ast(data->tokens, &data->ast) == FAILURE)
-		{
-			free_part(data);
-			continue ;
-		}
-		print_ast(data->ast, 0);
-		// execution
-		free_part(data);
+		printf("exit\n");
+		break ; // replace with free_loop or free_exit
 	}
+	if (*data->input)
+		add_history(data->input);
+	msh_parse(data);
+	// execution
+	free_loop(data);
 }

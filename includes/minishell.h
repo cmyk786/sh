@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 22:28:33 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/27 15:16:43 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/27 16:27:30 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ typedef struct s_msh
 	t_ast	*ast;
 }	t_msh;
 
-void	free_all(t_msh *data);
-void	free_part(t_msh *data);
+void	msh_loop(t_msh *data);
+void	free_exit(t_msh *data, int exit_code);
+void	free_loop(t_msh *data);
 
 #endif
