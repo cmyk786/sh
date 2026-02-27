@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:03:32 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/20 22:40:06 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/27 13:08:29 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ size_t	ft_strlen(const char *s);
 size_t	ft_strarr_len(char **arr);
 size_t	ft_strarr_strlen(char **arr);
 char	**ft_strarrdup(char **arr);
+char	**ft_strarrjoin_free(char **arr, char *str);
+char	**ft_strarrjoin(char **arr, char *str);
 size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 size_t	ft_strlcat(char *dest, const char *src, size_t size);
 char	*ft_strdup(const char *s1);
