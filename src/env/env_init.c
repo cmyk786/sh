@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 21:02:27 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/27 17:57:56 by joloo            ###   ########.fr       */
+/*   Updated: 2026/02/27 18:14:08 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static int	env_size(t_env *env)
 	return (i);
 }
 
-char **env_to_arr(t_env *env)
+char	**env_to_arr(t_env *env)
 {
 	char	**envp;
 	int		size;
