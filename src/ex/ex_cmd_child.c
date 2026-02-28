@@ -43,9 +43,9 @@ static char	*find_cmd(char *cmd, t_env *env)
 	tmp = env;
 	while (tmp && ft_strcmp(tmp->key, "PATH"))
 		tmp = tmp->next;
-	if (!tmp || !tmp->val)
+	if (!tmp || !tmp->value)
 		return (NULL);
-	paths = ft_split(tmp->val, ':');
+	paths = ft_split(tmp->value, ':');
 	if (!paths)
 		return (NULL);
 	full = search_paths(paths, cmd);
@@ -59,7 +59,7 @@ static void	ex_error(char *msg, char *cmd, int code, t_ast *node)
 	if (cmd)
 		ft_message(cmd);
 	ft_message("\n");
-	clean_node(node);
+	free_ast(node);
 	free(msg);
 	exit(code);
 }
@@ -85,7 +85,7 @@ int	ex_cmd_child(t_ast *node, t_env **env)
 	{
 		perror("malloc");
 		free(cmd_path);
-		clean_node(node);
+		free_ast(node);
 		exit(1);
 	}
 	execve(cmd_path, node->simple_cmd.argv, child_env);
@@ -93,3 +93,4 @@ int	ex_cmd_child(t_ast *node, t_env **env)
 	return (1);
 
 }
+
