@@ -17,6 +17,8 @@
 #include "../includes/libft.h"
 #include "../includes/debug.h"
 
+int	s = 0;
+
 int	main(int argc, char **argv, char **envp)
 {
 	t_msh	data;
@@ -49,6 +51,7 @@ static void	msh_parse(t_msh *data)
 
 void	msh_loop(t_msh *data)
 {
+	set_sig();
 	data->input = readline("minishell$");
 	if (!data->input)
 	{
