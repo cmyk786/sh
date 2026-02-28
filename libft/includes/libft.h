@@ -19,6 +19,8 @@
 # include <fcntl.h>
 # include <errno.h>
 
+extern int	s;
+
 // memory
 void	*ft_memset(void *s, int c, size_t n);
 void	ft_bzero(void *s, size_t n);
