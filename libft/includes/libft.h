@@ -19,8 +19,6 @@
 # include <fcntl.h>
 # include <errno.h>
 
-extern int	s;
-
 // memory
 void	*ft_memset(void *s, int c, size_t n);
 void	ft_bzero(void *s, size_t n);
@@ -154,6 +152,9 @@ char	*gnl_safe(int fd);
 // int		ft_printf_gnl(va_list args);
 // char	*ft_vstrjoin(int count, ...);
 
+# include <readline/readline.h>
+# include <readline/history.h>
+extern int	s;
 # ifndef SUCCESS
 #  define SUCCESS 1
 # endif
