@@ -59,7 +59,7 @@ static void	ex_error(char *msg, char *cmd, int code, t_ast *node)
 	if (cmd)
 		ft_message(cmd);
 	ft_message("\n");
-	free_ast(node);
+	free_ast(&node);
 	free(msg);
 	exit(code);
 }
@@ -85,7 +85,7 @@ int	ex_cmd_child(t_ast *node, t_env **env)
 	{
 		perror("malloc");
 		free(cmd_path);
-		free_ast(node);
+		free_ast(&node);
 		exit(1);
 	}
 	execve(cmd_path, node->simple_cmd.argv, child_env);
@@ -93,4 +93,5 @@ int	ex_cmd_child(t_ast *node, t_env **env)
 	return (1);
 
 }
+
 
