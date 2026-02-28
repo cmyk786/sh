@@ -18,7 +18,7 @@
 #include "../includes/debug.h"
 #include "../src/ex/ex.h"
 
-int	s = 0;
+int	g_s = 0;
 
 int	main(int argc, char **argv, char **envp)
 {
@@ -62,6 +62,6 @@ void	msh_loop(t_msh *data)
 	if (*data->input)
 		add_history(data->input);
 	msh_parse(data);
-	ex(data->ast, &data->env);
+	g_s = ex(data->ast, &data->env);
 	free_loop(data);
 }
