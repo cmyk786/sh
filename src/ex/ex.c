@@ -15,7 +15,7 @@ int	wait_child(pid_t pid)
     signal(SIGINT, SIG_IGN);
     signal(SIGQUIT, SIG_IGN);
     waitpid(pid, &status, 0);
-	signal(SIGINT, sig_prompt);
+	set_sig();
     if (WIFEXITED(status))
         return (WEXITSTATUS(status));
     if (WIFSIGNALED(status))
@@ -66,6 +66,7 @@ int	ex_cmd(t_ast *node, t_env **env)
     set_fd(in_fd, out_fd);
     return (wait_child(pid));
 }
+
 
 
 
