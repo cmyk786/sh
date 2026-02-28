@@ -68,8 +68,8 @@ void	print_export(t_env *env)
 	list = copy;
 	while (copy)
 	{
-		if (copy->val)
-			printf("declare -x %s=\"%s\"\n", copy->key, copy->val);
+		if (copy->value)
+			printf("declare -x %s=\"%s\"\n", copy->key, copy->value);
 		else
 			printf("declare -x %s\n", copy->key);
 		copy = copy->next;
@@ -93,5 +93,6 @@ int	check_valid(char *s)
 	return (0);
 
 }
+
 
 
