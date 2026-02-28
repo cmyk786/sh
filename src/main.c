@@ -53,11 +53,11 @@ void	msh_loop(t_msh *data)
 	if (!data->input)
 	{
 		printf("exit\n");
-		break ; // replace with free_loop or free_exit
+		free_exit(data, 0);
 	}
 	if (*data->input)
 		add_history(data->input);
 	msh_parse(data);
-	// execution
+	ex(data->ast, &data->env);
 	free_loop(data);
 }
