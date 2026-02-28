@@ -32,7 +32,7 @@ static void sig_handle(int sig)
 void	set_sig_h(void)
 {
 	signal(SIGINT, sig_handle);
-	signal(SIGQUIT, SIG_IGN);
 }
+
 
 
