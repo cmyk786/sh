@@ -15,8 +15,8 @@ static t_env	*create_env_node(char *key, char *value)
 	}
 	if (value)
 	{
-		node->val = ft_strdup(value);
-		if (!node->val)
+		node->value = ft_strdup(value);
+		if (!node->value)
 		{
 			free(node->key);
 			free(node);
@@ -24,7 +24,7 @@ static t_env	*create_env_node(char *key, char *value)
 		}
 	}
 	else
-		node->val = NULL;
+		node->value = NULL;
 	node->next = NULL;
 	return (node);
 }
@@ -74,7 +74,7 @@ void	print_export(t_env *env)
 			printf("declare -x %s\n", copy->key);
 		copy = copy->next;
 	}
-	clean(list);
+	env_free_all(&list);
 }
 
 int	check_valid(char *s)
@@ -93,4 +93,5 @@ int	check_valid(char *s)
 	return (0);
 
 }
+
 
