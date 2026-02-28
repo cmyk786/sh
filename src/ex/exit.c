@@ -21,9 +21,9 @@ static int	is_num(char *s)
 static void	exit_clean(t_ast *node, t_env *env, int n)
 {
 	if (node)
-		clean_node(node);
+		free_ast(node);
 	if (env)
-		clean(env);
+		env_free_all(&env);
 	rl_clear_history();
 	exit(n);
 }
@@ -35,7 +35,7 @@ void	ft_exit(char **a, t_ast *node, t_env *env)
 	if (!a[1])
 	{
 		printf("exit\n");
-		exit_clean(node, env, ecode);
+		exit_clean(node, env, s);
 	}
 	if (!is_num(a[1]))
 	{
@@ -57,5 +57,6 @@ void	ft_exit(char **a, t_ast *node, t_env *env)
 	exit_clean(node, env, (unsigned char)n);
 
 }
+
 
 
