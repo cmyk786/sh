@@ -48,7 +48,7 @@ int	ex_cmd(t_ast *node, t_env **env)
 		set_fd(in_fd, out_fd);
 		return (1);
     }
-	if (is_builtin(argv[0]))
+	if (is_builtin(node->simple_cmd.argv[0]))
 	{
 		val = ex_builtin(node, env);
 		set_fd(in_fd, out_fd);
@@ -66,6 +66,7 @@ int	ex_cmd(t_ast *node, t_env **env)
     set_fd(in_fd, out_fd);
     return (wait_child(pid));
 }
+
 
 
 
