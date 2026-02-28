@@ -6,7 +6,9 @@ void    ft_message(char *s)
 
 	i = 0;
     if (!s)
+	{
         return ;
+	}
 	while (s[i])
 	{
 		write(2, &s[i], 1);
@@ -111,5 +113,6 @@ int	apply_redir(t_ast *node)
 	return (0);
 
 }
+
 
 
