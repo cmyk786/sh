@@ -3,7 +3,9 @@
 
 # include <sys/wait.h>
 # include <sys/stat.h>
-# include "../../libft/libft.h"
+# include "../../libft/includes/libft.h"
+# include "../../includes/parsing.h"
+# include "../../src/env/env_internal.h"
 
 void	set_sig_child(void);
 void	set_sig_h(void);
@@ -39,4 +41,5 @@ int		set_env_value(char *key, char *value, t_env **env);
 int		export_var(char *s, t_env **env);
 
 #endif
+
 
