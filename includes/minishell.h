@@ -28,5 +28,6 @@ typedef struct s_msh
 void	msh_loop(t_msh *data);
 void	free_exit(t_msh *data, int exit_code);
 void	free_loop(t_msh *data);
+void	set_sig(void);
 
 #endif
