@@ -16,6 +16,7 @@
 #include "../includes/parsing.h"
 #include "../includes/libft.h"
 #include "../includes/debug.h"
+#include "../src/ex/ex.h"
 
 int	s = 0;
 
