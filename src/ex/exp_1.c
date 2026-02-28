@@ -13,8 +13,8 @@ t_env	*copy_env_node(t_env *env)
 		free(node);
 		return (NULL);
 	}
-	node->val = ft_strdup(env->val);
-	if (!node->val)
+	node->value = ft_strdup(env->value);
+	if (!node->value)
 	{
 		free(node->key);
 		free(node);
@@ -70,9 +70,9 @@ void	sort_env(t_env *env)
 				tmp_key = env->key;
 				env->key = tmp->key;
 				tmp->key = tmp_key;
-				tmp_val = env->val;
-				env->val = tmp->val;
-				tmp->val = tmp_val;
+				tmp_value = env->value;
+				env->value = tmp->value;
+				tmp->value = tmp_val;
 			}
 			tmp = tmp->next;
 		}
@@ -80,3 +80,4 @@ void	sort_env(t_env *env)
 	}
 
 }
+
