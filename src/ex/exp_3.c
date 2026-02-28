@@ -20,9 +20,9 @@ int	set_env_value(char *key, char *value, t_env **env)
 	{
 		if (value)
 		{
-			free(node->val);
-			node->val = ft_strdup(value);
-			if (!node->val)
+			free(node->value);
+			node->value = ft_strdup(value);
+			if (!node->value)
 				return (1);
 		}
 	}
@@ -96,4 +96,5 @@ int	ft_export(char **arg, t_env **env)
 	return (code);
 
 }
+
 
