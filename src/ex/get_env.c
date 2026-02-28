@@ -30,7 +30,7 @@ char	**env_to_enva(t_env *env)
 		tmp_str = ft_strjoin(tmp->key, "=");
 		if (!tmp_str)
 			return (ft_free_str_arr(enva), NULL);
-		enva[i] = ft_strjoin(tmp_str, tmp->val);
+		enva[i] = ft_strjoin(tmp_str, tmp->value);
 		free(tmp_str);
 		if (!enva[i])
 			return (ft_free_str_arr(enva), NULL);
@@ -40,4 +40,5 @@ char	**env_to_enva(t_env *env)
 	enva[i] = NULL;
 	return (enva);
 }
+
 
