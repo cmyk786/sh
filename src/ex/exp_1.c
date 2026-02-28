@@ -70,7 +70,7 @@ void	sort_env(t_env *env)
 				tmp_key = env->key;
 				env->key = tmp->key;
 				tmp->key = tmp_key;
-				tmp_value = env->value;
+				tmp_val = env->value;
 				env->value = tmp->value;
 				tmp->value = tmp_val;
 			}
@@ -80,4 +80,5 @@ void	sort_env(t_env *env)
 	}
 
 }
+
 
