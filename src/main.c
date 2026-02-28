@@ -53,7 +53,7 @@ static void	msh_parse(t_msh *data)
 void	msh_loop(t_msh *data)
 {
 	set_sig();
-	data->input = readline("minishell$");
+	data->input = readline("minishell$ ");
 	if (!data->input)
 	{
 		printf("exit\n");
