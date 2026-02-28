@@ -1,11 +1,11 @@
 #include "ex.h"
 
-static void	set_fd(int *in_fd, int *out_fd)
+static void	set_fd(int in_fd, int out_fd)
 {
-	dup2(*in_fd, STDIN_FILENO);
-	dup2(*out_fd, STDOUT_FILENO);
-	close(*in_fd);
-	close(*out_fd);
+	dup2(in_fd, STDIN_FILENO);
+	dup2(out_fd, STDOUT_FILENO);
+	close(in_fd);
+	close(out_fd);
 }
 
 int	wait_child(pid_t pid)
@@ -36,13 +36,13 @@ int ex(t_ast *node, t_env **env)
 
 int	ex_cmd(t_ast *node, t_env **env)
 {
-    int		*in_fd;
-    int		*out_fd;
+    int		in_fd;
+    int		out_fd;
     int		val;
     pid_t	pid;
 
-    *in_fd = dup(STDIN_FILENO);
-    *out_fd = dup(STDOUT_FILENO);
+    in_fd = dup(STDIN_FILENO);
+    out_fd = dup(STDOUT_FILENO);
     if (apply_redir(node) == 1)
     {
 		set_fd(in_fd, out_fd);
@@ -66,6 +66,7 @@ int	ex_cmd(t_ast *node, t_env **env)
     set_fd(in_fd, out_fd);
     return (wait_child(pid));
 }
+
 
 
 
