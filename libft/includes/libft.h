@@ -18,7 +18,8 @@
 # include <stdio.h>
 # include <fcntl.h>
 # include <errno.h>
-
+# include <readline/readline.h>
+# include <readline/history.h>
 // memory
 void	*ft_memset(void *s, int c, size_t n);
 void	ft_bzero(void *s, size_t n);
@@ -137,7 +138,6 @@ void	ft_realloc_gnl(char **buffer, int start, int old_size, int new_size);
 void	free_list_gnl(t_gnl *lst, t_gnl **head);
 
 char	*gnl_safe(int fd);
-
 // printf
 // int		ft_printf(const char *format, ...);
 // int		ft_printf_char(va_list args);
@@ -151,10 +151,7 @@ char	*gnl_safe(int fd);
 // int		ft_printf_str_arr(va_list args);
 // int		ft_printf_gnl(va_list args);
 // char	*ft_vstrjoin(int count, ...);
-
-# include <readline/readline.h>
-# include <readline/history.h>
-extern int	s;
+extern int	g_s;
 # ifndef SUCCESS
 #  define SUCCESS 1
 # endif
