@@ -51,7 +51,7 @@ int	add_env_node(char *key, char *value, t_env **env)
 
 void	print_export_error(char *s)
 {
-	ft_message("export:'");
+	ft_message("export: '");
 	ft_message(s);
 	ft_message("': not a valid identifier\n");
 }
@@ -93,6 +93,7 @@ int	check_valid(char *s)
 	return (0);
 
 }
+
 
 
 
