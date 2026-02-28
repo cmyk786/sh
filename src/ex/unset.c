@@ -6,7 +6,7 @@ static t_env	*free_node(t_env *node)
 
 	tmp = node->next;
 	free(node->key);
-	free(node->val);
+	free(node->value);
 	free(node);
 	return (tmp);
 }
@@ -61,3 +61,4 @@ int	unset(char **a, t_env **env)
 	return (code);
 
 }
+
