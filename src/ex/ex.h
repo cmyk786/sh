@@ -40,6 +40,7 @@ int		unset(char **a, t_env **env);
 int		ft_env(t_env *env);
 int		ft_export(char **arg, t_env **env);
 void	ft_exit(char **a, t_ast *node, t_env *env);
+void	get_hd(t_redir *r);
 int		env_size(t_env *env);
 t_env	*copy_env_node(t_env *env);
 t_env	*copy_env(t_env *env);
@@ -53,4 +54,5 @@ int		set_env_value(char *key, char *value, t_env **env);
 int		export_var(char *s, t_env **env);
 
 #endif
+
 
