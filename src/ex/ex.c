@@ -37,24 +37,25 @@ int	wait_child(pid_t pid)
 
 int	ex(t_ast *node, t_env **env)
 {
+	int	in_fd;
+	int	out_fd;
+
+	in_fd = dup(STDIN_FILENO);
+	out_fd = dup(STDOUT_FILENO);
 	if (!node)
 		return (1);
 	if (node->type == SIMPLE_CMD)
-		return (ex_cmd(node, env));
+		return (ex_cmd(node, env, in_fd, out_fd));
 	if (node->type == PIPELINE)
 		return (ex_pipe(node, env));
 	return (1);
 }
 
-int	ex_cmd(t_ast *node, t_env **env)
+int	ex_cmd(t_ast *node, t_env **env, int in_fd, int out_fd)
 {
-	int		in_fd;
-	int		out_fd;
 	int		val;
 	pid_t	pid;
 
-	in_fd = dup(STDIN_FILENO);
-	out_fd = dup(STDOUT_FILENO);
 	if (apply_redir(node) == 1)
 	{
 		set_fd(in_fd, out_fd);
