@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   exit.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/01 02:34:01 by joloo             #+#    #+#             */
+/*   Updated: 2026/03/01 02:34:03 by joloo            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ex.h"
 
 static int	is_num(char *s)
@@ -35,7 +47,7 @@ void	ft_exit(char **a, t_ast *node, t_env *env)
 	if (!a[1])
 	{
 		printf("exit\n");
-		exit_clean(node, env, s);
+		exit_clean(node, env, g_s);
 	}
 	if (!is_num(a[1]))
 	{
@@ -49,15 +61,10 @@ void	ft_exit(char **a, t_ast *node, t_env *env)
 	{
 		printf("exit\n");
 		ft_message("exit: too many arguments\n");
-		s = 2;
+		g_s = 2;
 		return ;
 	}
 	n = ft_atoi(a[1]);
 	printf("exit\n");
 	exit_clean(node, env, (unsigned char)n);
-
 }
-
-
-
-
