@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ex_pipe.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/01 02:33:41 by joloo             #+#    #+#             */
+/*   Updated: 2026/03/01 02:33:42 by joloo            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ex.h"
 
 static void	ex_pipe_left(t_ast *node, t_env **env, int *pipefd)
@@ -46,6 +58,3 @@ int	ex_pipe(t_ast *node, t_env **env)
 		ex_pipe_right(node, env, pipefd);
 	return (ex_pipe_parent(pipefd, left_pid, right_pid));
 }
-
-
-
