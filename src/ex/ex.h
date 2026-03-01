@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ex.h                                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/01 02:33:54 by joloo             #+#    #+#             */
+/*   Updated: 2026/03/01 02:33:56 by joloo            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef EX_H
 # define EX_H
 
@@ -13,7 +25,7 @@ void	set_sig(void);
 int		wait_child(pid_t pid);
 int		is_redir(t_token_type type);
 int		apply_redir(t_ast *node);
-void    ft_message(char *s);
+void	ft_message(char *s);
 char	**env_to_enva(t_env *env);
 int		is_builtin(char *cmd);
 int		ex_builtin(t_ast *node, t_env **env);
@@ -41,6 +53,3 @@ int		set_env_value(char *key, char *value, t_env **env);
 int		export_var(char *s, t_env **env);
 
 #endif
-
-
-
