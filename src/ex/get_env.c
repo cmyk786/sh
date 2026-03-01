@@ -1,16 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_env.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/01 02:34:31 by joloo             #+#    #+#             */
+/*   Updated: 2026/03/01 02:34:32 by joloo            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ex.h"
 
 static int	env_list_size(t_env *env)
 {
-    int	count;
+	int	count;
 
 	count = 0;
-    while (env)
-    {
-        count++;
-        env = env->next;
-    }
-    return (count);
+	while (env)
+	{
+		count++;
+		env = env->next;
+	}
+	return (count);
 }
 
 char	**env_to_enva(t_env *env)
@@ -40,5 +52,3 @@ char	**env_to_enva(t_env *env)
 	enva[i] = NULL;
 	return (enva);
 }
-
-

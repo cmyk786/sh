@@ -1,17 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   pwd.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/01 02:34:39 by joloo             #+#    #+#             */
+/*   Updated: 2026/03/01 02:34:41 by joloo            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ex.h"
 
-int ft_pwd(void)
+int	ft_pwd(void)
 {
-    char *pwd;
+	char	*pwd;
 
-    pwd = getcwd(NULL, 0);
-    if (!pwd)
-    {
-        perror("pwd");
-        return (1);
-    }
-    printf("%s\n", pwd);
-    free(pwd);
-    return (0);
-
+	pwd = getcwd(NULL, 0);
+	if (!pwd)
+	{
+		perror("pwd");
+		return (1);
+	}
+	printf("%s\n", pwd);
+	free(pwd);
+	return (0);
 }
