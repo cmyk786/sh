@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ex_cmd_child.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/01 02:33:28 by joloo             #+#    #+#             */
+/*   Updated: 2026/03/01 02:33:30 by joloo            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ex.h"
 
 static char	*join_cmd(char *path, char *cmd)
@@ -91,7 +103,4 @@ int	ex_cmd_child(t_ast *node, t_env **env)
 	execve(cmd_path, node->simple_cmd.argv, child_env);
 	ex_error(cmd_path, ": Exec format error", 126, node);
 	return (1);
-
 }
-
-
