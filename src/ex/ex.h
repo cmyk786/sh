@@ -34,6 +34,7 @@ int		ex_pipe(t_ast *node, t_env **env);
 int		ex_cmd(t_ast *node, t_env **env, int in_fd, int out_fd);
 int		ex_cmd_child(t_ast *node, t_env **env);
 int		cd(char **argv, t_env **env);
+int		exp(t_ast *node, t_env *env, int in_fd, int out_fd);
 int		echo(char **a);
 int		ft_pwd(void);
 int		unset(char **a, t_env **env);
@@ -54,5 +55,6 @@ int		set_env_value(char *key, char *value, t_env **env);
 int		export_var(char *s, t_env **env);
 
 #endif
+
 
 
