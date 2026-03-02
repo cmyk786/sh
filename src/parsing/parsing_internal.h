@@ -63,7 +63,8 @@ void	rediradd_back(t_redir **head, t_redir *new);
 
 int		token_size(t_token *token);
 char	**token_to_arr(t_token *token);
-
+void	set_sig_h(void);
+void	set_sig(void);
 t_ast	*ast_new(t_token **tok);
 
 void	syntax_err(t_token *tok);
