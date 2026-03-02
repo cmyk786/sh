@@ -56,11 +56,8 @@ int	ex_cmd(t_ast *node, t_env **env, int in_fd, int out_fd)
 	int		val;
 	pid_t	pid;
 
-	if (apply_redir(node) == 1)
-	{
-		set_fd(in_fd, out_fd);
+	if (exp(node, *env, in_fd, out_fd) == 1)
 		return (1);
-	}
 	if (is_builtin(node->simple_cmd.argv[0]))
 	{
 		val = ex_builtin(node, env);
