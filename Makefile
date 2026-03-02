@@ -8,7 +8,7 @@ LIBFT_INC = libft/includes
 IFLAGS = -I$(INC_DIR) -I$(LIBFT_INC)
 LIBFT_DIR = libft
 LIBFT_A = $(LIBFT_DIR)/libft.a
-SOURCES := $(shell find . -name "*.c" ! -path "./libft/*" ! -path "./src/ex/*")
+SOURCES := $(shell find . -name "*.c" ! -path "./libft/*")
 
 all: $(NAME)
 
