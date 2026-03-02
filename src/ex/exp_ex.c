@@ -12,7 +12,7 @@
 
 #include "ex.h"
 
-static int	expand_redirs(t_redir *r, t_env *env)
+static int	expand_r(t_redir *r, t_env *env)
 {
 	while (r)
 	{
@@ -28,7 +28,7 @@ static int	expand_redirs(t_redir *r, t_env *env)
 
 int	exp(t_ast *node, t_env *env, int in_fd, int out_fd)
 {
-	if (expand_redirs(node->simple_cmd.redir, env) == 1)
+	if (expand_r(node->simple_cmd.redir, env) == 1)
 		return (1);
 	if (expand(&node->simple_cmd.argv, env) == 1)
 		return (1);
@@ -39,3 +39,4 @@ int	exp(t_ast *node, t_env *env, int in_fd, int out_fd)
 	}
 	return (0);
 }
+
