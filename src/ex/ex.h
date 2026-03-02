@@ -25,7 +25,7 @@ void	set_sig_h(void);
 void	set_sig(void);
 int		wait_child(pid_t pid);
 int		is_redir(t_token_type type);
-int		apply_redir(t_ast *node);
+int		apply_redir(t_ast *node, t_env *e);
 void	ft_message(char *s);
 char	**env_to_enva(t_env *env);
 int		is_builtin(char *cmd);
@@ -56,6 +56,7 @@ int		set_env_value(char *key, char *value, t_env **env);
 int		export_var(char *s, t_env **env);
 
 #endif
+
 
 
 
