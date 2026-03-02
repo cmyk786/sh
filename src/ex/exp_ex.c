@@ -16,7 +16,7 @@ static int	expand_r(t_redir *r, t_env *env)
 {
 	while (r)
 	{
-		if (r->type != HEREDOC)
+		if (r->type != HERE_DOC)
 		{
 			if (expand_redir(&r->word, env) == FAILURE)
 				return (FAILURE);
@@ -39,5 +39,6 @@ int	expn(t_ast *node, t_env *env, int in_fd, int out_fd)
 	}
 	return (0);
 }
+
 
 
