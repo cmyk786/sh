@@ -26,7 +26,7 @@ static int	expand_r(t_redir *r, t_env *env)
 	return (SUCCESS);
 }
 
-int	exp(t_ast *node, t_env *env, int in_fd, int out_fd)
+int	expn(t_ast *node, t_env *env, int in_fd, int out_fd)
 {
 	if (expand_r(node->simple_cmd.redir, env) == 1)
 		return (1);
@@ -39,4 +39,5 @@ int	exp(t_ast *node, t_env *env, int in_fd, int out_fd)
 	}
 	return (0);
 }
+
 
