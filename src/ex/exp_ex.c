@@ -32,13 +32,14 @@ int	expn(t_ast *node, t_env *env, int in_fd, int out_fd)
 		return (1);
 	if (expand(&node->simple_cmd.argv, env) == 1)
 		return (1);
-	if (apply_redir(node) == 1)
+	if (apply_redir(node, env) == 1)
 	{
 		set_fd(in_fd, out_fd);
 		return (1);
 	}
 	return (0);
 }
+
 
 
 
