@@ -56,8 +56,8 @@ int	hd_check_quotes(t_heredoc *heredoc, char *raw_delim, char **delim)
 
 int	hd_read_stdin(t_heredoc *heredoc, char *delim)
 {
-	// set_sig_h();
-	// s = 0;
+	set_sig_h();
+	g_s = 0;
 	heredoc->line = ft_calloc(sizeof(char), 1);
 	if (heredoc->line == NULL)
 		return (FAILURE);
@@ -75,8 +75,8 @@ int	hd_read_stdin2(t_heredoc *heredoc, char *delim)
 		if (isatty(0) == 1)
 			ft_putstr_fd("> ", 1);
 		line = gnl_safe(0);
-		// if (s == 130)
-		// 	return (free(line), set_sig(), FAILURE);
+		if (g_s == 130)
+			return (free(line), set_sig(), FAILURE);
 		if (line == NULL)
 		{
 			ft_putstr_fd("warning: heredoc EOF", 2);
