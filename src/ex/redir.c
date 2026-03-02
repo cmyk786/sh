@@ -83,7 +83,7 @@ static int	apply_here_doc(t_redir *r)
 	return (0);
 }
 
-int	apply_redir(t_ast *node)
+int	apply_redir(t_ast *node, t_env *e)
 {
 	t_redir	*r;
 	int		val;
@@ -101,7 +101,7 @@ int	apply_redir(t_ast *node)
 			val = apply_append(r);
 		else if (r->type == HERE_DOC)
 		{
-			if (exp_hd(r, env) == FAILURE)
+			if (exp_hd(r, e) == FAILURE)
 				return (1);
 			val = apply_here_doc(r);
 		}
@@ -111,3 +111,4 @@ int	apply_redir(t_ast *node)
 	}
 	return (0);
 }
+
