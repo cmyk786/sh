@@ -112,4 +112,3 @@ int	apply_redir(t_ast *node, t_env *e)
 	return (0);
 }
 
-
