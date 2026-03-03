@@ -63,5 +63,6 @@ void	msh_loop(t_msh *data)
 		add_history(data->input);
 	msh_parse(data);
 	g_s = ex(data->ast, &data->env);
+	env_set_exit_status(&data->env, g_s);
 	free_loop(data);
 }
