@@ -14,6 +14,7 @@
 
 int	ft_env(t_env *env)
 {
+	env = env->next;
 	while (env)
 	{
 		if (env->value)
@@ -22,3 +23,4 @@ int	ft_env(t_env *env)
 	}
 	return (0);
 }
+
