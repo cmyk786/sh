@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 22:37:13 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/20 23:43:55 by joloo            ###   ########.fr       */
+/*   Updated: 2026/03/04 16:31:19 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ void	print_tokens(t_token *head)
 		curr = curr->next;
 	}
 }
-// ai generated
+
+// ai generated AST debug
 void	print_indent(int depth)
 {
 	while (depth > 0)
@@ -44,9 +45,7 @@ void	print_indent(int depth)
 	}
 }
 
-/* redirections */
-
-void print_redir(t_redir *redir, int depth)
+void	print_redir(t_redir *redir, int depth)
 {
 	while (redir)
 	{
@@ -70,12 +69,11 @@ void print_redir(t_redir *redir, int depth)
 	}
 }
 
-
-/* argv */
-
 void	print_argv(char **argv, int depth)
 {
-	int i = 0;
+	int	i;
+
+	i = 0;
 	while (argv[i] != NULL)
 	{
 		print_indent(depth);
@@ -84,15 +82,11 @@ void	print_argv(char **argv, int depth)
 	}
 }
 
-/* AST */
-
 void	print_ast(t_ast *ast, int depth)
 {
 	if (ast == NULL)
 		return ;
-
 	print_indent(depth);
-
 	if (ast->type == SIMPLE_CMD)
 	{
 		printf("SIMPLE_CMD\n");
@@ -102,11 +96,9 @@ void	print_ast(t_ast *ast, int depth)
 	else if (ast->type == PIPELINE)
 	{
 		printf("PIPELINE\n");
-
 		print_indent(depth);
 		printf("LEFT:\n");
 		print_ast(ast->control_op.left, depth + 1);
-
 		print_indent(depth);
 		printf("RIGHT:\n");
 		print_ast(ast->control_op.right, depth + 1);
