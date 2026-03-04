@@ -30,17 +30,17 @@ static int	is_num(char *s)
 	return (1);
 }
 
-static void	exit_clean(t_ast *node, t_env *env, int n)
+static void	exit_clean(t_ast *node, t_env **env, int n)
 {
 	if (node)
 		free_ast(&node);
 	if (env)
-		env_free_all(&env);
+		env_free_all(env);
 	rl_clear_history();
 	exit(n);
 }
 
-void	ft_exit(char **a, t_ast *node, t_env *env)
+void	ft_exit(char **a, t_ast *node, t_env **env)
 {
 	int	n;
 
@@ -68,3 +68,4 @@ void	ft_exit(char **a, t_ast *node, t_env *env)
 	printf("exit\n");
 	exit_clean(node, env, (unsigned char)n);
 }
+
