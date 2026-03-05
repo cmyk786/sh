@@ -58,7 +58,7 @@ int	ex_cmd(t_ast *node, t_env **env, int in_fd, int out_fd)
 
 	if (expn(node, *env, in_fd, out_fd) == 1)
 		return (1);
-	if (!node->simple_cmd.argv)
+	if (!node->simple_cmd.argv || !node->simple_cmd.argv[0])
 		return (0);
 	if (is_builtin(node->simple_cmd.argv[0]))
 	{
@@ -68,7 +68,7 @@ int	ex_cmd(t_ast *node, t_env **env, int in_fd, int out_fd)
 	}
 	pid = fork();
 	if (pid == 0)
-		ex_cmd_child(node, env);
+		ex_cmd_child(node, env, node->simple_cmd.argv[0]);
 	if (pid < 0)
 	{
 		perror("fork");
@@ -78,3 +78,4 @@ int	ex_cmd(t_ast *node, t_env **env, int in_fd, int out_fd)
 	set_fd(in_fd, out_fd);
 	return (wait_child(pid));
 }
+
