@@ -85,7 +85,7 @@ int	ex_cmd_child(t_ast *node, t_env **env)
 	set_sig_child();
 	cmd_path = find_cmd(node->simple_cmd.argv[0], *env);
 	if (!cmd_path)
-		ex_error(node->simple_cmd.argv[0], ": command not found", 127, node);
+		ex_error(ft_strdup(node->simple_cmd.argv[0]), ": command not found", 127, node);
 	if (stat(cmd_path, &st) == -1)
 		ex_error(cmd_path, ": No such file or directory", 127, node);
 	if (S_ISDIR(st.st_mode))
@@ -104,3 +104,4 @@ int	ex_cmd_child(t_ast *node, t_env **env)
 	ex_error(cmd_path, ": Exec format error", 126, node);
 	return (1);
 }
+
