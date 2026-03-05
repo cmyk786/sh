@@ -75,7 +75,7 @@ static void	ex_error(char *msg, char *cmd, int code, t_ast *node)
 	exit(code);
 }
 
-int	ex_cmd_child(t_ast *node, t_env **env, s)
+int	ex_cmd_child(t_ast *node, t_env **env, char *s)
 {
 	char		*cmd_path;
 	char		**child_env;
