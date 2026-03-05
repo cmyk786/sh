@@ -47,4 +47,3 @@ int	ex_builtin(t_ast *node, t_env **env)
 		ft_exit(argv, node, env);
 	return (1);
 }
-
