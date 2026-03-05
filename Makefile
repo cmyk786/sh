@@ -1,4 +1,4 @@
-NAME = a.out
+NAME = minishell
 CC=gcc
 CFLAGS=-Wall -Wextra -Werror -g
 # CC=cc
