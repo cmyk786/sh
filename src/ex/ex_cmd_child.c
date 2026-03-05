@@ -68,8 +68,7 @@ static char	*find_cmd(char *cmd, t_env *env)
 static void	ex_error(char *msg, char *cmd, int code, t_ast *node)
 {
 	ft_message(msg);
-	if (cmd)
-		ft_message(cmd);
+	ft_message(cmd);
 	ft_message("\n");
 	free_ast(&node);
 	free(msg);
@@ -104,4 +103,5 @@ int	ex_cmd_child(t_ast *node, t_env **env)
 	ex_error(cmd_path, ": Exec format error", 126, node);
 	return (1);
 }
+
 
