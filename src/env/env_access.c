@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 21:02:24 by joloo             #+#    #+#             */
-/*   Updated: 2026/01/14 10:06:57 by joloo            ###   ########.fr       */
+/*   Updated: 2026/03/06 18:53:48 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ char	*env_get(t_env *env, char *key)
 	node = find_node(env, key);
 	if (node != NULL)
 	{
+		if (node->value == NULL)
+			return ("");
 		return (node->value);
 	}
 	else
