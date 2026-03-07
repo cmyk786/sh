@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 22:28:22 by joloo             #+#    #+#             */
-/*   Updated: 2026/03/07 20:27:05 by joloo            ###   ########.fr       */
+/*   Updated: 2026/03/07 20:28:10 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,3 +73,37 @@ void	msh_loop(t_msh *data)
 	env_set_exit_status(&data->env, g_s);
 	free_loop(data);
 }
+
+// THE README.MD
+// # Module Assignments  
+// Readline input - yiwei  
+// Signals - yiwei  
+// Tokenizer/Lexer - joloo  
+// Heredoc - joloo  
+// Parsing - joloo  
+// Environment variables - joloo  
+// Environment variable expansion - joloo  
+// Execution - yiwei  
+// Built-ins - yiwei  
+
+// # Parser BNF
+// ```
+// <pipeline>      ::= <command> <pipeline-tail>
+
+// <pipeline-tail>  ::= ε
+//                   | <PIPE> <command> <pipeline-tail>
+
+// <command>        ::= <simple-command>
+
+// NOTE:
+// simple-command elements are stored in linked lists
+
+// <simple-command> ::= <redirection> <simple-command-tail>
+//                    | <word>    <simple-command-tail>
+
+// <simple-command-tail> ::= ε
+//                         | <redirection> <simple-command-tail>
+//                         | <word>    <simple-command-tail>
+
+// <redirection> 		  ::= <redirection-operator> <word>
+// ```
