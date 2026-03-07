@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 22:28:22 by joloo             #+#    #+#             */
-/*   Updated: 2026/03/07 21:13:56 by joloo            ###   ########.fr       */
+/*   Updated: 2026/03/07 20:28:10 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,14 @@ static void	msh_parse(t_msh *data)
 	data->tokens = tokenize(data->input);
 	if (data->tokens == NULL)
 	{
-		ft_putstr_fd("tokenize failure\n", 2);
+		printf("Tokenizer FAILURE\n");
 		free_loop(data);
 	}
 	if (debug == 1)
 		print_tokens(data->tokens);
 	if (parse_ast(data->tokens, &data->ast) == FAILURE)
 	{
-		env_set_exit_status(&(data->env), 2);
+		printf("Parsing FAILURE\n");
 		free_loop(data);
 	}
 	free(data->input);
