@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ex.c                                               :+:      :+:    :+:   */
+/*   ex_3.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -78,3 +78,4 @@ int	ex_cmd(t_ast *node, t_env **env, int in_fd, int out_fd)
 	set_fd(in_fd, out_fd);
 	return (wait_child(pid));
 }
+
