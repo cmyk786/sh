@@ -64,7 +64,6 @@ src/tokenize/tokenize_detect.c \
 src/tokenize/tokenize.c \
 src/tokenize/tokenize_add_token.c \
 src/tokenize/tokenize_init.c \
-src/tokenize/tokenize_print_tokens.c \
 src/tokenize/tokenize_free.c
 
 all: $(NAME)

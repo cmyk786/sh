@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 20:06:48 by joloo             #+#    #+#             */
-/*   Updated: 2026/03/07 19:46:25 by joloo            ###   ########.fr       */
+/*   Updated: 2026/03/07 21:35:16 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,5 @@ void	tokenize_free(t_tok *data);
 int		tokenize_init(t_tok *data, char *input);
 int		init_lookup(t_tok *data);
 
-void	tokenize_print_tokens(t_token *head, char **lookup);
 int		tokenize_add_token(t_tok *data, int *i);
 #endif
