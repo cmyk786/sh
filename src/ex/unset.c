@@ -28,7 +28,7 @@ static void	remove_env_node(t_env **env, char *key)
 	t_env	*node;
 	t_env	*prev;
 
-	node = *env;
+	node = (*env)->next;
 	prev = NULL;
 	while (node)
 	{
@@ -51,26 +51,16 @@ static void	remove_env_node(t_env **env, char *key)
 int	unset(char **a, t_env **env)
 {
 	int	i;
-	int	code;
 
 	i = 1;
-	code = 0;
 	if (!a[i])
 		return (0);
 	while (a[i])
 	{
-		if (check_valid(a[i]))
-		{
-			ft_message("unset: `");
-			ft_message(a[i]);
-			ft_message("': not a valid identifier\n");
-			code = 1;
-		}
-		else
-			remove_env_node(env, a[i]);
+		remove_env_node(env, a[i]);
 		i++;
 	}
-	return (code);
+	return (0);
 }
 
 void	ft_message(char *s)
