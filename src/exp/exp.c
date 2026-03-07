@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 10:18:10 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/23 20:14:03 by joloo            ###   ########.fr       */
+/*   Updated: 2026/03/07 19:42:16 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,47 +75,3 @@ void	exp_print_tokens(t_token *head)
 		curr = curr->next;
 	}
 }
-
-// ./a.out '"$ERM"'
-// int	main(int argc, char **argv, char **envp)
-// {
-// 	t_env *env = env_init(envp);
-// 	env_set_simple(env, "test=a   a");
-// 	char **split;
-// 	if (argv[1] != NULL)
-// 		split = ft_split(argv[1], ' ');
-// 	else
-// 	{
-// 		char *line = gnl_safe(0);
-// 		split = ft_split(line	, ' ');
-// 		free(line);
-// 	}
-// 	(void) argc;
-// 	int i = 0;
-// 	while (split[i] != NULL)
-// 	{
-// 		printf("split:%s\n", split[i]);
-// 		i++;
-// 	}
-// 	if (split == NULL)
-// 		printf("INPT EROR");
-// 	if (expand(&split, env) == FAILURE)
-// 		return (printf("expand failure\n"), 1);
-// 	i = 0;
-// 	char **res = split;
-// 	printf("RES:\n");
-// 	if (res == NULL)
-// 		return (printf("NULL RES\n"), 0);
-// 	while (res[i] != NULL)
-// 	{
-// 		printf("%d, ", i);
-// 		if (res[i][0] == '\0')
-// 			printf("empty string\n");
-// 		else
-// 			printf("%s\n", res[i]);
-// 		i++;
-// 	}
-// 	env_free_all(&env);
-// 	ft_free_str_arr(res);
-// 	return (0);
-// }

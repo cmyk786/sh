@@ -1,8 +1,8 @@
 NAME = minishell
-# CC=gcc
-# CFLAGS=-Wall -Wextra -Werror -g
-CC=cc
-CFLAGS=-Wall -Wextra -Werror
+CC=gcc
+CFLAGS=-Wall -Wextra -Werror -g
+# CC=cc
+# CFLAGS=-Wall -Wextra -Werror
 INC_DIR = includes
 LIBFT_INC = libft/includes
 IFLAGS = -I$(INC_DIR) -I$(LIBFT_INC)
@@ -15,7 +15,6 @@ src/env/env_init.c \
 src/env/env_utils.c \
 src/env/env_access.c \
 src/env/env_exit_status.c \
-src/env/env_print.c \
 src/env/env_free.c \
 src/ex/get_env.c \
 src/ex/exp_1.c \
