@@ -65,4 +65,3 @@ void	ft_exit(char **a, t_ast *node, t_env **env)
 	printf("exit\n");
 	exit_clean(node, env, (unsigned char)n);
 }
-
