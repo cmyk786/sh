@@ -1,8 +1,8 @@
 NAME = minishell
-CC=gcc
-CFLAGS=-Wall -Wextra -Werror -g
-# CC=cc
-# CFLAGS=-Wall -Wextra -Werror
+# CC=gcc
+# CFLAGS=-Wall -Wextra -Werror -g
+CC=cc
+CFLAGS=-Wall -Wextra -Werror
 INC_DIR = includes
 LIBFT_INC = libft/includes
 IFLAGS = -I$(INC_DIR) -I$(LIBFT_INC)
