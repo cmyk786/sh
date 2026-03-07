@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ex_cmd_child.c                                     :+:      :+:    :+:   */
+/*   ex_1.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -103,3 +103,4 @@ int	ex_cmd_child(t_ast *node, t_env **env, char *s)
 	ex_error(cmd_path, ": Exec format error", 126, node);
 	return (1);
 }
+
