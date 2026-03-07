@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 22:28:22 by joloo             #+#    #+#             */
-/*   Updated: 2026/03/04 18:28:29 by joloo            ###   ########.fr       */
+/*   Updated: 2026/03/07 13:41:31 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static void	msh_parse(t_msh *data)
 	data->input = NULL;
 	free_tokens(&data->tokens);
 	if (debug == TRUE)
-		print_ast(data->ast, 0);
+		print_ast(data->ast);
 }
 
 void	msh_loop(t_msh *data)
