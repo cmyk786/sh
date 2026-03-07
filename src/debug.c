@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 22:37:13 by joloo             #+#    #+#             */
-/*   Updated: 2026/03/04 16:31:19 by joloo            ###   ########.fr       */
+/*   Updated: 2026/03/07 13:31:51 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,72 +35,65 @@ void	print_tokens(t_token *head)
 	}
 }
 
-// ai generated AST debug
-void	print_indent(int depth)
+void	print_redir_type(int type)
 {
-	while (depth > 0)
-	{
-		printf("  ");
-		depth--;
-	}
+	printf("TYPE: ");
+	if (type == HERE_DOC)
+		printf("HEREDOC");
+	if (type == APPEND)
+		printf("APPEND");
+	if (type == REDIR_IN)
+		printf("REDIR_IN");
+	if (type == REDIR_OUT)
+		printf("REDIR_OUT");
+	printf("\n");
 }
 
-void	print_redir(t_redir *redir, int depth)
+void	print_redir(t_redir *redir)
 {
-	while (redir)
+	while (redir != NULL)
 	{
-		print_indent(depth);
+		print_redir_type(redir->type);
 		if (redir->type == HERE_DOC)
 		{
-			printf("REDIR type=%d fd=%d heredoc.line=%s expand=%d\n",
-				redir->type,
-				redir->fd,
-				redir->heredoc.line,
-				redir->heredoc.expand);
+			printf("EXPAND: %d\n", redir->heredoc.expand);
+			printf("HEREDOC LINES:\n%s", redir->heredoc.line);
 		}
 		else
 		{
-			printf("REDIR type=%d fd=%d word=%s\n",
-				redir->type,
-				redir->fd,
-				redir->word);
+			printf("WORD: %s\n", redir->word);
 		}
 		redir = redir->next;
 	}
 }
 
-void	print_argv(char **argv, int depth)
+void	print_argv(char **argv)
 {
 	int	i;
 
 	i = 0;
 	while (argv[i] != NULL)
 	{
-		print_indent(depth);
-		printf("ARG %s\n", argv[i]);
+		printf("ARG: %s\n", argv[i]);
 		i++;
 	}
 }
 
-void	print_ast(t_ast *ast, int depth)
+void	print_ast(t_ast *ast)
 {
 	if (ast == NULL)
 		return ;
-	print_indent(depth);
+	if (ast->type == PIPELINE)
+	{
+		printf("NODE: PIPELINE\n");
+		printf("RIGHT:\n");
+		print_ast(ast->control_op.right);
+		printf("LEFT:\n");
+		print_ast(ast->control_op.left);
+	}
 	if (ast->type == SIMPLE_CMD)
 	{
-		printf("SIMPLE_CMD\n");
-		print_argv(ast->simple_cmd.argv, depth + 1);
-		print_redir(ast->simple_cmd.redir, depth + 1);
-	}
-	else if (ast->type == PIPELINE)
-	{
-		printf("PIPELINE\n");
-		print_indent(depth);
-		printf("LEFT:\n");
-		print_ast(ast->control_op.left, depth + 1);
-		print_indent(depth);
-		printf("RIGHT:\n");
-		print_ast(ast->control_op.right, depth + 1);
+		print_argv(ast->simple_cmd.argv);
+		print_redir(ast->simple_cmd.redir);
 	}
 }
