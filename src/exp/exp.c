@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 10:18:10 by joloo             #+#    #+#             */
-/*   Updated: 2026/03/07 19:42:16 by joloo            ###   ########.fr       */
+/*   Updated: 2026/03/07 21:32:42 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ int	expand_redir(char **str, t_env *env)
 	len = ft_strarr_len(temp);
 	if (len != 1)
 	{
-		printf(" %s: ambigous redirect\n", *str);
+		ft_putstr_fd(*str, 2);
+		ft_putstr_fd(" : ambigous redirect\n", 2);
 		return (ft_free_str_arr(temp), FAILURE);
 	}
 	free(*str);

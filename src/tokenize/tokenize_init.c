@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 20:06:41 by joloo             #+#    #+#             */
-/*   Updated: 2026/01/02 20:06:44 by joloo            ###   ########.fr       */
+/*   Updated: 2026/03/07 21:31:38 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	init_lookup(t_tok *data)
 	data->token_lookup = malloc(sizeof(char *) * (WORD + 1));
 	if (data->token_lookup == NULL)
 	{
-		printf("data->token_lookup Malloc failure\n");
+		ft_putstr_fd("data->token_lookup Malloc failure\n", 2);
 		return (FAILURE);
 	}
 	data->token_lookup[HERE_DOC] = ft_strdup("<<");

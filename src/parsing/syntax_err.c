@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 23:11:37 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/02 14:43:11 by joloo            ###   ########.fr       */
+/*   Updated: 2026/03/07 21:33:51 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,13 @@
 void	syntax_err(t_token *tok)
 {
 	if (tok == NULL)
-		printf("error newlwine\n");
+	{
+		ft_putstr_fd("error newlwine\n", 2);
+	}
 	else
-		printf("syntax error near unexpected token '%s'\n", tok->value);
+	{
+		ft_putstr_fd("syntax error near unexpected token '", 2);
+		ft_putstr_fd(tok->value, 2);
+		ft_putstr_fd("'\n", 2);
+	}
 }
