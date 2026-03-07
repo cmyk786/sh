@@ -6,16 +6,16 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 01:31:16 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/27 15:00:14 by joloo            ###   ########.fr       */
+/*   Updated: 2026/03/07 18:21:55 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PARSING_INTERNAL_H
 # define PARSING_INTERNAL_H
 
-# include "../../includes/parsing.h"
+# include "parsing.h"
 # include "libft.h"
-# include "../../includes/tokenize.h"
+# include "tokenize.h"
 
 # ifndef SUCCESS
 #  define SUCCESS 1

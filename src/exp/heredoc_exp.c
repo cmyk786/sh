@@ -6,13 +6,13 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 17:46:57 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/27 15:16:58 by joloo            ###   ########.fr       */
+/*   Updated: 2026/03/07 18:21:55 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "../../includes/env.h"
-#include "../../includes/parsing.h"
+#include "env.h"
+#include "parsing.h"
 
 static char	*exp_hd_apply(char *buffer, t_env *env);
 static int	exp_hd_add_word(char *buffer, char **res, int *i);

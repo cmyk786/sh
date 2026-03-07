@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 21:03:23 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/27 17:56:22 by joloo            ###   ########.fr       */
+/*   Updated: 2026/03/07 18:21:55 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define ENV_INTERNAL_H
 
 # include "libft.h"
-# include "../../includes/env.h"
+# include "env.h"
 
 # ifndef SUCCESS
 #  define SUCCESS 1

@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 10:18:25 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/20 22:45:47 by joloo            ###   ########.fr       */
+/*   Updated: 2026/03/07 18:21:55 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 # endif
 
 # include "libft.h"
-# include "../../includes/env.h"
+# include "env.h"
 
 typedef enum e_exp_type
 {

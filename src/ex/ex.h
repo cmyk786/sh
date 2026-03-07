@@ -15,10 +15,10 @@
 
 # include <sys/wait.h>
 # include <sys/stat.h>
-# include "../../libft/includes/libft.h"
-# include "../../includes/parsing.h"
+# include "libft.h"
+# include "parsing.h"
 # include "../../src/env/env_internal.h"
-# include "../../includes/exp.h"
+# include "exp.h"
 
 void	set_sig_child(void);
 void	set_sig_h(void);

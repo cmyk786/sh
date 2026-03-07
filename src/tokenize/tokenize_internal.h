@@ -6,14 +6,14 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 20:06:48 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/03 01:33:15 by joloo            ###   ########.fr       */
+/*   Updated: 2026/03/07 18:21:55 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef TOKENIZE_INTERNAL_H
 # define TOKENIZE_INTERNAL_H
 
-# include "../../includes/tokenize.h"
+# include "tokenize.h"
 # include "libft.h"
 
 # ifndef SUCCESS
