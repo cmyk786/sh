@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/02 20:06:48 by joloo             #+#    #+#             */
-/*   Updated: 2026/03/07 18:21:55 by joloo            ###   ########.fr       */
+/*   Updated: 2026/03/07 19:46:25 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,6 @@
 
 # include "tokenize.h"
 # include "libft.h"
-
-# ifndef SUCCESS
-#  define SUCCESS 1
-# endif
-
-# ifndef FAILURE
-#  define FAILURE 0
-# endif
-
-# ifndef TRUE
-#  define TRUE 1
-# endif
-
-# ifndef FALSE
-#  define FALSE 0
-# endif
 
 typedef struct s_tok
 {

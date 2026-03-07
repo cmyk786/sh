@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 01:31:16 by joloo             #+#    #+#             */
-/*   Updated: 2026/03/07 18:21:55 by joloo            ###   ########.fr       */
+/*   Updated: 2026/03/07 19:46:22 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,6 @@
 # include "parsing.h"
 # include "libft.h"
 # include "tokenize.h"
-
-# ifndef SUCCESS
-#  define SUCCESS 1
-# endif
-
-# ifndef FAILURE
-#  define FAILURE 0
-# endif
-
-# ifndef TRUE
-#  define TRUE 1
-# endif
-
-# ifndef FALSE
-#  define FALSE 0
-# endif
 
 int		is_redir(t_token *tok);
 int		is_pipe(t_token *tok);

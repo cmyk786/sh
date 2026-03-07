@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 21:03:23 by joloo             #+#    #+#             */
-/*   Updated: 2026/03/07 19:45:43 by joloo            ###   ########.fr       */
+/*   Updated: 2026/03/07 19:46:08 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,6 @@
 
 # include "libft.h"
 # include "env.h"
-
-# ifndef SUCCESS
-#  define SUCCESS 1
-# endif
-
-# ifndef FAILURE
-#  define FAILURE 0
-# endif
 
 // first node must be key=? for the lifespan of env
 typedef struct s_env

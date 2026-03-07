@@ -6,28 +6,12 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 10:18:25 by joloo             #+#    #+#             */
-/*   Updated: 2026/03/07 18:21:55 by joloo            ###   ########.fr       */
+/*   Updated: 2026/03/07 19:46:18 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef EXP_INTERNAL_H
 # define EXP_INTERNAL_H
-
-# ifndef SUCCESS
-#  define SUCCESS 1
-# endif
-
-# ifndef FAILURE
-#  define FAILURE 0
-# endif
-
-# ifndef TRUE
-#  define TRUE 1
-# endif
-
-# ifndef FALSE
-#  define FALSE 0
-# endif
 
 # include "libft.h"
 # include "env.h"
