@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ex_pipe.c                                          :+:      :+:    :+:   */
+/*   ex_2.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -58,3 +58,4 @@ int	ex_pipe(t_ast *node, t_env **env)
 		ex_pipe_right(node, env, pipefd);
 	return (ex_pipe_parent(pipefd, left_pid, right_pid));
 }
+
