@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 22:28:22 by joloo             #+#    #+#             */
-/*   Updated: 2026/03/07 13:41:31 by joloo            ###   ########.fr       */
+/*   Updated: 2026/03/07 19:40:21 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int	main(int argc, char **argv, char **envp)
 	(void) argv;
 	ft_memset(&data, 0, sizeof(t_msh));
 	data.env = env_init(envp);
-	env_set_simple(data.env, "test=a   a");
 	msh_loop(&data);
 	return (0);
 }
