@@ -6,13 +6,13 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 22:37:13 by joloo             #+#    #+#             */
-/*   Updated: 2026/03/07 13:31:51 by joloo            ###   ########.fr       */
+/*   Updated: 2026/03/08 11:47:20 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minishell.h"
-#include "../includes/parsing.h"
-#include "../includes/tokenize.h"
+#include "minishell.h"
+#include "parsing.h"
+#include "tokenize.h"
 #include <stdio.h>
 
 void	print_tokens(t_token *head)

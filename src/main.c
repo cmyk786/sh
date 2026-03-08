@@ -6,16 +6,16 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/20 22:28:22 by joloo             #+#    #+#             */
-/*   Updated: 2026/03/07 21:20:27 by joloo            ###   ########.fr       */
+/*   Updated: 2026/03/08 11:47:20 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minishell.h"
-#include "../includes/env.h"
-#include "../includes/tokenize.h"
-#include "../includes/parsing.h"
-#include "../includes/libft.h"
-#include "../includes/debug.h"
+#include "minishell.h"
+#include "env.h"
+#include "tokenize.h"
+#include "parsing.h"
+#include "libft.h"
+#include "debug.h"
 #include "../src/ex/ex.h"
 
 int	g_s = 0;
