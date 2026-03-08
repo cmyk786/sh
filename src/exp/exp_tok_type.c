@@ -6,7 +6,7 @@
 /*   By: joloo <joloo@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 12:17:08 by joloo             #+#    #+#             */
-/*   Updated: 2026/02/03 01:35:38 by joloo            ###   ########.fr       */
+/*   Updated: 2026/03/08 16:58:22 by joloo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ int	exp_tok_quotes(t_exp_tok *tok, char *str, int *i)
 {
 	t_token	*node;
 
+	node = NULL;
 	if (detect_quotes(str[*i], &tok->in_squote, &tok->in_dquote) != TRUE)
 		return (SUCCESS);
 	if (str[*i] == '\'')
