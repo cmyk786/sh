@@ -79,7 +79,7 @@ int	hd_read_stdin2(t_heredoc *heredoc, char *delim)
 			return (free(line), set_sig(), FAILURE);
 		if (line == NULL)
 		{
-			ft_putstr_fd("warning: heredoc EOF", 2);
+			ft_putstr_fd("warning: heredoc EOF\n", 2);
 			break ;
 		}
 		if (hd_check_delim(line, delim) == TRUE)
